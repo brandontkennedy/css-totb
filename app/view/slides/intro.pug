@@ -1,0 +1,67 @@
+- var section = 'example'
+
+//- loading - step 1
+section(class=section, data-transition='fade-out')
+  .c-slide__header
+  .c-slide__body
+    .c-slide__content
+      .d-flex__column
+        .loading-xl
+        pre.fit-code.invisible
+          code.html.
+            <div class="loading"></div>
+  aside.notes
+    ul
+      li take a moment and try to work out how YOU would make this
+      li how many think they have a good idea?
+      li to be fair, show a different background
+
+//- loading - step 2 / 3
+section(class=section, data-background='#333', data-transition='fade')
+  .c-slide__header
+  .c-slide__body
+    .c-slide__content
+      .d-flex__column
+        .loading-xl
+        pre.fit-code.fragment
+          code.html.
+            <div class="loading"></div>
+  aside.notes
+    ul
+      li does that change things?  how many still have a good idea?
+      li ok, i'll give you the HTML
+      li now how many?
+      li finally, lets strip away the fancy extras and just show you the pure element
+
+//- loading - step 4
+section(class=section, data-background='#333', data-transition='fade')
+  .c-slide__header
+  .c-slide__body
+    .c-slide__content
+      .d-flex__column
+        .loading-xl.stripped
+        pre.fit-code
+          code.html.
+            <div class="loading"></div>
+
+//- loading - step 5
+section(class=section, data-transition='fade-in')
+  .loading-xl
+  h3 So how do we do this?!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+@mixin configureTab($id) {
+  ##{$id}:checked {
+    ~ .c-tabs__nav > label[for='#{$id}'] {
+      background: color(white);
+      box-shadow: 0 1px 0 0 color(white);
+    }
+    
+    ~ .c-tabs__content > [data-for='#{$id}'] {
+      display: block;
+    }
+  }
+}
+
+.reveal {
+  @for $i from 1 through 3 {
+    @include configureTab('tab-#{$i}');
+  }
+  
+  .c-tabs {
+    text-align: left;
+    
+    &__nav {
+      @extend .d-flex;
+      @extend .d-flex--justify;
+    }
+    
+    &__nav-item {
+      background: color(white, 1);
+      border: 1px solid color(white, 4);
+      border-bottom: 0;
+      border-left: 0;
+      box-shadow: 0 1px 0 0 color(white, 4);
+      flex-grow: 1;
+      padding: 1em 1em;
+      text-align: center;
+      transition: all .3s ease-in-out;
+      
+      &:hover {
+        background: color(white, 3);
+      }
+      
+      &:first-child {
+        border-left: 1px solid color(white, 4);
+      }
+    }
+    
+    &__content {
+      border: 1px solid color(white, 4);
+      border-top: 0;
+      padding: 20px;
+    }
+    
+    &__content-item {
+      display: none;
+
+      > *:first-child {
+        margin-top: 0;
+      }
+
+      > *:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

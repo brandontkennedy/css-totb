@@ -1,0 +1,364 @@
+.c-animated-bg {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  
+  &--color-blend {
+    $animation: unique-id();
+    animation: $animation 8s linear infinite;
+    background-size: 500% 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    
+    &:before {
+      $animation: unique-id();
+      
+      animation: $animation 8s linear infinite;
+      border-radius: 50%;
+      content: '';
+      height: 120vw;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 120vw;
+      
+      @keyframes #{$animation} {
+        0% {
+          box-shadow: inset 0 0 50vh 10vh color(d);
+        }
+        16.6666% {
+          box-shadow: inset 0 0 50vh 10vh color(g);
+        }
+        33.3333% {
+          box-shadow: inset 0 0 50vh 10vh color(f);
+        }
+        50% {
+          box-shadow: inset 0 0 50vh 10vh color(b);
+        }
+        66.6666% {
+          box-shadow: inset 0 0 50vh 10vh color(e);
+        }
+        83.3333% {
+          box-shadow: inset 0 0 50vh 10vh color(c);
+        }
+        100% {
+          box-shadow: inset 0 0 50vh 10vh color(d);
+        }
+      }
+    }
+
+    @keyframes #{$animation} {
+      0% {
+        background-color: color(c);
+      }
+      16.6666% {
+        background-color: color(d);
+      }
+      33.3333% {
+        background-color: color(g);
+      }
+      50% {
+        background-color: color(f);
+      }
+      66.6666% {
+        background-color: color(b);
+      }
+      83.3333% {
+        background-color: color(e);
+      }
+      100% {
+        background-color: color(c);
+      }
+    }
+  }
+  
+  &--color-spin {
+    $animation: unique-id();
+    
+    background-size: 500% 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    
+    &:before, &:after {
+      animation: $animation 5s linear infinite;
+      background-image: linear-gradient(to bottom, rgba(color(white), .6), rgba(color(c, -2), .6));
+      border-radius: 50%;
+      content: '';
+      height: 240vw;
+      left: 0%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transform-origin: top left;
+      width: 240vw;
+    }
+    
+    &:after {
+      animation-delay: -2.2s;
+      animation-duration: 4s;
+      animation-direction: alternate;
+      background-image: linear-gradient(to bottom, rgba(color(b, -2), .6), rgba(color(f, -2), .6));
+      left: 100%;
+    }
+
+    @keyframes #{$animation} {
+      from {
+        transform: rotate(0deg) translate(-50%, -50%);
+      }
+      to {
+        transform: rotate(360deg) translate(-50%, -50%);
+      }
+    }
+  }
+  
+  &--3d-bars {
+    $shadow-length: 700px;
+    $shadow-width: 40px;
+    $space: 80px;
+
+    @function getRandom() {
+      $random: max(random(4800), random(4800));
+      @return $random;
+    }
+
+    @function buildComplexBoxShadow($direction: "v") {
+      $boxShadowVal: 0px $shadow-length 0 0 rgba(color(f), .25),;
+      $colors: (
+        color(b),
+        color(c),
+        color(d),
+        color(e),
+        color(f),
+        color(g),
+      );
+      @for $i from 1 through 12 {
+        $x: random(2);
+        @if $x == 2 {$x: -1};
+        $n: random(6);
+        @if $direction == "v" {
+          $boxShadowVal: $boxShadowVal, -($i * $space) (getRandom() * $x) + px 0 random(20) + px rgba(nth($colors, $n), .25);
+          $boxShadowVal: $boxShadowVal, ($i * $space) getRandom() + px 0 random(20) + px rgba(nth($colors, $n), .25);
+        }
+        @else {
+          $boxShadowVal: $boxShadowVal, ((getRandom() * $x) + px) -($i * $space) 0 random(20) + px rgba(nth($colors, $n), .25);
+          $boxShadowVal: $boxShadowVal, (getRandom() + px) ($i * $space) 0 random(20) + px rgba(nth($colors, $n), .25);
+        }
+      }
+      @return $boxShadowVal;
+    }
+
+    .html, .body {
+      height: 100%;
+      overflow: hidden;
+      perspective: 1000px;
+      position: relative;
+      width: 100%;
+      &:before,
+      &:after {
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        transform-origin: center center;
+        transform-style: preserve-3d;
+        top: 0;
+        width: 100%;
+        z-index: -1;
+      }
+      &:before {
+        width: $shadow-width;
+        left: 50%;
+      }
+      &:after {
+        height: $shadow-width;
+      }
+    }
+
+    .html {
+      background: color(white, 2);
+      &:before {
+        animation: moveHtmlV 16s linear -6s infinite;
+        box-shadow: buildComplexBoxShadow("v");
+        transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg);
+      }
+      &:after {
+        animation: moveHtmlH 14s linear -6s infinite;
+        box-shadow: buildComplexBoxShadow("h");
+        transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg);
+      }
+    }
+
+    .body {
+      &:before {
+        animation: moveBodyV 14s linear -6s infinite;
+        box-shadow: buildComplexBoxShadow("v");
+        transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg);
+      }
+      &:after {
+        animation: moveBodyH 16s linear -6s infinite;
+        box-shadow: buildComplexBoxShadow("h");
+        transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg);
+      }
+    }
+
+    @keyframes moveHtmlH {
+      0% {
+        transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg) translateX(0);
+      }
+      45% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+        transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg) translateX(1000%);
+      }
+      51% {
+        opacity: 0;
+        transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg) translateX(-1000%);
+      }
+      55% {
+        opacity: 1;
+      }
+      100% {
+        transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg) translateX(0);
+      }
+    }
+
+    @keyframes moveHtmlV {
+      0% {
+        transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg) translateY(0);
+      }
+      45% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+        transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg) translateY(1000%);
+      }
+      51% {
+        opacity: 0;
+        transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg) translateY(-1000%);
+      }
+      55% {
+        opacity: 1;
+      }
+      100% {
+        transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg) translateY(0);
+      }
+    }
+
+    @keyframes moveBodyH {
+      0% {
+        transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg) translateX(0);
+      }
+      45% {
+        opacity: 1;
+      }
+      50%{
+        opacity: 0;
+        transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg) translateX(-1000%);
+      }
+      51% {
+        opacity: 0;
+        transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg) translateX(1000%);
+      }
+      55% {
+        opacity: 1;
+      }
+      100% {
+        transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg) translateX(0);
+      }
+    }
+
+    @keyframes moveBodyV {
+      0% {
+        transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg) translateY(0);
+      }
+      45% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+        transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg) translateY(-1000%);
+      }
+      51%{
+        opacity: 0;
+        transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg) translateY(1000%);
+      }
+      55% {
+        opacity: 1;
+      }
+      100% {
+        transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg) translateY(0);
+      }
+    }
+  }
+}
+
+.reveal .animation-demos {
+  .c-property-list {
+    @include property-list(color(b), 12);
+    width: 600px;
+    
+    &.c-property-list--explode {
+      @include property-list(color(b), 12, 'explode');
+      .c-tile {
+        background: color(b);
+      }
+    }
+    
+    &.c-property-list--fade {
+      @include property-list(color(c), 12, 'fade');
+      .c-tile {
+        background: color(c);
+      }
+    }
+    
+    &.c-property-list--fade-out {
+      @include property-list(color(c), 12, 'fade-out');
+      .c-tile {
+        background: color(c);
+      }
+    }
+    
+    &.c-property-list--swing {
+      @include property-list(color(f), 12, 'swing');
+      .c-tile {
+        background: color(f);
+      }
+    }
+    
+    &.c-property-list--fall-back {
+      @include property-list(color(f), 12, 'fall-back');
+      .c-tile {
+        background: color(f);
+      }
+    }
+    
+    &.c-property-list--slide {
+      @include property-list(color(e), 12, 'slide');
+      .c-tile {
+        background: color(e);
+      }
+    }
+    
+    &.c-property-list--drop {
+      @include property-list(color(e), 12, 'drop');
+      .c-tile {
+        background: color(e);
+      }
+    }
+
+    .c-tile {
+      background: color(b);
+      display: block;
+      flex-grow: 0;
+      height: 110px;
+      margin: 10px;
+      width: 110px;
+    }
+  }
+}

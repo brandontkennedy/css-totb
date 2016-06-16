@@ -1,0 +1,192 @@
+@mixin property-list($bg: color(f), $cnt: 3, $animation: 'pop') {
+  $pop: unique-id();
+  $slide: unique-id();
+  $swing: unique-id();
+  $fade: unique-id();
+  $explode: unique-id();
+  $drop: unique-id();
+  $fall-back: unique-id();
+  $fade-out: unique-id();
+  
+  perspective: 1000px;
+  
+  > * {
+    background: $bg;
+    color: color(white);
+    display: inline-block;
+    flex-grow: 1;
+    font-weight: bold;
+    margin: 1px 2px;
+    opacity: 0;
+    padding: .1em .5em;
+  }
+  
+  &.visible > * {
+    @if $animation == 'pop' {
+      @for $i from 1 through $cnt {
+        &:nth-child(#{$i}) {
+          animation: #{$pop} .3s ease-out ($i * .1s) forwards;
+        }
+      }
+    }
+    
+    @if $animation == 'slide' {
+      @for $i from 1 through $cnt {
+        &:nth-child(#{$i}) {
+          animation: #{$slide} .5s ease-out ($i * .1s) forwards;
+        }
+      }
+    }
+    
+    @if $animation == 'swing' {
+      @for $i from 1 through $cnt {
+        transform-origin: top;
+        transform-style: preserve-3d;
+        
+        &:nth-child(#{$i}) {
+          animation: #{$swing} 1s cubic-bezier(1, .1, .4, 2.8) ($i * .1s) forwards;
+        }
+      }
+    }
+    
+    @if $animation == 'fade' {
+      @for $i from 1 through $cnt {
+        &:nth-child(#{$i}) {
+          animation: #{$fade} .3s ease-out ($i * .1s) forwards;
+        }
+      }
+    }
+    
+    @if $animation == 'explode' {
+      @for $i from 1 through $cnt {
+        &:nth-child(#{$i}) {
+          animation: #{$explode} .3s ease-in ($i * .1s) forwards;
+        }
+      }
+    }
+    
+    @if $animation == 'fall-back' {
+      @for $i from 1 through $cnt {
+        &:nth-child(#{$i}) {
+          animation: #{$fall-back} .3s ease-out ($i * .1s) forwards;
+        }
+      }
+    }
+    
+    @if $animation == 'fade-out' {
+      @for $i from 1 through $cnt {
+        &:nth-child(#{$i}) {
+          animation: #{$fade-out} .3s ease-in ($i * .1s) forwards;
+        }
+      }
+    }
+    
+    @if $animation == 'drop' {
+      @for $i from 1 through $cnt {
+        &:nth-child(#{$i}) {
+          animation: #{$drop} .3s ease-in ($i * .1s) forwards;
+        }
+      }
+    }
+  }
+
+  @keyframes #{$pop} {
+    0% {
+      opacity: 0;
+      transform: translateY(2em) scale(0);
+    }
+    80% {
+      opacity: 1;
+      transform: translateY(0) scale(1.2);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes #{$slide} {
+    0% {
+      opacity: 0;
+      transform: translateY(100vh);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes #{$swing} {
+    0% {
+      opacity: 0;
+      transform: rotateX(-90deg);
+    }
+    50% {
+      opacity: 1;
+      transform: rotateX(-45deg);
+    }
+    100% {
+      opacity: 1;
+      transform: rotateX(0deg);
+    }
+  }
+
+  @keyframes #{$fade} {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes #{$explode} {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    20% {
+      opacity: 1;
+      transform: scale(.8);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(2);
+    }
+  }
+
+  @keyframes #{$drop} {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(100vh);
+    }
+  }
+
+  @keyframes #{$fall-back} {
+    100% {
+      opacity: 0;
+      transform: rotateX(-90deg);
+    }
+    50% {
+      opacity: 1;
+      transform: rotateX(-45deg);
+    }
+    0% {
+      opacity: 1;
+      transform: rotateX(0deg);
+    }
+  }
+
+  @keyframes #{$fade-out} {
+    100% {
+      opacity: 0;
+    }
+    0% {
+      opacity: 1;
+    }
+  }
+}

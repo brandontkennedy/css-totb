@@ -1,0 +1,292 @@
+- var section = 'checkbox-hack'
+- var title = 'The "(Insert Input/Psuedo Class Here) Hack"'
+
+section(class=section)
+  .c-slide__header--no-body
+    h1=title
+    h3.fragment
+      | Same concept.
+      br
+      | Different pseudo classes / input types.
+      br
+      | Better functionality.
+
+
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h2 Accordions
+  .c-slide__body
+    .c-slide__content
+      .c-accordion.c-accordion-container--one
+        .c-accordion__item
+          input(id='accordion-one--item-one', class='c-accordion__control c-control-input', type='checkbox', name='accordion-one')
+          label(for='accordion-one--item-one', class='c-accordion__trigger') Lorem ipsum dolor sit amet
+          p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.
+
+        .c-accordion__item
+          input(id='accordion-one--item-two', class='c-accordion__control c-control-input', type='checkbox', name='accordion-one')
+          label(for='accordion-one--item-two', class='c-accordion__trigger') Lorem ipsum dolor sit amet
+          p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.
+
+        .c-accordion__item
+          input(id='accordion-one--item-three', class='c-accordion__control c-control-input', type='checkbox', name='accordion-one')
+          label(for='accordion-one--item-three', class='c-accordion__trigger') Lorem ipsum dolor sit amet
+          p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.
+
+      .c-accordion.c-accordion-container--two
+        .c-accordion__item
+          input(id='accordion-two--item-one', class='c-accordion__control c-control-input', type='radio', name='accordion-two')
+          label(for='accordion-two--item-one', class='c-accordion__trigger') Lorem ipsum dolor sit amet
+          p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.
+
+        .c-accordion__item
+          input(id='accordion-two--item-two', class='c-accordion__control c-control-input', type='radio', name='accordion-two')
+          label(for='accordion-two--item-two', class='c-accordion__trigger') Lorem ipsum dolor sit amet
+          p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.
+
+        .c-accordion__item
+          input(id='accordion-two--item-three', class='c-accordion__control c-control-input', type='radio', name='accordion-two')
+          label(for='accordion-two--item-three', class='c-accordion__trigger') Lorem ipsum dolor sit amet
+          p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.
+
+
+  aside.notes
+    small
+      ul
+        li blue = Checkbox
+        li green = radio
+        li radio allows to get a true accordion action where only 1 item is open at a time
+        li this same idea can be used to create tabs
+
+
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h2 Tab Navigation
+  .c-slide__body
+    .c-slide__content
+      .c-tabs.c-tabs__wrapper
+        input(id="tab-1", class="c-control-input", type="radio", name="tabs", checked)
+        input(id="tab-2", class="c-control-input", type="radio", name="tabs")
+        input(id="tab-3", class="c-control-input", type="radio", name="tabs")
+        .c-tabs__nav
+          label(for="tab-1", class="c-tabs__nav-item") Tab One
+          label(for="tab-2", class="c-tabs__nav-item") HTML
+          label(for="tab-3", class="c-tabs__nav-item") CSS
+        .c-tabs__content
+          .c-tabs__content-item(data-for="tab-1")
+            p Lorem ipsum dolor sit amet, no mea accommodare reprehendunt. Erat civibus insolens vix te, eu vel soluta minimum tacimates, sed te alia ullum consectetuer. Cu melius viderer est, eum nulla liberavisse ei. Id timeam viderer bonorum sea. Ea justo fuisset antiopam sea. Nec ex inermis splendide, pro nonumy dicunt qualisque no.
+            p Brute autem est eu, eos audire signiferumque eu. Exerci mandamus per ex. Cu mel vidisse atomorum, cum autem augue dicant ut. Cum graece suavitate te. Tale consul phaedrum mei te, nam in ullum iudicabit, qui ad nihil expetenda sententiae. Sea modo brute ut, et quas pericula delicatissimi qui.
+          .c-tabs__content-item(data-for="tab-2")
+            pre
+              code.html.
+                <div class="c-tabs c-tabs__wrapper">
+                  <input id="tab-1" type="radio" name="tabs" class="c-control"> //checked
+                  ...
+                  
+                  <div class="c-tabs__nav">
+                    <label for="tab-1" class="c-tabs__nav-item">Tab One</label>
+                    ...
+                  </div>
+                  
+                  <div class="c-tabs__content">
+                    <div data-for="tab-1" class="c-tabs__content-item">
+                      ...
+                    </div>
+                    ...
+                  </div>
+                </div>
+          .c-tabs__content-item(data-for="tab-3")
+            pre
+              code.sass.
+                .c-tabs #tab-1:checked {
+                    ~ .c-tabs__nav > label[for='tab-1'] {
+                      // active tab styles
+                    }
+                    
+                    ~ .c-tabs__content > [data-for='tab-1'] {
+                      display: block;
+                    }
+                  }
+                  
+                  &__content-item {
+                    display: none;
+                  }
+                  
+                  // rest of appearance styles
+                }
+
+
+  aside.notes
+    small
+      ul
+        li radio inputs will only let one be checked at a time
+        li reveal.js and/or jade are blocking the checked attribute because of the sample code???
+
+
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h2 Dropdown Menu
+  .c-slide__body
+    .c-slide__content
+      .d-flex--even.u-offset--4
+        .c-dropdown
+          input(id='dropdown-1', class='c-dropdown__control c-control-input', type='checkbox', name='dropdown')
+          .c-dropdown__container
+            label(for='dropdown-1', class='c-button c-dropdown__trigger') OLD
+            ul.c-dropdown__menu
+              li.c-dropdown__menu-item
+                label(for='theme-one', class='c-link') option one
+              li.c-dropdown__menu-item
+                label(for='theme-two', class='c-link') option two
+              li.c-dropdown__menu-item
+                label(for='theme-three', class='c-link') option three
+              li.c-dropdown__menu-item
+                label(for='theme-four', class='c-link') option four
+        .c-dropdown
+          input(id='dropdown-2', class='c-dropdown__control c-control-input', type='checkbox', name='dropdown')
+          .c-dropdown__container
+            label(for='dropdown-2', class='c-button c-dropdown__trigger') OLD
+            ul.c-dropdown__menu
+              li.c-dropdown__menu-item
+                label(for='theme-one', class='c-link') option one
+              li.c-dropdown__menu-item
+                label(for='theme-two', class='c-link') option two
+              li.c-dropdown__menu-item
+                label(for='theme-three', class='c-link') option three
+              li.c-dropdown__menu-item
+                label(for='theme-four', class='c-link') option four
+        // text inputs
+        .c-dropdown
+          input(id='dropdown-3', class='c-dropdown__control c-control-input', type='text', name='dropdown')
+          .c-dropdown__container
+            label(for='dropdown-3', class='c-button c-dropdown__trigger c-dropdown__trigger--alt') NEW
+            ul.c-dropdown__menu
+              li.c-dropdown__menu-item
+                label(for='theme-one', class='c-link') option one
+              li.c-dropdown__menu-item
+                label(for='theme-two', class='c-link') option two
+              li.c-dropdown__menu-item
+                label(for='theme-three', class='c-link') option three
+              li.c-dropdown__menu-item
+                label(for='theme-four', class='c-link') option four
+        .c-dropdown
+          input(id='dropdown-4', class='c-dropdown__control c-control-input', type='text', name='dropdown')
+          .c-dropdown__container
+            label(for='dropdown-4', class='c-button c-dropdown__trigger c-dropdown__trigger--alt') NEW
+            ul.c-dropdown__menu
+              li.c-dropdown__menu-item
+                label(for='theme-one', class='c-link') option one
+              li.c-dropdown__menu-item
+                label(for='theme-two', class='c-link') option two
+              li.c-dropdown__menu-item
+                label(for='theme-three', class='c-link') option three
+              li.c-dropdown__menu-item
+                label(for='theme-four', class='c-link') option four
+
+  aside.notes
+    ul
+      li we've changed the control input to 'text' and are using focus to make it auto close
+      li just for show to help give creative starting points
+
+
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h2 Multiple Modals
+  .c-slide__body
+    .c-slide__content
+      a(href="/dist/view/examples/modal-multi.html", target="blank") demo
+
+  aside.notes
+    small
+      ul
+        li modals that use radio inputs
+        li all 'close' triggers point to a 'close' radio button
+        li this ensures you can't accidently have multiple modals open
+
+
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h2 Form Labels
+  .c-slide__body
+    .c-slide__content
+      .d-flex.d-flex--center
+        form(class="c-form", name="form-1", action="#", method="post", style="width: 50%;")
+          .c-form-group.fragment
+            h6 Stacked Label/Input
+            label.c-label First Name
+              input(class="c-input", type="text", name="stacked")
+          .c-form__break
+          .c-form-group--inline.fragment
+            h6 Inline Label/Input
+            label(for="inline", class="c-label") First Name
+            input(id="inline" class="c-input", type="text", name="inline")
+          .c-form__break
+          .c-form-group--placeholder.fragment
+            h6 Placeholder as Label
+            //- label(for="inline", class="c-label") First Name
+            input(class="c-input", type="text", name="placeholder", placeholder="First Name")
+
+  aside.notes
+    small
+      ul
+        li gets monotonous
+        li 2 generally accepted options: stacked or inline
+          ul
+            li stacked= + on mobile, - on desktop
+            li inline= + on desktop, - on mobile
+        li placeholder solution
+          ul
+            li bad - no longer know what the input is for
+
+
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h2 Form Labels cont.
+  .c-slide__body
+    .c-slide__content
+      .d-flex__column.d-flex--center
+        form(class="c-form u-center--x fragment", name="form-1", action="#", method="post", style="margin: 0; width: 50%;")
+          .c-form-group--inset
+            input(class="c-input", type="text", name="inset", required, style="margin: 0;")
+            span.c-label--inset First Name
+        pre.fragment
+          code.html.
+            <input id="firstname" class="c-input" type="text" name="firstname" required="true">
+            <label for="firstname" class="c-label--inset">First Name</label>
+          code.u-offset--2.sass.fragment.
+            .c-form-group--inset { position: relative; }
+            
+            .c-form-group--inset .c-input:focus + .c-label--inset,
+            .c-form-group--inset .c-input:valid + .c-label--inset {
+              font-size: .75em;
+              opacity: .7;
+              top: 0;
+            }
+            
+            .c-form-group--inset .c-label--inset {
+              left: 10px;
+              opacity: 1;
+              position: absolute;
+              top: 10px;
+            }
+
+  aside.notes
+    small
+      ul
+        li note that the input is required
+          ul
+            li can anybody tell me why we need that? (hint: it isn't for validation)
+            li this allows us to use :valid so the labels stays transformed
+            li that does it for the actual functionality, but there are more things go into them to make them FEEL right.

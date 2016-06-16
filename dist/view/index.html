@@ -1,0 +1,1888 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>CSS - Thinking Outside the Box</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="../../node_modules/reveal.js/css/reveal.css"/>
+    <link rel="stylesheet" href="../../node_modules/reveal.js/css/theme/white.css"/>
+    <link rel="stylesheet" href="../../node_modules/highlight.js/styles/monokai-sublime.css"/>
+    <link rel="stylesheet" href="../lib/css/index.min.css"/>
+  </head>
+  <body itemscope="" itemtype="http://schema.org/WebPage">
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide-->
+      <div class="slides">
+        <section class="introduction">
+          <div class="c-slide__header"></div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <h1 class="title">CSS: Thinking Outside the Box</h1>
+              <h2 class="author">Brandon Kennedy <span class="u-text--gray">[UI/UX Developer]</span></h2>
+              <div class="links d-flex--center d-flex--spaced"><a href="http://codepen.io/brandonkennedy" target="blank">codepen.io/brandonkennedy</a><a href="http://twitter.com/brandontkennedy" target="blank">twitter.com/brandontkennedy</a></div>
+              <div class="a__intro">
+                <div class="box">
+                  <div class="front"></div>
+                  <div class="side"></div>
+                  <div class="brain"></div>
+                  <div class="shadow"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>TURN OFF HOT CORNERS BEFORE TALKING</li>
+                <li>UI/UX Developer for a larger corporation</li>
+                <li>in greensboro nc</li>
+                <li>i turn designers' dreams into realities</li>
+              </ul></small></aside>
+        </section>
+        <section>
+          <div class="c-slide__header">
+            <h4>What Are We Going To Learn About?</h4>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="fragment">
+                <h3>Pseudo Elements</h3>
+                <h3>Pseudo Classes</h3>
+                <h3>Transitions</h3>
+                <h3>Animations</h3>
+                <h3>Box-Shadows</h3>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>session description said no js</li>
+                <li>we need to know some things to make that possible</li>
+                <li>i threw box-shadows on there because i really like them</li>
+                <li>anybody else here REALLY like box-shadows?</li>
+              </ul></small></aside>
+        </section>
+        <section class="pseudo-elements">
+          <div class="c-slide__header--no-body">
+            <h1>Pseudo Elements</h1>
+            <h3 class="fragment">A CSS selectable <i>part</i> of an element.</h3>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>what are they?</li>
+              <li>a css selectable PART of an element</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="pseudo-elements" data-transition="fade-out concave-in">
+          <div class="c-slide__header">
+            <h4>Pseudo Elements</h4>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <ul class="c-pseudo-element-list">
+                <li>::after (:after)</li>
+                <li>::-ms-fill</li>
+                <li>::-ms-fill-lower</li>
+                <li>::-ms-fill-upper</li>
+                <li>::-ms-thumb</li>
+                <li>::-ms-track</li>
+                <li>::-moz-progress-bar</li>
+                <li>::-moz-range-progress</li>
+                <li>::-moz-range-thumb</li>
+                <li>::-moz-range-track</li>
+                <li>::-webkit-progress-bar</li>
+                <li>::-webkit-progress-value</li>
+                <li>::-webkit-slider-runnable-track</li>
+                <li>::-webkit-slider-thumb</li>
+                <li>::before (:before)</li>
+                <li>::first-letter (:first-letter)</li>
+                <li>::first-line (:first-line)</li>
+                <li>::selection</li>
+                <li>::backdrop</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>6 that aren't browser-specific or experimental</li>
+              <li>only 4 that have decent support</li>
+              <li>only 2 that really matter</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="pseudo-elements" data-transition="fade">
+          <div class="c-slide__header">
+            <h4>Pseudo Elements</h4>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <ul class="c-pseudo-element-list">
+                <li>::after (:after)</li>
+                <li class="u-strike">::-ms-fill</li>
+                <li class="u-strike">::-ms-fill-lower</li>
+                <li class="u-strike">::-ms-fill-upper</li>
+                <li class="u-strike">::-ms-thumb</li>
+                <li class="u-strike">::-ms-track</li>
+                <li class="u-strike">::-moz-progress-bar</li>
+                <li class="u-strike">::-moz-range-progress</li>
+                <li class="u-strike">::-moz-range-thumb</li>
+                <li class="u-strike">::-moz-range-track</li>
+                <li class="u-strike">::-webkit-progress-bar</li>
+                <li class="u-strike">::-webkit-progress-value</li>
+                <li class="u-strike">::-webkit-slider-runnable-track</li>
+                <li class="u-strike">::-webkit-slider-thumb</li>
+                <li>::before (:before)</li>
+                <li>::first-letter (:first-letter)</li>
+                <li>::first-line (:first-line)</li>
+                <li>::selection</li>
+                <li>::backdrop</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>6 that aren't browser-specific or experimental</li>
+              <li>only 4 that have decent support</li>
+              <li>only 2 that really matter</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="pseudo-elements" data-transition="fade">
+          <div class="c-slide__header">
+            <h4>Pseudo Elements</h4>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <ul class="c-pseudo-element-list">
+                <li>::after (:after)</li>
+                <li class="u-strike--old">::-ms-fill</li>
+                <li class="u-strike--old">::-ms-fill-lower</li>
+                <li class="u-strike--old">::-ms-fill-upper</li>
+                <li class="u-strike--old">::-ms-thumb</li>
+                <li class="u-strike--old">::-ms-track</li>
+                <li class="u-strike--old">::-moz-progress-bar</li>
+                <li class="u-strike--old">::-moz-range-progress</li>
+                <li class="u-strike--old">::-moz-range-thumb</li>
+                <li class="u-strike--old">::-moz-range-track</li>
+                <li class="u-strike--old">::-webkit-progress-bar</li>
+                <li class="u-strike--old">::-webkit-progress-value</li>
+                <li class="u-strike--old">::-webkit-slider-runnable-track</li>
+                <li class="u-strike--old">::-webkit-slider-thumb</li>
+                <li>::before (:before)</li>
+                <li>::first-letter (:first-letter)</li>
+                <li>::first-line (:first-line)</li>
+                <li class="u-strike">::selection</li>
+                <li class="u-strike">::backdrop</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>6 that aren't browser-specific or experimental</li>
+              <li>only 4 that have decent support</li>
+              <li>only 2 that really matter</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="pseudo-elements" data-transition="fade-in concave-out">
+          <div class="c-slide__header">
+            <h4>Pseudo Elements</h4>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <ul class="c-pseudo-element-list">
+                <li class="u-highlight">::after (:after)</li>
+                <li class="u-strike--old">::-ms-fill</li>
+                <li class="u-strike--old">::-ms-fill-lower</li>
+                <li class="u-strike--old">::-ms-fill-upper</li>
+                <li class="u-strike--old">::-ms-thumb</li>
+                <li class="u-strike--old">::-ms-track</li>
+                <li class="u-strike--old">::-moz-progress-bar</li>
+                <li class="u-strike--old">::-moz-range-progress</li>
+                <li class="u-strike--old">::-moz-range-thumb</li>
+                <li class="u-strike--old">::-moz-range-track</li>
+                <li class="u-strike--old">::-webkit-progress-bar</li>
+                <li class="u-strike--old">::-webkit-progress-value</li>
+                <li class="u-strike--old">::-webkit-slider-runnable-track</li>
+                <li class="u-strike--old">::-webkit-slider-thumb</li>
+                <li class="u-highlight">::before (:before)</li>
+                <li>::first-letter (:first-letter)</li>
+                <li>::first-line (:first-line)</li>
+                <li class="u-strike--old">::selection</li>
+                <li class="u-strike--old">::backdrop</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>6 that aren't browser-specific or experimental</li>
+              <li>only 4 that have decent support</li>
+              <li>only 2 that really matter</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="pseudo-elements" data-transition="concave-in fade-out">
+          <div class="c-slide__header">
+            <h4>Pseudo Elements</h4>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex--justify">
+                <h3 class="before ex-hidden">[element]</h3>
+                <h3 class="after ex-hidden">[element]</h3>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>imaginary space that you can apply styles to</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="pseudo-elements" data-transition="fade">
+          <div class="c-slide__header">
+            <h4>Pseudo Elements</h4>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex--justify">
+                <h3 class="before">[element]</h3>
+                <h3 class="after ex-hidden">[element]</h3>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="pseudo-elements" data-transition="fade-in concave-out">
+          <div class="c-slide__header">
+            <h4>Pseudo Elements</h4>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex--justify">
+                <h3 class="before">[element]</h3>
+                <h3 class="after">[element]</h3>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="pseudo-elements" data-transition="">
+          <div class="c-slide__header">
+            <h4>Pseudo Elements</h4>
+            <h2>Positions</h2>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <h3 class="before outline">element</h3>
+              <h3 class="before outline absolute fragment">element</h3>
+              <h3 class="before outline absolute-after fragment">element</h3>
+              <h3 class="before outline absolute-z fragment">element</h3>
+              <h3 class="before outline absolute-random fragment">element</h3>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>standard position</li>
+              <li>absolute position</li>
+              <li>absolute to mimic an :after</li>
+              <li>z-index that mo-fo (-1)</li>
+              <li>just about anything you can do to a normal element, you can do to a pseudo element</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="pseudo-elements" data-transition="">
+          <div class="c-slide__header">
+            <h4>Pseudo Elements</h4>
+            <h2>Lets Talk About Content</h2>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <h3 class="fragment">All :before and :after pseudo elements MUST have 'content'.</h3>
+              <div class="content-example offset-2">
+                <div class="set-one">
+                  <div class="fragment">
+                    <div class="thing shape"></div>
+                    <pre class="fit-code u-font--small"><code class="hljs">content: '';</code></pre>
+                  </div>
+                  <div class="fragment">
+                    <div class="thing unicode"></div>
+                    <pre class="fit-code u-font--small"><code class="hljs">content: '\2605';</code></pre>
+                  </div>
+                  <div class="fragment">
+                    <div class="thing data" data-content="Woot!"></div>
+                    <pre class="fit-code u-font--small"><code class="html"><div data-content="Woot!"></div></code><br/><code class="sass">content: attr(data-content);
+</code></pre>
+                  </div>
+                </div>
+                <div class="set-two">
+                  <div class="fragment">
+                    <div class="thing counter">
+                      <ol>
+                        <li>item 1</li>
+                        <li>item 2</li>
+                        <li>item 3</li>
+                      </ol>
+                    </div>
+                    <pre class="fit-code u-font--small"><code class="hljs">ol {
+  counter-reset: my-counter;
+  list-style: none;
+}
+ol li:before {
+  content: counter(my-counter);
+  counter-increment: my-counter;
+}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>no content and build a shape</li>
+              <li>unicode or icon font character</li>
+              <li>data-</li>
+              <li>custom list items</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="pseudo-classes" data-transition="">
+          <div class="c-slide__header--no-body">
+            <h1>Pseudo Classes</h1>
+            <h3 class="fragment">A CSS selectable <i>state</i> of an element.</h3>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>what are they?</li>
+              <li>a css selectable STATE of an element</li>
+              <li>we should all be familiar with some of these</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="pseudo-classes" data-transition="">
+          <div class="c-slide__header--no-body">
+            <h1>:hover</h1>
+          </div>
+          <aside class="notes">if you have never used hover... get out.</aside>
+        </section>
+        <section class="pseudo-classes" data-transition="">
+          <div class="c-slide__header">
+            <h4>Pseudo Classes</h4>
+            <h2>Some You Probably Know</h2>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="u-center">
+                <h3>:active</h3>
+                <h3>:first-child</h3>
+                <h3>:focus</h3>
+                <h3>:hover</h3>
+                <h3>:last-child</h3>
+                <h3>:nth-child()</h3>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li></li>
+            </ul>
+          </aside>
+        </section>
+        <section class="pseudo-classes" data-transition="">
+          <div class="c-slide__header">
+            <h4>Pseudo Classes</h4>
+            <h2>Some You Might Not Know</h2>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="u-center">
+                <h3>:checked</h3>
+                <h3>:first-of-type</h3>
+                <h3>:invalid</h3>
+                <h3>:last-of-type</h3>
+                <h3>:nth-of-type()</h3>
+                <h3>:required</h3>
+                <h3>:valid</h3>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>some of these are going to be very integral in the creation of our JS free interactions</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="pseudo-classes" data-background="../lib/images/all-the-things.png" data-state="img-right">
+          <div class="c-slide__header">
+            <h4>Pseudo Classes</h4>
+            <h2>All The Classes!!!</h2>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex--wrap d-flex--justify c-property-list c-property-list--all-the-things fragment"><span>:active</span><span>:any</span><span>:checked</span><span>:default</span><span>:dir()</span><span>:disabled</span><span>:empty</span><span>:enabled</span><span>:first</span><span>:first-child</span><span>:first-of-type</span><span>:fullscreen</span><span>:focus</span><span>:hover</span><span>:indeterminate</span><span>:in-range</span><span>:invalid</span><span>:lang()</span><span>:last-child</span><span>:last-of-type</span><span>:left</span><span>:link</span><span>:not()</span><span>:nth-child()</span><span>:nth-last-child()</span><span>:nth-last-of-type()</span><span>:nth-of-type()</span><span>:only-child</span><span>:only-of-type</span><span>:optional</span><span>:out-of-range</span><span>:read-only</span><span>:read-write</span><span>:required</span><span>:right</span><span>:root</span><span>:scope</span><span>:target</span><span>:valid</span><span>:visited</span>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>In the description of this session, i promised to show you how to get great page interactions without js. these little guys are what make that possible. mostly through a little thing known as The Checkbox Hack</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="checkbox-hack">
+          <div class="c-slide__header--no-body">
+            <h1>The "Checkbox Hack"</h1>
+            <h3 class="fragment">Nesting styles after a <i>:checked</i> pseudo class on a checkbox to gain functionality instead of just style</h3>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>often used in combination with animations/transitions</li>
+              <li>built a nice basic one to show you how it works</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="checkbox-hack" data-transition="">
+          <div class="c-slide__header">
+            <h4>The "Checkbox Hack"</h4>
+            <h2>A Basic Example</h2>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex__column">
+                <div class="ex--rendered">
+                  <input id="agree" type="checkbox" name="agree"/>
+                  <label for="agree">I blindly agree to your rules</label>
+                  <button class="c-button--primary sign-up-button">Sign Me Up</button>
+                </div>
+                <div class="d-flex--center d-flex--spaced">
+                  <div class="ex--html fragment">
+                    <h6>markup</h6>
+                    <pre><code class="html"><input id="agree" type="checkbox">
+  
+<label for="agree">I blindly agree to your rules</label>
+  
+<button class="sign-up-button">Sign Me Up</button></code></pre>
+                  </div>
+                  <div class="ex--css fragment">
+                    <h6>CSS</h6>
+                    <pre><code class="sass">#agree:checked ~ .sign-up-button {
+  opacity: 1;
+  pointer-events: all;
+}
+  
+#agree ~ .sign-up-button {
+  opacity: .6;
+  pointer-events: none;
+}</code></pre>
+                  </div>
+                </div>
+                <p class="fragment">( https://css-tricks.com/child-and-sibling-selectors/ )</p>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>actually show the checkbox</li>
+              <li>common practice is to nest input in label - that won't work here</li>
+              <li>everything that changes based on :checked must be easily decended from the checkbox</li>
+              <li>lets look something more complex</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="checkbox-hack" data-transition="">
+          <div class="c-slide__header">
+            <h4>The "Checkbox Hack"</h4>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <h2>A Checkbox Powered Modal</h2><a href="/dist/view/examples/modal.html" target="blank">demo</a>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>label/id relationship allows multiple labels</li>
+              <li>point out what items are labels</li>
+              <li>36 lines of CSS (prefixed, and cleanly organized)</li>
+              <li>40 lines of easy to read SCSS</li>
+              <li>vs 338 for bootstrap modal.js (PLUS jQuery)</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="checkbox-hack" data-transition="">
+          <div class="c-slide__header">
+            <h4>The "Checkbox Hack"</h4>
+            <h2>Expand/Collapse & Dropdowns</h2>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex--even">
+                <div class="c-accordion" style="width: 50%">
+                  <div class="c-accordion__item">
+                    <input class="c-accordion__control c-control-input--visible" id="accordion-item--one" type="checkbox" name="accordion"/>
+                    <label class="c-accordion__trigger" for="accordion-item--one">Lorem ipsum dolor sit amet</label>
+                    <p class="c-accordion__content">Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.</p>
+                  </div>
+                  <div class="c-accordion__item">
+                    <input class="c-accordion__control c-control-input--visible" id="accordion-item--two" type="checkbox" name="accordion"/>
+                    <label class="c-accordion__trigger" for="accordion-item--two">Lorem ipsum dolor sit amet</label>
+                    <p class="c-accordion__content">Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.</p>
+                  </div>
+                  <div class="c-accordion__item">
+                    <input class="c-accordion__control c-control-input--visible" id="accordion-item--three" type="checkbox" name="accordion"/>
+                    <label class="c-accordion__trigger" for="accordion-item--three">Lorem ipsum dolor sit amet</label>
+                    <p class="c-accordion__content">Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.</p>
+                  </div>
+                </div>
+                <div class="c-dropdown">
+                  <input class="c-dropdown__control c-control-input--visible" id="dropdown" type="checkbox" name="dropdown"/>
+                  <div class="c-dropdown__container">
+                    <label class="c-button c-dropdown__trigger" for="dropdown">options</label>
+                    <ul class="c-dropdown__menu">
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-one">option one</label>
+                      </li>
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-two">option two</label>
+                      </li>
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-three">option three</label>
+                      </li>
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-four">option four</label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>same concept, don't explain in detail</li>
+              <li>just for show to help give creative starting points</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="checkbox-hack">
+          <div class="c-slide__header--no-body">
+            <h1>The &quot;(Insert Input/Psuedo Class Here) Hack&quot;</h1>
+            <h3 class="fragment">Same concept.<br/>Different pseudo classes / input types.<br/>Better functionality.</h3>
+          </div>
+        </section>
+        <section class="checkbox-hack">
+          <div class="c-slide__header">
+            <h4>The &quot;(Insert Input/Psuedo Class Here) Hack&quot;</h4>
+            <h2>Accordions</h2>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="c-accordion c-accordion-container--one">
+                <div class="c-accordion__item">
+                  <input class="c-accordion__control c-control-input" id="accordion-one--item-one" type="checkbox" name="accordion-one"/>
+                  <label class="c-accordion__trigger" for="accordion-one--item-one">Lorem ipsum dolor sit amet</label>
+                  <p class="c-accordion__content">Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.</p>
+                </div>
+                <div class="c-accordion__item">
+                  <input class="c-accordion__control c-control-input" id="accordion-one--item-two" type="checkbox" name="accordion-one"/>
+                  <label class="c-accordion__trigger" for="accordion-one--item-two">Lorem ipsum dolor sit amet</label>
+                  <p class="c-accordion__content">Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.</p>
+                </div>
+                <div class="c-accordion__item">
+                  <input class="c-accordion__control c-control-input" id="accordion-one--item-three" type="checkbox" name="accordion-one"/>
+                  <label class="c-accordion__trigger" for="accordion-one--item-three">Lorem ipsum dolor sit amet</label>
+                  <p class="c-accordion__content">Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.</p>
+                </div>
+              </div>
+              <div class="c-accordion c-accordion-container--two">
+                <div class="c-accordion__item">
+                  <input class="c-accordion__control c-control-input" id="accordion-two--item-one" type="radio" name="accordion-two"/>
+                  <label class="c-accordion__trigger" for="accordion-two--item-one">Lorem ipsum dolor sit amet</label>
+                  <p class="c-accordion__content">Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.</p>
+                </div>
+                <div class="c-accordion__item">
+                  <input class="c-accordion__control c-control-input" id="accordion-two--item-two" type="radio" name="accordion-two"/>
+                  <label class="c-accordion__trigger" for="accordion-two--item-two">Lorem ipsum dolor sit amet</label>
+                  <p class="c-accordion__content">Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.</p>
+                </div>
+                <div class="c-accordion__item">
+                  <input class="c-accordion__control c-control-input" id="accordion-two--item-three" type="radio" name="accordion-two"/>
+                  <label class="c-accordion__trigger" for="accordion-two--item-three">Lorem ipsum dolor sit amet</label>
+                  <p class="c-accordion__content">Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>blue = Checkbox</li>
+                <li>green = radio</li>
+                <li>radio allows to get a true accordion action where only 1 item is open at a time</li>
+                <li>this same idea can be used to create tabs</li>
+              </ul></small></aside>
+        </section>
+        <section class="checkbox-hack">
+          <div class="c-slide__header">
+            <h4>The &quot;(Insert Input/Psuedo Class Here) Hack&quot;</h4>
+            <h2>Tab Navigation</h2>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="c-tabs c-tabs__wrapper">
+                <input class="c-control-input" id="tab-1" type="radio" name="tabs" checked="checked"/>
+                <input class="c-control-input" id="tab-2" type="radio" name="tabs"/>
+                <input class="c-control-input" id="tab-3" type="radio" name="tabs"/>
+                <div class="c-tabs__nav">
+                  <label class="c-tabs__nav-item" for="tab-1">Tab One</label>
+                  <label class="c-tabs__nav-item" for="tab-2">HTML</label>
+                  <label class="c-tabs__nav-item" for="tab-3">CSS</label>
+                </div>
+                <div class="c-tabs__content">
+                  <div class="c-tabs__content-item" data-for="tab-1">
+                    <p>Lorem ipsum dolor sit amet, no mea accommodare reprehendunt. Erat civibus insolens vix te, eu vel soluta minimum tacimates, sed te alia ullum consectetuer. Cu melius viderer est, eum nulla liberavisse ei. Id timeam viderer bonorum sea. Ea justo fuisset antiopam sea. Nec ex inermis splendide, pro nonumy dicunt qualisque no.</p>
+                    <p>Brute autem est eu, eos audire signiferumque eu. Exerci mandamus per ex. Cu mel vidisse atomorum, cum autem augue dicant ut. Cum graece suavitate te. Tale consul phaedrum mei te, nam in ullum iudicabit, qui ad nihil expetenda sententiae. Sea modo brute ut, et quas pericula delicatissimi qui.</p>
+                  </div>
+                  <div class="c-tabs__content-item" data-for="tab-2">
+                    <pre><code class="html"><div class="c-tabs c-tabs__wrapper">
+  <input id="tab-1" type="radio" name="tabs" class="c-control"> //checked
+  ...
+  
+  <div class="c-tabs__nav">
+    <label for="tab-1" class="c-tabs__nav-item">Tab One</label>
+    ...
+  </div>
+  
+  <div class="c-tabs__content">
+    <div data-for="tab-1" class="c-tabs__content-item">
+      ...
+    </div>
+    ...
+  </div>
+</div></code></pre>
+                  </div>
+                  <div class="c-tabs__content-item" data-for="tab-3">
+                    <pre><code class="sass">.c-tabs #tab-1:checked {
+    ~ .c-tabs__nav > label[for='tab-1'] {
+      // active tab styles
+    }
+    
+    ~ .c-tabs__content > [data-for='tab-1'] {
+      display: block;
+    }
+  }
+  
+  &__content-item {
+    display: none;
+  }
+  
+  // rest of appearance styles
+}
+
+</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>radio inputs will only let one be checked at a time</li>
+                <li>reveal.js and/or jade are blocking the checked attribute because of the sample code???</li>
+              </ul></small></aside>
+        </section>
+        <section class="checkbox-hack">
+          <div class="c-slide__header">
+            <h4>The &quot;(Insert Input/Psuedo Class Here) Hack&quot;</h4>
+            <h2>Dropdown Menu</h2>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex--even u-offset--4">
+                <div class="c-dropdown">
+                  <input class="c-dropdown__control c-control-input" id="dropdown-1" type="checkbox" name="dropdown"/>
+                  <div class="c-dropdown__container">
+                    <label class="c-button c-dropdown__trigger" for="dropdown-1">OLD</label>
+                    <ul class="c-dropdown__menu">
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-one">option one</label>
+                      </li>
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-two">option two</label>
+                      </li>
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-three">option three</label>
+                      </li>
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-four">option four</label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="c-dropdown">
+                  <input class="c-dropdown__control c-control-input" id="dropdown-2" type="checkbox" name="dropdown"/>
+                  <div class="c-dropdown__container">
+                    <label class="c-button c-dropdown__trigger" for="dropdown-2">OLD</label>
+                    <ul class="c-dropdown__menu">
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-one">option one</label>
+                      </li>
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-two">option two</label>
+                      </li>
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-three">option three</label>
+                      </li>
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-four">option four</label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- text inputs-->
+                <div class="c-dropdown">
+                  <input class="c-dropdown__control c-control-input" id="dropdown-3" type="text" name="dropdown"/>
+                  <div class="c-dropdown__container">
+                    <label class="c-button c-dropdown__trigger c-dropdown__trigger--alt" for="dropdown-3">NEW</label>
+                    <ul class="c-dropdown__menu">
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-one">option one</label>
+                      </li>
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-two">option two</label>
+                      </li>
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-three">option three</label>
+                      </li>
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-four">option four</label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="c-dropdown">
+                  <input class="c-dropdown__control c-control-input" id="dropdown-4" type="text" name="dropdown"/>
+                  <div class="c-dropdown__container">
+                    <label class="c-button c-dropdown__trigger c-dropdown__trigger--alt" for="dropdown-4">NEW</label>
+                    <ul class="c-dropdown__menu">
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-one">option one</label>
+                      </li>
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-two">option two</label>
+                      </li>
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-three">option three</label>
+                      </li>
+                      <li class="c-dropdown__menu-item">
+                        <label class="c-link" for="theme-four">option four</label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>we've changed the control input to 'text' and are using focus to make it auto close</li>
+              <li>just for show to help give creative starting points</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="checkbox-hack">
+          <div class="c-slide__header">
+            <h4>The &quot;(Insert Input/Psuedo Class Here) Hack&quot;</h4>
+            <h2>Multiple Modals</h2>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content"><a href="/dist/view/examples/modal-multi.html" target="blank">demo</a></div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>modals that use radio inputs</li>
+                <li>all 'close' triggers point to a 'close' radio button</li>
+                <li>this ensures you can't accidently have multiple modals open</li>
+              </ul></small></aside>
+        </section>
+        <section class="checkbox-hack">
+          <div class="c-slide__header">
+            <h4>The &quot;(Insert Input/Psuedo Class Here) Hack&quot;</h4>
+            <h2>Form Labels</h2>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex d-flex--center">
+                <form class="c-form" name="form-1" action="#" method="post" style="width: 50%">
+                  <div class="c-form-group fragment">
+                    <h6>Stacked Label/Input</h6>
+                    <label class="c-label">First Name
+                      <input class="c-input" type="text" name="stacked"/>
+                    </label>
+                  </div>
+                  <div class="c-form__break"></div>
+                  <div class="c-form-group--inline fragment">
+                    <h6>Inline Label/Input</h6>
+                    <label class="c-label" for="inline">First Name</label>
+                    <input class="c-input" id="inline" type="text" name="inline"/>
+                  </div>
+                  <div class="c-form__break"></div>
+                  <div class="c-form-group--placeholder fragment">
+                    <h6>Placeholder as Label</h6>
+                    <input class="c-input" type="text" name="placeholder" placeholder="First Name"/>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>gets monotonous</li>
+                <li>2 generally accepted options: stacked or inline
+                  <ul>
+                    <li>stacked= + on mobile, - on desktop</li>
+                    <li>inline= + on desktop, - on mobile</li>
+                  </ul>
+                </li>
+                <li>placeholder solution
+                  <ul>
+                    <li>bad - no longer know what the input is for</li>
+                  </ul>
+                </li>
+              </ul></small></aside>
+        </section>
+        <section class="checkbox-hack">
+          <div class="c-slide__header">
+            <h4>The &quot;(Insert Input/Psuedo Class Here) Hack&quot;</h4>
+            <h2>Form Labels cont.</h2>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex__column d-flex--center">
+                <form class="c-form u-center--x fragment" name="form-1" action="#" method="post" style="margin: 0; width: 50%">
+                  <div class="c-form-group--inset">
+                    <input class="c-input" type="text" name="inset" required="required" style="margin: 0"/><span class="c-label--inset">First Name</span>
+                  </div>
+                </form>
+                <pre class="fragment"><code class="html"><input id="firstname" class="c-input" type="text" name="firstname" required="true">
+<label for="firstname" class="c-label--inset">First Name</label></code><code class="u-offset--2 sass fragment">.c-form-group--inset { position: relative; }
+
+.c-form-group--inset .c-input:focus + .c-label--inset,
+.c-form-group--inset .c-input:valid + .c-label--inset {
+  font-size: .75em;
+  opacity: .7;
+  top: 0;
+}
+
+.c-form-group--inset .c-label--inset {
+  left: 10px;
+  opacity: 1;
+  position: absolute;
+  top: 10px;
+}
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>note that the input is required
+                  <ul>
+                    <li>can anybody tell me why we need that? (hint: it isn't for validation)</li>
+                    <li>this allows us to use :valid so the labels stays transformed</li>
+                    <li>that does it for the actual functionality, but there are more things go into them to make them FEEL right.</li>
+                  </ul>
+                </li>
+              </ul></small></aside>
+        </section>
+        <section class="transitions">
+          <div class="c-slide__header--no-body">
+            <h1>Transitions</h1>
+            <h3 class="fragment">A change in property values over a specified duration of time instead of occurring immediately</h3>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>what are they?</li>
+              <li>for example, that definition had a transition on it to make the opacity fade from 0 to 1</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="transitions">
+          <div class="c-slide__header">
+            <h4>Transitions</h4>
+            <h3>Why bother?</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex--center d-flex--spaced u-center">
+                <div>
+                  <button class="c-button transition--no">No Transition</button>
+                </div>
+                <div>
+                  <button class="c-button transition--yes">Yes Transition</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>they just make things FEEL nicer</li>
+              <li>for example, when these slides change they are using transitions</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="transitions">
+          <div class="c-slide__header">
+            <h4>Transitions</h4>
+            <h3>Syntax</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex__column--center">
+                <pre class="fit-code fragment"><code class="css">.defaults {
+  transition-property: all;
+  transition-duration: 0s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+}</code></pre>
+                <pre class="fit-code fragment"><code class="css">.shorthand {
+  transition: all 0s ease 0s;
+}
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>default properites</li>
+                <li>shorthand</li>
+              </ul></small></aside>
+        </section>
+        <section class="transitions">
+          <div class="c-slide__header">
+            <h4>Transitions</h4>
+            <h3>Specifying What Changes</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <pre class="fit-code"><code class="sass">button:hover {
+  background: #ff6347;
+  border-color: #fff;
+  box-shadow: 0 0 20px 10px #333;
+}
+</code></pre>
+              <div class="d-flex--center d-flex--spaced d-flex--wrap">
+                <div class="fragment destroyable">
+                  <button class="c-button transition--one">Just One Thing</button>
+                  <pre class="fit-code"><code class="sass">button:hover {
+  transition: box-shadow 1s linear;
+}</code></pre>
+                </div>
+                <div class="fragment destroyable">
+                  <button class="c-button transition--two">More Than One Thing</button>
+                  <pre class="fit-code"><code class="sass">button:hover {
+  transition: 
+    background 1s linear,
+    box-shadow 1s linear;
+}</code></pre>
+                </div>
+                <div class="fragment destroyable">
+                  <button class="c-button transition--all">Everything Different</button>
+                  <pre class="fit-code"><code class="sass">button:hover {
+  transition: all 1s linear;
+}
+</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>safe thought: if it can be defined numerically</li>
+              <li>all transition examples will be using buttons, :hover, '1s', and 'linear'</li>
+              <li>notice that each thing transitions evenly from the original to the hover state as well as from the hover state back to the original.  we can change that too.</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="transitions">
+          <div class="c-slide__header">
+            <h4>Transitions</h4>
+            <h3>Different Reverse Transitions</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex--center d-flex--spaced d-flex--wrap">
+                <div>
+                  <button class="c-button transition--back">Different Things</button>
+                  <pre class="fit-code"><code class="scss">button {
+  transition: box-shadow 1s linear;
+
+  &:hover {
+    transition: all 1s linear;
+  }
+}
+</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>all the things on hover</li>
+              <li>ONLY box-shadow on return</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="transitions">
+          <div class="c-slide__header">
+            <h4>Transitions</h4>
+            <h3>Timing Functions</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <h3 class="fragment">How to handle the progress of the transition over time</h3>
+              <div class="c-timing-block slide-in">
+                <div class="fragment">
+                  <div class="c-timing c-timing--ease"><span>ease</span></div>
+                </div>
+                <div class="fragment">
+                  <div class="c-timing c-timing--ease-in"><span>ease-in</span></div>
+                </div>
+                <div class="fragment">
+                  <div class="c-timing c-timing--ease-out"><span>ease-out</span></div>
+                </div>
+                <div class="fragment">
+                  <div class="c-timing c-timing--ease-in-out"><span>ease-in-out</span></div>
+                </div>
+                <div class="fragment">
+                  <div class="c-timing c-timing--linear"><span>linear</span></div>
+                </div>
+                <div class="fragment">
+                  <div class="c-timing c-timing--step"><span>steps()</span></div>
+                </div>
+                <div class="fragment">
+                  <div class="slide-in c-timing c-timing--cubic"><span>cubic-bezier()</span></div>
+                </div>
+              </div>
+              <div class="c-timing-block fragment slide-back">
+                <div class="c-timing c-timing--ease"><span>ease</span></div>
+                <div class="c-timing c-timing--ease-in"><span>ease-in</span></div>
+                <div class="c-timing c-timing--ease-out"><span>ease-out</span></div>
+                <div class="c-timing c-timing--ease-in-out"><span>ease-in-out</span></div>
+                <div class="c-timing c-timing--linear"><span>linear</span></div>
+                <div class="c-timing c-timing--step"><span>steps()</span></div>
+                <div class="c-timing c-timing--cubic"><span>cubic-bezier()</span></div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>there a few keyword functions</li>
+              <li>cubic-bezier can be tricky to master, but gives you a lot more control over how your transitions progress</li>
+              <li>lets see all of them at the same time but way slower</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="animations">
+          <div class="c-slide__header--no-body">
+            <h1>Animations</h1>
+            <h3 class="fragment">A change in property values over a specified duration of time instead of occurring immediately</h3>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>notice that is the same definition i gave for transitions</li>
+              </ul></small></aside>
+        </section>
+        <section class="animations">
+          <div class="c-slide__header">
+            <h4>Animations</h4>
+            <h3>How are they different?</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <h2 class="vs fragment"><span class="vs--animation">Animations</span>vs<span class="vs--transition">Transitions</span></h2>
+              <h3 class="c-comparison fragment">
+                <div class="c-comparison__item animations">can stack on top of each other</div>
+                <div class="c-comparison__item transitions">you only get one per element</div>
+              </h3>
+              <h3 class="c-comparison fragment">
+                <div class="c-comparison__item animations">can loop</div>
+                <div class="c-comparison__item transitions">only forward/backward</div>
+              </h3>
+              <h3 class="c-comparison fragment">
+                <div class="c-comparison__item animations">reset when finished (default)</div>
+                <div class="c-comparison__item transitions">don't reset when finished</div>
+              </h3>
+              <h3 class="c-comparison fragment">
+                <div class="c-comparison__item animations">don't reverse themselves</div>
+                <div class="c-comparison__item transitions">automatically reverse</div>
+              </h3>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>animations stack</li>
+                <li>repeatable</li>
+                <li>reset by default</li>
+                <li>don't automatically reverse</li>
+              </ul></small></aside>
+        </section>
+        <section class="animations">
+          <div class="c-slide__header">
+            <h4>Animations</h4>
+            <h3>Syntax</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex__column--center">
+                <pre class="fit-code fragment"><code class="css">.defaults {
+  animation-name: none;
+  animation-duration: 0s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}</code></pre>
+                <pre class="fit-code fragment"><code class="css">.shorthand {
+  animation: none 0s ease 0s 1 normal none running;
+}
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>default properites</li>
+                <li>shorthand</li>
+                <li>name refers to keyframe</li>
+                <li>without keyframe, you have no animation</li>
+              </ul></small></aside>
+        </section>
+        <section class="animations">
+          <div class="c-slide__header">
+            <h4>Animations</h4>
+            <h3>Keyframes</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex__column--start d-flex--spaced">
+                <pre class="fit-code"><code class="css">.example {
+  animation: spin 2s linear infinite;
+}</code><code class="css fragment">@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}</code></pre>
+                <div class="a-basic fragment"></div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>great resource - animate.css</li>
+              </ul></small></aside>
+        </section>
+        <section class="animations">
+          <div class="c-slide__header">
+            <h4>Animations</h4>
+            <h3>What Can We Animate?</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex--wrap d-flex--justify c-property-list fragment"><span>-moz-outline-radius</span><span>-moz-outline-radius-bottomleft</span><span>-moz-outline-radius-bottomright</span><span>-moz-outline-radius-topleft</span><span>-moz-outline-radius-topright</span><span>-webkit-text-fill-color</span><span>-webkit-text-stroke</span><span>-webkit-text-stroke-color</span><span>-webkit-touch-callout</span><span>all</span><span>backdrop-filter</span><span>background</span><span>background-color</span><span>background-position</span><span>background-size</span><span>border</span><span>border-bottom</span><span>border-bottom-color</span><span>border-bottom-left-radius</span><span>border-bottom-right-radius</span><span>border-bottom-width</span><span>border-color</span><span>border-left</span><span>border-left-color</span><span>border-left-width</span><span>border-radius</span><span>border-right</span><span>border-right-color</span><span>border-right-width</span><span>border-top</span><span>border-top-color</span><span>border-top-left-radius</span><span>border-top-right-radius</span><span>border-top-width</span><span>border-width</span><span>bottom</span><span>box-shadow</span><span>clip</span><span>clip-path</span><span>color</span><span>column-count</span><span>column-gap</span><span>column-rule</span><span>column-rule-color</span><span>column-rule-width</span><span>column-width</span><span>columns</span><span>filter</span><span>flex</span><span>flex-basis</span><span>flex-grow</span><span>flex-shrink</span><span>font</span><span>font-size</span><span>font-size-adjust</span><span>font-stretch</span><span>font-weight</span><span>grid-column-gap</span><span>grid-gap</span><span>grid-row-gap</span><span>height</span><span>left</span><span>letter-spacing</span><span>line-height</span><span>margin</span><span>margin-bottom</span><span>margin-left</span><span>margin-right</span><span>margin-top</span><span>mask</span><span>mask-position</span><span>mask-size</span><span>max-height</span><span>max-width</span><span>min-height</span><span>min-width</span><span>motion-offset</span><span>motion-rotation</span><span>object-position</span><span>opacity</span><span>order</span><span>outline</span><span>outline-color</span><span>outline-offset</span><span>outline-width</span><span>padding</span><span>padding-bottom</span><span>padding-left</span><span>padding-right</span><span>padding-top</span><span>perspective</span><span>perspective-origin</span><span>right</span><span>scroll-snap-coordinate</span><span>scroll-snap-destination</span><span>shape-image-threshold</span><span>shape-margin</span><span>shape-outside</span><span>text-decoration</span><span>text-decoration-color</span><span>text-emphasis</span><span>text-emphasis-color</span><span>text-indent</span><span>text-shadow</span><span>top</span><span>transform</span><span>transform-origin</span><span>vertical-align</span><span>visibility</span><span>width</span><span>word-spacing</span><span>z-index</span>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>these are the properties that are animatable</li>
+                <li>in this case 'can be changed with an animation'</li>
+                <li>not necessarily changed SMOOTHLY</li>
+                <li>rule of thumb = numeric values</li>
+                <li>exception - z-index - paper analogy</li>
+              </ul></small></aside>
+        </section>
+        <section class="animations">
+          <div class="c-slide__header">
+            <h4>Animations</h4>
+            <h3>Stacking Animations</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex__column--center u-center">
+                <div class="d-flex--justify d-flex--spaced">
+                  <div class="c-stacked-example fragment" data-fragment-index="1">
+                    <div class="ball a-bounce"></div>
+                  </div>
+                  <div class="c-stacked-example fragment" data-fragment-index="2">
+                    <div class="ball a-squish"></div>
+                  </div>
+                  <div class="c-stacked-example fragment" data-fragment-index="3">
+                    <div class="ball a-bounce a-squish"></div>
+                  </div>
+                </div>
+                <div class="d-flex--even">
+                  <div class="fragment" data-fragment-index="1" style="width: 30%">
+                    <pre><code class="css">.a-bounce {
+  animation:
+    bounce
+    1s
+    ease-out
+    infinite
+    alternate
+  ;
+}</code></pre>
+                  </div>
+                  <div class="fragment" data-fragment-index="2" style="width: 30%">
+                    <pre><code class="css">.a-squish {
+  animation:
+    squish
+    1s
+    ease-out
+    infinite
+    alternate
+  ;
+}</code></pre>
+                  </div>
+                  <div class="fragment" data-fragment-index="3" style="width: 30%">
+                    <pre><code class="css">.a-bounce.a-squish {
+  animation-name:
+    bounce,
+    squish
+  ;
+}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li></li>
+              </ul></small></aside>
+        </section>
+        <section class="animations">
+          <div class="c-slide__header">
+            <h4>Animations</h4>
+            <h3>Delayed Progress</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="c-race fragment">
+                <div class="c-race-item"><span class="a-delay--none">no delay</span></div>
+                <div class="c-race-item"><span class="a-delay--plus">positive delay</span></div>
+                <div class="c-race-item"><span class="a-delay--minus">negative delay</span></div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>3 elements: no delay, 1s delay, -1s delay</li>
+                <li>which is going to get here first?</li>
+              </ul></small></aside>
+        </section>
+        <section class="animations">
+          <div class="c-slide__header">
+            <h4>Animations</h4>
+            <h3>Change The Starting Point</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content c-delay-demos">
+              <div class="d-flex--even u-center fragment destroyable visible current-fragment">
+                <div>
+                  <h4>no delay</h4>
+                  <div class="c-spinning-cirles--none"></div>
+                </div>
+                <div>
+                  <h4>+ delay</h4>
+                  <div class="c-spinning-cirles--plus"></div>
+                </div>
+                <div>
+                  <h4>- delay</h4>
+                  <div class="c-spinning-cirles--minus"></div>
+                </div>
+              </div>
+              <div class="d-flex--even u-center fragment destroyable">
+                <div>
+                  <h4>no delay</h4>
+                  <div class="c-spinning-cirles--none is-paused"></div>
+                </div>
+                <div>
+                  <h4>+ delay</h4>
+                  <div class="c-spinning-cirles--plus is-paused"></div>
+                </div>
+                <div>
+                  <h4>- delay</h4>
+                  <div class="c-spinning-cirles--minus is-paused"></div>
+                </div>
+              </div>
+              <div class="d-flex--even u-center fragment destroyable">
+                <div>
+                  <h4>no delay</h4>
+                  <div class="c-spinning-cirles--none"></div>
+                </div>
+                <div>
+                  <h4>+ delay</h4>
+                  <div class="c-spinning-cirles--plus"></div>
+                </div>
+                <div>
+                  <h4>- delay</h4>
+                  <div class="c-spinning-cirles--minus"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li></li>
+              </ul></small></aside>
+        </section>
+        <section class="animations">
+          <div class="c-slide__header">
+            <h4>Animations</h4>
+            <h3>Chaining Timing Functions</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex--even">
+                <div class="fragment">
+                  <pre><code class="css">@keyframes sample {
+  0% {
+    animation-timing-function: ease-in;
+    ...
+  }
+  33% {
+    animation-timing-function: steps(5);
+    ...
+  }
+  66% {
+    animation-timing-function: ease-out;
+    ...
+  }
+  100% {
+    ...
+  }
+}</code></pre>
+                </div>
+                <div class="c-change-timing fragment"></div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li> </li>
+              </ul></small></aside>
+        </section>
+        <section class="animation-demos">
+          <div class="c-slide__header--no-body">
+            <h1>Animation Demos</h1>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>now lets look at a few of the things i've built along the way while learning about animations.</li>
+                <li>first up, overlooked animatable elements</li>
+              </ul></small></aside>
+        </section>
+        <section class="animation-demos">
+          <div class="c-slide__header">
+            <h4>Animation Demos</h4>
+            <h3>Often Overlooked Options</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="c-animated-bg c-animated-bg--color-blend fragment destroyable"></div>
+              <div class="c-animated-bg c-animated-bg--color-spin fragment destroyable"></div><a class="c-animated-bg c-animated-bg--3d-bars fragment destroyable" href="/dist/view/examples/bg-bars-animation.html" target="blank">
+                <div class="html">
+                  <div class="body"></div>
+                </div></a>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>animations (and pseudo elements) can be applied to almost any target</li>
+                <li>including the <html> tag</li>
+                <li>which means we can build simple full page animated backgrounds</li>
+                <li>or rediculously tedious ones</li>
+                <li>combine this with some CSS filters and you can do some really cool things</li>
+              </ul></small></aside>
+        </section>
+        <section class="animation-demos">
+          <div class="c-slide__header">
+            <h4>Animation Demos</h4>
+            <h3>Making an Entrance</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex--wrap d-flex--center c-property-list u-center--x fragment destroyable"><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span>
+              </div>
+              <div class="d-flex--wrap d-flex--center c-property-list c-property-list--fade u-center--x fragment destroyable"><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span>
+              </div>
+              <div class="d-flex--wrap d-flex--center c-property-list c-property-list--swing u-center--x fragment destroyable"><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span>
+              </div>
+              <div class="d-flex--wrap d-flex--center c-property-list c-property-list--slide u-center--x fragment destroyable"><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span><span class="c-tile"></span>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>some entrance animation examples</li>
+                <li>these can happen at page load or</li>
+                <li>they make really nice enhancements to ajax loaded data</li>
+                <li>but we aren't talking about that because its js and for the purpose of this session, we don't like js</li>
+              </ul></small></aside>
+        </section>
+        <section class="animation-demos">
+          <div class="c-slide__header">
+            <h4>Animation Demos</h4>
+            <h3>Just For Fun</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="u-center"><a class="c-button" href="/dist/view/examples/walking.html" target="blank">Walking/Running</a><a class="c-button" href="/dist/view/examples/fish.html" target="blank">Speedy the Fish</a><a class="c-button" href="/dist/view/examples/fish-3d.html" target="blank">2D in 3D</a></div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>stick figure (question opportunity: how many elements?)</li>
+                <li>speedy fish</li>
+                <li>2d 3d fish</li>
+              </ul></small></aside>
+        </section>
+        <section class="box-shadows">
+          <div class="c-slide__header">
+            <h4>Box-Shadows</h4>
+            <h3>The Basics</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="fragment destroyable">
+                <pre><code class="sass">button {
+  box-shadow: none                  ;
+}</code></pre>
+                <button class="c-button u-shadow--basic-none">no box-shadow</button>
+              </div>
+              <div class="fragment destroyable">
+                <pre><code class="sass">button {
+  box-shadow: x-offset              ;
+}</code></pre>
+                <button class="c-button u-shadow--basic-x">x-offset box-shadow</button>
+              </div>
+              <div class="fragment destroyable">
+                <pre><code class="sass">button {
+  box-shadow:          y-offset     ;
+}</code></pre>
+                <button class="c-button u-shadow--basic-y">y-offset box-shadow</button>
+              </div>
+              <div class="fragment destroyable">
+                <pre><code class="sass">button {
+  box-shadow:                   blur;
+}</code></pre>
+                <button class="c-button u-shadow--basic-blur">blurry box-shadow</button>
+              </div>
+              <div class="fragment destroyable">
+                <pre><code class="sass">button {
+  box-shadow: 10px 10px 20px;
+}</code></pre>
+                <button class="c-button u-shadow--basic-all">a basic box-shadow</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="box-shadows">
+          <div class="c-slide__header">
+            <h4>Box-Shadows</h4>
+            <h3>The Basics</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="fragment destroyable">
+                <pre><code class="sass">button {
+  box-shadow: 0 10px 20px;
+}</code></pre>
+                <div class="u-bg--default">
+                  <button class="c-button--primary u-shadow--color-inherit">I have a shadow?</button>
+                </div>
+              </div>
+              <div class="fragment destroyable">
+                <pre><code class="sass">button {
+  box-shadow: 0 10px 20px;
+}</code></pre>
+                <div class="u-bg--inverted">
+                  <button class="c-button--primary u-shadow--color-inherit">Darn straight I do!</button>
+                </div>
+              </div>
+              <div class="fragment destroyable">
+                <pre><code class="sass">button {
+  box-shadow: 0 10px 20px #333;
+}</code></pre>
+                <div class="u-bg--default">
+                  <button class="c-button--primary u-shadow--color-set">I gots all the shadows</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li><i>Why can't we see the shadow?</i> (give something away)</li>
+                <li>by default - inhert color of text</li>
+                <li>but we can define it</li>
+                <li><i>now lets look at a functional use case</i></li>
+              </ul></small></aside>
+        </section>
+        <section class="box-shadows">
+          <div class="c-slide__header">
+            <h4>Box-Shadows</h4>
+            <h3>Functional, Not Just Design</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="c-iphone fragment destroyable">
+                <ul class="c-trevor-list">
+                  <li class="c-trevor-list-item">Information</li>
+                  <li class="c-trevor-list-item">More Information</li>
+                  <li class="c-trevor-list-item">A thing you should know.</li>
+                  <li class="c-trevor-list-item">A much more intensive version of some things that might interest you. At least a little bit, we hope.</li>
+                  <li class="c-trevor-list-item">Something dumb to take up space.</li>
+                </ul>
+              </div>
+              <div class="c-iphone fragment destroyable">
+                <ul class="c-trevor-list c-trevor-list--mod">
+                  <li class="c-trevor-list-item">Information</li>
+                  <li class="c-trevor-list-item">More Information</li>
+                  <li class="c-trevor-list-item">A thing you should know.</li>
+                  <li class="c-trevor-list-item">A much more intensive version of some things that might interest you. At least a little bit, we hope.</li>
+                  <li class="c-trevor-list-item">Something dumb to take up space.</li>
+                </ul>
+              </div>
+              <div class="c-iphone fragment destroyable">
+                <ul class="c-trevor-list c-trevor-list--mod">
+                  <li class="c-trevor-list-item c-trevor-list-item--fix">Information</li>
+                  <li class="c-trevor-list-item c-trevor-list-item--fix">More Information</li>
+                  <li class="c-trevor-list-item c-trevor-list-item--fix">A thing you should know.</li>
+                  <li class="c-trevor-list-item c-trevor-list-item--fix">A much more intensive version of some things that might interest you. At least a little bit, we hope.</li>
+                  <li class="c-trevor-list-item c-trevor-list-item--fix">Something dumb to take up space.</li>
+                  <pre class="c-trevor-list__pre"><code class="sass">li {
+  box-shadow: 0 1px 0 0 white;
+}
+</code></pre>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>co-worker had a list - didn't work right on one phone</li>
+                <li>couldn't be fixed with margins or paddings or positions</li>
+                <li>the solution: put a box-shadow on the bottom</li>
+                <li>no affect on dimensions, layout means it will always go behind the next item (in this case)</li>
+                <li>but this is just telling you about box-shadows...</li>
+              </ul></small></aside>
+        </section>
+        <section class="box-shadows" data-transition="concave-in fade-out">
+          <div class="c-slide__header--no-body">
+            <h1>So why are box-shadows so great?</h1>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>so far this is very basic</li>
+                <li>"how is THIS his favorite thing in CSS?"</li>
+                <li>3 more things i haven't shown you yet</li>
+                <li>each one makes box-shadow exponentially more awesome</li>
+              </ul></small></aside>
+        </section>
+        <section class="box-shadows" data-transition="fade" data-background="../lib/images/fantastic-4.jpg" data-state="bg-image--fantastic-4">
+          <div class="c-slide__header">
+            <h1 class="u-text-shadow--light">The Fantastic 4th Number</h1>
+          </div>
+        </section>
+        <section class="box-shadows" data-transition="fade">
+          <div class="c-slide__header">
+            <h4>Box-Shadows</h4>
+            <h3>The 4th Number</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex d-flex--even fragment destroyable">
+                <div>
+                  <pre><code class="sass">box-shadow: 0 0 0 6px #ffa500;</code></pre>
+                  <button class="c-button u-shadow--spread-pos">still got a shadow</button>
+                </div>
+                <div>
+                  <pre><code class="sass">box-shadow: 0 0 0 -6px #ffa500;</code></pre>
+                  <button class="c-button u-shadow--spread-neg">still got a shadow?</button>
+                </div>
+              </div>
+              <div class="d-flex d-flex--even fragment destroyable">
+                <div>
+                  <pre><code class="sass">box-shadow: 0 20px 0 6px #ffa500;</code></pre>
+                  <button class="c-button u-shadow--spread-pos-offset">still got a shadow</button>
+                </div>
+                <div>
+                  <pre><code class="sass">box-shadow: 0 20px 0 -6px #ffa500;</code></pre>
+                  <button class="c-button u-shadow--spread-neg-offset">still got a shadow!</button>
+                </div>
+              </div>
+              <div class="fragment destroyable">
+                <pre><code class="sass">box-shadow: 0 10px 20px -5px #333;</code></pre>
+                <button class="c-button--primary u-shadow--spread-all">I love my shadow</button>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>if you've used a box shadow, you problaby know about this already</li>
+                <li>"spread radius"</li>
+                <li>how far the shadow stretches beyond the edge</li>
+              </ul></small></aside>
+        </section>
+        <section class="box-shadows" data-transition="fade" data-background="../lib/images/final-countdown.gif" data-state="bg-image--final-countdown">
+          <div class="c-slide__header">
+            <h1 class="u-text-shadow--light">Its The Final Property</h1>
+          </div>
+        </section>
+        <section class="box-shadows" data-transition="fade">
+          <div class="c-slide__header">
+            <h4>Box-Shadows</h4>
+            <h3>The Final Property</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <pre><code class="sass">box-shadow: inset 0 0 10px 0 #1e90ff;</code></pre>
+              <pre><code class="sass">box-shadow: 0 0 10px 0 #1e90ff inset;</code></pre>
+              <div class="fragment c-example-grid">
+                <button class="c-button u-shadow--inset-x-pos">x-offset</button>
+                <button class="c-button u-shadow--inset-x-neg">x-offset negative</button>
+                <button class="c-button u-shadow--inset-y-pos">y-offset</button>
+                <button class="c-button u-shadow--inset-y-neg">y-offset negative</button>
+                <button class="c-button u-shadow--inset-blur">just blurry</button>
+                <button class="c-button u-shadow--inset-spread-pos">spread positive w/blur</button>
+                <button class="c-button u-shadow--inset-spread-neg">spread negative w/blur</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="box-shadows" data-transition="fade" data-background="../lib/images/layers.jpg" data-state="bg-image--layers">
+          <div class="c-slide__header">
+            <h1 class="u-text-shadow--light">Multiple Shadows</h1>
+          </div>
+        </section>
+        <section class="box-shadows" data-transition="fade-in concave-out">
+          <div class="c-slide__header">
+            <h4>Box-Shadows</h4>
+            <h3>Multiple Shadows</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="fragment">
+                <pre><code class="sass">box-shadow:
+  0 0 0  5px #ff6347,
+  0 0 0 10px #ffa500,
+  0 0 0 15px #ffd700,
+  0 0 0 20px #32cd32,
+  0 0 0 25px #1e90ff,
+  0 0 0 30px #9370db
+;</code></pre>
+              </div>
+              <button class="c-button--rainbow u-offset--4 u-shadow--rainbow fragment destroyable">Rainbow</button>
+              <button class="c-button--rainbow u-offset--4 u-shadow--double-rainbow fragment destroyable">Double Rainbow!!!</button>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>point out list syntax</li>
+                <li>rainbow/double Rainbow</li>
+                <li>now lets look at some more practical uses for this</li>
+              </ul></small></aside>
+        </section>
+        <section class="box-shadows">
+          <div class="c-slide__header">
+            <h4>Box-Shadows</h4>
+            <h3>Multiple Shadows</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="fragment u-offset--1">
+                <button class="c-button u-shadow--3d-smooth">better 3-d effects</button>
+              </div>
+              <div class="fragment u-offset--1">
+                <button class="c-button u-shadow--3d-glow">better glowing effect</button>
+              </div>
+              <div class="fragment u-offset--1">
+                <button class="c-button u-shadow--wipe-horizontal">unique hover transitions</button>
+              </div>
+              <div class="fragment">
+                <p>animated underlines</p><a class="u-offset--1 u-shadow--underline-left" href="#">left to right</a><br/><a class="u-offset--1 u-shadow--underline-right" href="#">right to left</a><br/><a class="u-offset--1 u-shadow--underline-center" href="#">expand from center</a>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>better 3d and glow</li>
+                <li>interesting hover options</li>
+                <li>creative underlining</li>
+              </ul></small></aside>
+        </section>
+        <!-- add slide for color tiles-->
+        <section class="box-shadows">
+          <div class="c-slide__header">
+            <h4>Box-Shadows</h4>
+            <h3>Static Icons</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex--wrap d-flex--even c-property-list fragment">
+                <div class="space__icons">
+                  <div class="c-icon--battery-empty"></div>
+                </div>
+                <div class="space__icons">
+                  <div class="c-icon--battery-low"></div>
+                </div>
+                <div class="space__icons">
+                  <div class="c-icon--battery-mid"></div>
+                </div>
+                <div class="space__icons">
+                  <div class="c-icon--battery-high"></div>
+                </div>
+                <div class="space__icons">
+                  <div class="c-icon--battery-full"></div>
+                </div>
+                <div class="space__icons">
+                  <div class="c-icon--battery-charging"></div>
+                </div>
+                <div class="space__icons">
+                  <div class="calendar-icon"></div>
+                </div>
+                <div class="space__icons">
+                  <div class="c-icon--menu"></div>
+                </div>
+                <div class="space__icons">
+                  <div class="c-icon--grid-block"></div>
+                </div>
+                <div class="space__icons">
+                  <div class="c-icon--comments"></div>
+                </div>
+                <div class="space__icons">
+                  <div class="c-icon--flower"></div>
+                </div>
+                <div class="space__icons">
+                  <div class="c-icon--bar-graph"></div>
+                </div>
+                <div class="space__icons">
+                  <div class="c-icon--mic"></div>
+                </div>
+                <div class="space__icons">
+                  <div class="c-icon--desktop"></div>
+                </div>
+                <div class="space__icons">
+                  <div class="c-icon--laptop"></div>
+                </div>
+                <div class="space__icons">
+                  <div class="c-icon--tablet"></div>
+                </div>
+                <div class="space__icons">
+                  <div class="c-icon--phone-apple"></div>
+                </div>
+                <div class="space__icons">
+                  <div class="c-icon--phone-android"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>static icons</li>
+              </ul></small></aside>
+        </section>
+        <section class="box-shadows">
+          <div class="c-slide__header">
+            <h4>Box-Shadows</h4>
+            <h3>Animated Icons</h3>
+          </div>
+          <div class="c-slide__body">
+            <div class="c-slide__content">
+              <div class="d-flex--wrap d-flex--even c-property-list fragment">
+                <div class="space__icons space__icons-animated">
+                  <div class="c-icon--spin"></div>
+                </div>
+                <div class="space__icons space__icons-animated">
+                  <div class="c-icon--loading-stacks"></div>
+                </div>
+                <div class="space__icons space__icons-animated">
+                  <div class="c-icon--loading-pinwheel"></div>
+                </div>
+                <div class="space__icons space__icons-animated">
+                  <div class="c-icon--bars"></div>
+                </div>
+                <div class="space__icons space__icons-animated">
+                  <div class="c-icon--bars-wave"></div>
+                </div>
+                <div class="space__icons space__icons-animated">
+                  <div class="c-icon--progress"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>animated box-shadow icons</li>
+              </ul></small></aside>
+        </section>
+        <section class="box-shadows">
+          <div class="c-slide__body">
+            <div class="c-slide__content"><img class="codepen" data-fragment-index="1" src="../lib/images/codepen-black.png"/>
+              <h3 class="fragment" data-fragment-index="1">Set up a free account at <a href="http://codepen.io" target="blank">http://codepen.io</a></h3>
+              <h3 class="fragment">Search for a pen I created named <a href="http://bit.ly/css-totb" target="blank">"dev.Objective() 2016"</a> (bit.ly/css-totb)</h3>
+              <h2 class="fragment">Fork it.</h2>
+              <h3 class="fragment">Make it cooler using something you learned here today.</h3>
+              <h3 class="fragment">Find me. Show/tell me what you did.</h3>
+              <h2 class="fragment">Get a prize <small>(while supplies last)</small></h2>
+              <div class="d-flex d-flex--even fragment">
+                <h3>- 3 Months Free of CodePen Pro</h3>
+                <h3>- CodePen T-Shirt</h3>
+                <h3>- CodePen Hat</h3>
+              </div><br/><br/>
+              <h2 class="fragment">More demos available at<br><a href="http://bit.ly/css-totb-demos" target="blank">bit.ly/css-totb-demos</a></h2>
+            </div>
+          </div>
+          <aside class="notes"><small>
+              <ul>
+                <li>honest... we aren't going to go and implement all the tricks shown here in our prod sites</li>
+                <li>doesn't mean we can't practice them and assess the future</li>
+                <li>codepen sent over some swag</li>
+                <li>codepen challenge</li>
+                <li>first few to fork, significantly change pen, and find me to show/tell about it gets a prize</li>
+                <li>3 month pro account (2x), t-shirt (2x), hat (2x)</li>
+              </ul></small></aside>
+        </section>
+      </div>
+    </div>
+  </body>
+  <script src="../../node_modules/reveal.js/lib/js/head.min.js"></script>
+  <script src="../../node_modules/reveal.js/js/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'concave', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+        {
+          src: '../../node_modules/reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: '../../node_modules/reveal.js/plugin/notes/notes.js',
+          async: true
+        }
+      ]
+    });
+  </script>
+</html>

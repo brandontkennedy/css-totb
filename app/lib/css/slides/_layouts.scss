@@ -1,0 +1,222 @@
+// scss-lint:disable all
+
+%u-center {
+  display: block;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.u-center {
+  @include modifiers {
+    @extend %u-center;
+  }
+  
+  &--x {
+    top: auto;
+    transform: translateX(-50%);
+    
+    > .c-button {
+      width: 400px;
+    }
+  }
+
+  &--y {
+    left: auto;
+    transform: translateY(-50%);
+  }
+}
+
+
+.reveal {
+  * {
+    position: relative;
+  }
+
+  .slides > section.present {
+    //display: flex !important;
+    //flex-direction: column;
+    //max-height: 100vh;
+    //position: relative;
+  }
+  .c-slide {
+    &__header {
+      height: 100px;
+
+      &--no-body {
+        height: auto;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+      }
+    }
+
+    &__body {
+      //display: flex;
+      //height: 100vh;
+      height: calc(100% - 100px);
+      position: relative;
+    }
+
+    &__content {
+      height: 100%;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+
+      &--no-header {
+        width: 100%;
+      }
+    }
+  }
+
+  // side by side code example
+  .c-coded-example {
+    display: flex;
+    justify-content: space-between;
+    margin: {
+      top: 2rem;
+    }
+
+    &__render {
+      align-self: center;
+      width: 35%;
+    }
+
+    &__code {
+      align-self: center;
+      padding: {
+        left: 20px;
+      }
+      width: 65%;
+    }
+
+    &--stacked {
+      flex-direction: column;
+      .c-coded-example {
+        &__code,
+        &__render {
+          padding: 0;
+          width: auto;
+        }
+      }
+    }
+  }
+
+
+  .c-group {
+    position: relative;
+    &__item {
+      &--replace {
+        left: 0;
+        position: absolute;
+        top: 0;
+      }
+
+      &--center {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .c-example-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    > .c-button {
+      margin: .5rem 0;
+      width: auto;
+    }
+  }
+
+  // flexbox display
+  %d-flex {
+    display: flex;
+  }
+  .d-flex,
+  [class*=' d-flex--'],
+  [class^='d-flex--'] {
+    @extend %d-flex;
+    flex-direction: row;
+  }
+  
+  .d-flex__column,
+  [class*=' d-flex__column--'],
+  [class^='d-flex__column--'] {
+    @extend %d-flex;
+    flex-direction: column;
+  }
+  
+  .d-flex {
+    &, &__column {
+      &--wrap {
+        flex-wrap: wrap;
+      }
+      
+      &--start {
+        justify-content: flex-start;
+      }
+      
+      &--end {
+        justify-content: flex-end;
+      }
+      
+      &--center {
+        justify-content: center;
+      }
+      
+      &--justify,
+      &--justify-x {
+        justify-content: space-between;
+      }
+      
+      &--justify-y {
+        align-items: stretch;
+        
+        > * {
+          align-content: center;
+        }
+      }
+      
+      &--even {
+        justify-content: space-around;
+      }
+      
+      &--spaced {
+        > * {
+          margin: .5em;
+        }
+      }
+    }
+  }
+
+
+  .o-columns {
+    columns: 2;
+  }
+
+
+  // image alert of JS use
+  figure.has-js {
+    bottom: 5px;
+    position: fixed;
+    left: 5px;
+    width: 5vh;
+
+    img {
+      border: none;
+      box-shadow: none;
+      max-width: 100%;
+    }
+
+    figcaption {
+      display: none;
+    }
+  }
+}

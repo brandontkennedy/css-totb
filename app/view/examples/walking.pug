@@ -1,0 +1,21 @@
+<!doctype html>
+html
+  head
+    title html/body animation
+    link(rel='stylesheet', href='../../lib/css/pages/walking.min.css')
+
+  body
+    .c-scene
+      input.c-control-input(id='walk', type='radio', name='pace', checked)
+      input.c-control-input(id='run', type='radio', name='pace')
+      input.c-control-input(id='ninja', type='radio', name='pace')
+      .c-person__body
+        .c-person__head
+        .c-person__arm--left
+        .c-person__arm--right
+        .c-person__leg--left
+        .c-person__leg--right
+      .c-scene__controls
+        label.c-btn(for='walk') walk
+        label.c-btn(for='run') run
+        label.c-btn(for='ninja') ninja

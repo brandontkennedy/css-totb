@@ -1,0 +1,105 @@
+// scss-lint:disable all
+$black: #1d1f20;
+$grey: #666;
+$red: color(c);
+$green: saturate(#96b38a, 15%);
+$blue: saturate(#809bbd, 15%);
+$yellow: saturate(#ddca7e, 15%);
+$orange: saturate(#d0782a, 15%);
+$dark-orange: saturate(#a7925a, 15%);
+$purple: saturate(#9a8297, 15%);
+
+//.reveal {
+//  .c-code {
+//    &__attr {
+//      color: color(cyan, 2);
+//    }
+//
+//    &__symbol {
+//      color: color(white, 2);
+//    }
+//
+//    &__value {
+//      color: color(orange, -1);
+//    }
+//
+//    &__string {
+//      color: color(darkviolet, -6);
+//    }
+//  }
+//}
+
+.reveal {
+  pre, code {
+    background: color(a, 2);
+    border: 0;
+    border-radius: 6px;
+    font-family: 'Operator Mono';
+  }
+  
+  pre {
+    box-shadow: 0 0 6px 0 color(white);
+    display: inline-block;
+    font-size: 20px;
+    margin: {
+      left: auto;
+      right: auto;
+    }
+    padding: 4px 4px 8px;
+    width: auto;
+
+    &.invisible {
+      visibility: hidden;
+    }
+
+    &.fit-code {
+      display: inline-block;
+      margin: {
+        left: auto;
+        right: auto;
+      }
+      width: auto;
+    }
+
+    &.clear-margin {
+      margin: {
+        top: 0;
+        bottom: 0;
+      }
+    }
+  }
+
+  .hljs {
+    background: color(a, 2);
+    font-family: 'Operator Mono';
+  }
+  
+  .hljs-comment {
+    color: color(e, -3);
+  }
+  
+  .hljs-attribute {
+    color: color(b, -2);
+  }
+
+  .hljs-selector-tag,
+  .hljs-selector-class,
+  .hljs-selector-id,
+  .hljs-attr {
+    color: color(orange);
+    font-style: italic;
+  }
+  
+  .hljs-string,
+  .hljs-selector-attr {
+    color: saturate(color(yellowgreen, -2), 15%);
+  }
+  
+  .hljs-attribute {
+    color: color(c);
+  }
+  
+  .hljs-number {
+    //color: tomato;
+  }
+}

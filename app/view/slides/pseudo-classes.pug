@@ -1,0 +1,85 @@
+- var section = 'pseudo-classes'
+- var title = 'Pseudo Classes'
+
+section.pseudo-classes(data-transition='')
+  .c-slide__header--no-body
+    h1 Pseudo Classes
+    h3.fragment A CSS selectable <i>state</i> of an element.
+
+  aside.notes
+    ul
+      li what are they?
+      li a css selectable STATE of an element
+      li we should all be familiar with some of these
+
+
+
+section.pseudo-classes(data-transition='')
+  .c-slide__header--no-body
+    h1 :hover
+
+  aside.notes
+    | if you have never used hover... get out.
+
+
+
+- var classes = [':active', ':any', ':checked', ':default', ':dir()', ':disabled', ':empty', ':enabled', ':first', ':first-child', ':first-of-type', ':fullscreen', ':focus', ':hover', ':indeterminate', ':in-range', ':invalid', ':lang()', ':last-child', ':last-of-type', ':left', ':link', ':not()', ':nth-child()', ':nth-last-child()', ':nth-last-of-type()', ':nth-of-type()', ':only-child', ':only-of-type', ':optional', ':out-of-range', ':read-only', ':read-write', ':required', ':right', ':root', ':scope', ':target', ':valid', ':visited'];
+- var common = [':active', ':first-child', ':focus', ':hover', ':last-child', ':nth-child()'];
+- var uncommon = [':checked', ':first-of-type', ':invalid', ':last-of-type', ':nth-of-type()', ':required', ':valid'];
+
+section.pseudo-classes(data-transition='')
+  .c-slide__header
+    h4 Pseudo Classes
+    h2 Some You Probably Know
+  .c-slide__body
+    .c-slide__content
+      .u-center
+        each x in common
+          h3= x
+
+  aside.notes
+    ul
+      li
+
+
+
+section.pseudo-classes(data-transition='')
+  .c-slide__header
+    h4 Pseudo Classes
+    h2 Some You Might Not Know
+  .c-slide__body
+    .c-slide__content
+      .u-center
+        each x in uncommon
+          h3= x
+
+  aside.notes
+    ul
+      li some of these are going to be very integral in the creation of our JS free interactions
+
+
+
+section(class=section, data-background='../lib/images/all-the-things.png', data-state='img-right')
+  .c-slide__header
+    h4 Pseudo Classes
+    h2 All The Classes!!!
+  .c-slide__body
+    .c-slide__content
+      .d-flex--wrap.d-flex--justify.c-property-list.c-property-list--all-the-things.fragment
+        each x in classes
+          span= x
+  
+  aside.notes
+    ul
+      li In the description of this session, i promised to show you how to get great page interactions without js. these little guys are what make that possible. mostly through a little thing known as The Checkbox Hack
+
+
+
+//- section.pseudo-classes(data-transition='')
+//-   .c-slide__header--no-body
+//-     h2 So why are these important?
+//- 
+//-   aside.notes
+//-     ul
+//-       li In the description of this session, i promised to show you how to get great page interactions without js. these little guys are what make that possible. mostly through a little thing known as The Checkbox Hack
+//- //- [?] what are some ways these can be used?

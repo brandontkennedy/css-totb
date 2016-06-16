@@ -1,0 +1,296 @@
+
+<section class="animations">
+  <div class="c-slide__header--no-body">
+    <h1>Animations</h1>
+    <h3 class="fragment">A change in property values over a specified duration of time instead of occurring immediately</h3>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li>notice that is the same definition i gave for transitions</li>
+      </ul></small></aside>
+</section>
+<section class="animations">
+  <div class="c-slide__header">
+    <h4>Animations</h4>
+    <h3>How are they different?</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <h2 class="vs fragment"><span class="vs--animation">Animations</span>vs<span class="vs--transition">Transitions</span></h2>
+      <h3 class="c-comparison fragment">
+        <div class="c-comparison__item animations">can stack on top of each other</div>
+        <div class="c-comparison__item transitions">you only get one per element</div>
+      </h3>
+      <h3 class="c-comparison fragment">
+        <div class="c-comparison__item animations">can loop</div>
+        <div class="c-comparison__item transitions">only forward/backward</div>
+      </h3>
+      <h3 class="c-comparison fragment">
+        <div class="c-comparison__item animations">reset when finished (default)</div>
+        <div class="c-comparison__item transitions">don't reset when finished</div>
+      </h3>
+      <h3 class="c-comparison fragment">
+        <div class="c-comparison__item animations">don't reverse themselves</div>
+        <div class="c-comparison__item transitions">automatically reverse</div>
+      </h3>
+    </div>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li>animations stack</li>
+        <li>repeatable</li>
+        <li>reset by default</li>
+        <li>don't automatically reverse</li>
+      </ul></small></aside>
+</section>
+<section class="animations">
+  <div class="c-slide__header">
+    <h4>Animations</h4>
+    <h3>Syntax</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="d-flex__column--center">
+        <pre class="fit-code fragment"><code class="css">.defaults {
+  animation-name: none;
+  animation-duration: 0s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}</code></pre>
+        <pre class="fit-code fragment"><code class="css">.shorthand {
+  animation: none 0s ease 0s 1 normal none running;
+}
+</code></pre>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li>default properites</li>
+        <li>shorthand</li>
+        <li>name refers to keyframe</li>
+        <li>without keyframe, you have no animation</li>
+      </ul></small></aside>
+</section>
+<section class="animations">
+  <div class="c-slide__header">
+    <h4>Animations</h4>
+    <h3>Keyframes</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="d-flex__column--start d-flex--spaced">
+        <pre class="fit-code"><code class="css">.example {
+  animation: spin 2s linear infinite;
+}</code><code class="css fragment">@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}</code></pre>
+        <div class="a-basic fragment"></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li>great resource - animate.css</li>
+      </ul></small></aside>
+</section>
+<section class="animations">
+  <div class="c-slide__header">
+    <h4>Animations</h4>
+    <h3>What Can We Animate?</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="d-flex--wrap d-flex--justify c-property-list fragment"><span>-moz-outline-radius</span><span>-moz-outline-radius-bottomleft</span><span>-moz-outline-radius-bottomright</span><span>-moz-outline-radius-topleft</span><span>-moz-outline-radius-topright</span><span>-webkit-text-fill-color</span><span>-webkit-text-stroke</span><span>-webkit-text-stroke-color</span><span>-webkit-touch-callout</span><span>all</span><span>backdrop-filter</span><span>background</span><span>background-color</span><span>background-position</span><span>background-size</span><span>border</span><span>border-bottom</span><span>border-bottom-color</span><span>border-bottom-left-radius</span><span>border-bottom-right-radius</span><span>border-bottom-width</span><span>border-color</span><span>border-left</span><span>border-left-color</span><span>border-left-width</span><span>border-radius</span><span>border-right</span><span>border-right-color</span><span>border-right-width</span><span>border-top</span><span>border-top-color</span><span>border-top-left-radius</span><span>border-top-right-radius</span><span>border-top-width</span><span>border-width</span><span>bottom</span><span>box-shadow</span><span>clip</span><span>clip-path</span><span>color</span><span>column-count</span><span>column-gap</span><span>column-rule</span><span>column-rule-color</span><span>column-rule-width</span><span>column-width</span><span>columns</span><span>filter</span><span>flex</span><span>flex-basis</span><span>flex-grow</span><span>flex-shrink</span><span>font</span><span>font-size</span><span>font-size-adjust</span><span>font-stretch</span><span>font-weight</span><span>grid-column-gap</span><span>grid-gap</span><span>grid-row-gap</span><span>height</span><span>left</span><span>letter-spacing</span><span>line-height</span><span>margin</span><span>margin-bottom</span><span>margin-left</span><span>margin-right</span><span>margin-top</span><span>mask</span><span>mask-position</span><span>mask-size</span><span>max-height</span><span>max-width</span><span>min-height</span><span>min-width</span><span>motion-offset</span><span>motion-rotation</span><span>object-position</span><span>opacity</span><span>order</span><span>outline</span><span>outline-color</span><span>outline-offset</span><span>outline-width</span><span>padding</span><span>padding-bottom</span><span>padding-left</span><span>padding-right</span><span>padding-top</span><span>perspective</span><span>perspective-origin</span><span>right</span><span>scroll-snap-coordinate</span><span>scroll-snap-destination</span><span>shape-image-threshold</span><span>shape-margin</span><span>shape-outside</span><span>text-decoration</span><span>text-decoration-color</span><span>text-emphasis</span><span>text-emphasis-color</span><span>text-indent</span><span>text-shadow</span><span>top</span><span>transform</span><span>transform-origin</span><span>vertical-align</span><span>visibility</span><span>width</span><span>word-spacing</span><span>z-index</span>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li>these are the properties that are animatable</li>
+        <li>in this case 'can be changed with an animation'</li>
+        <li>not necessarily changed SMOOTHLY</li>
+        <li>rule of thumb = numeric values</li>
+        <li>exception - z-index - paper analogy</li>
+      </ul></small></aside>
+</section>
+<section class="animations">
+  <div class="c-slide__header">
+    <h4>Animations</h4>
+    <h3>Stacking Animations</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="d-flex__column--center u-center">
+        <div class="d-flex--justify d-flex--spaced">
+          <div class="c-stacked-example fragment" data-fragment-index="1">
+            <div class="ball a-bounce"></div>
+          </div>
+          <div class="c-stacked-example fragment" data-fragment-index="2">
+            <div class="ball a-squish"></div>
+          </div>
+          <div class="c-stacked-example fragment" data-fragment-index="3">
+            <div class="ball a-bounce a-squish"></div>
+          </div>
+        </div>
+        <div class="d-flex--even">
+          <div class="fragment" data-fragment-index="1" style="width: 30%">
+            <pre><code class="css">.a-bounce {
+  animation:
+    bounce
+    1s
+    ease-out
+    infinite
+    alternate
+  ;
+}</code></pre>
+          </div>
+          <div class="fragment" data-fragment-index="2" style="width: 30%">
+            <pre><code class="css">.a-squish {
+  animation:
+    squish
+    1s
+    ease-out
+    infinite
+    alternate
+  ;
+}</code></pre>
+          </div>
+          <div class="fragment" data-fragment-index="3" style="width: 30%">
+            <pre><code class="css">.a-bounce.a-squish {
+  animation-name:
+    bounce,
+    squish
+  ;
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li></li>
+      </ul></small></aside>
+</section>
+<section class="animations">
+  <div class="c-slide__header">
+    <h4>Animations</h4>
+    <h3>Delayed Progress</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="c-race fragment">
+        <div class="c-race-item"><span class="a-delay--none">no delay</span></div>
+        <div class="c-race-item"><span class="a-delay--plus">positive delay</span></div>
+        <div class="c-race-item"><span class="a-delay--minus">negative delay</span></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li>3 elements: no delay, 1s delay, -1s delay</li>
+        <li>which is going to get here first?</li>
+      </ul></small></aside>
+</section>
+<section class="animations">
+  <div class="c-slide__header">
+    <h4>Animations</h4>
+    <h3>Change The Starting Point</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content c-delay-demos">
+      <div class="d-flex--even u-center fragment destroyable visible current-fragment">
+        <div>
+          <h4>no delay</h4>
+          <div class="c-spinning-cirles--none"></div>
+        </div>
+        <div>
+          <h4>+ delay</h4>
+          <div class="c-spinning-cirles--plus"></div>
+        </div>
+        <div>
+          <h4>- delay</h4>
+          <div class="c-spinning-cirles--minus"></div>
+        </div>
+      </div>
+      <div class="d-flex--even u-center fragment destroyable">
+        <div>
+          <h4>no delay</h4>
+          <div class="c-spinning-cirles--none is-paused"></div>
+        </div>
+        <div>
+          <h4>+ delay</h4>
+          <div class="c-spinning-cirles--plus is-paused"></div>
+        </div>
+        <div>
+          <h4>- delay</h4>
+          <div class="c-spinning-cirles--minus is-paused"></div>
+        </div>
+      </div>
+      <div class="d-flex--even u-center fragment destroyable">
+        <div>
+          <h4>no delay</h4>
+          <div class="c-spinning-cirles--none"></div>
+        </div>
+        <div>
+          <h4>+ delay</h4>
+          <div class="c-spinning-cirles--plus"></div>
+        </div>
+        <div>
+          <h4>- delay</h4>
+          <div class="c-spinning-cirles--minus"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li></li>
+      </ul></small></aside>
+</section>
+<section class="animations">
+  <div class="c-slide__header">
+    <h4>Animations</h4>
+    <h3>Chaining Timing Functions</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="d-flex--even">
+        <div class="fragment">
+          <pre><code class="css">@keyframes sample {
+  0% {
+    animation-timing-function: ease-in;
+    ...
+  }
+  33% {
+    animation-timing-function: steps(5);
+    ...
+  }
+  66% {
+    animation-timing-function: ease-out;
+    ...
+  }
+  100% {
+    ...
+  }
+}</code></pre>
+        </div>
+        <div class="c-change-timing fragment"></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li> </li>
+      </ul></small></aside>
+</section>

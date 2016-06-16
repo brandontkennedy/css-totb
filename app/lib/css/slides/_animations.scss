@@ -1,0 +1,423 @@
+$speed-up: cubic-bezier(.75, .05, .85, .06);
+$slow-down: cubic-bezier(.2, .6, .3, 1);
+@mixin bounce-in-animation($name, $from: left) {
+  $adjust: 1;
+  @if $from == 'left' {
+    $adjust: -1;
+  }
+  
+  @keyframes #{$name} {
+    0% {
+      animation-timing-function: $speed-up;
+      transform: translateX(50em * $adjust);
+    }
+    80% {
+      animation-timing-function: $slow-down;
+      transform: translateX(.5em * $adjust);
+    }
+    88% {
+      animation-timing-function: $speed-up;
+      transform: translateX(5em * $adjust);
+    }
+    94% {
+      animation-timing-function: $slow-down;
+      transform: translateX(.5em * $adjust);
+    }
+    96% {
+      animation-timing-function: $speed-up;
+      transform: translateX(2em * $adjust);
+    }
+    100% {
+      animation-timing-function: $slow-down;
+      transform: translateX(.5em * $adjust);
+    }
+  }
+}
+
+.animations {
+  .vs.fragment {
+    $enter-a: unique-id();
+    $enter-b: unique-id();
+    $enter-timing: linear;
+    
+    %span {
+      display: inline-block;
+      text-transform: uppercase;
+      width: 40%;
+    }
+    
+    &.visible {
+      .vs--animation {
+        animation: #{$enter-a} 2s $enter-timing .1s forwards;
+      }
+      .vs--transition {
+        animation: #{$enter-b} 2s $enter-timing .1s forwards;
+      }
+    }
+    
+    .vs--animation {
+      @extend %span;
+      color: color(c);
+      text-align: right;
+      transform: translateX(-40em);
+    }
+    
+    .vs--transition {
+      @extend %span;
+      color: color(b);
+      text-align: left;
+      transform: translateX(40em);
+    }
+    
+    @include bounce-in-animation('#{$enter-a}');
+    @include bounce-in-animation('#{$enter-b}', 'right');
+  }
+  
+  
+  .c-comparison {
+    @extend .d-flex;
+    @extend .d-flex--justify;
+    margin: 0;
+
+    &__item {
+      margin: .5em 1em;
+      flex-grow: 1;
+      text-align: center;
+      width: 50%;
+    }
+  }
+
+
+  // animatable properties
+  .c-property-list {
+    @include property-list(color(f), 120);
+  }
+  
+  .a-basic {
+    animation: basic 2s linear infinite;
+    background: color(e);
+    height: 1em;
+    margin: 2em auto;
+    width: 4em;
+    @keyframes basic {
+      from {
+        transform: rotate(0);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+
+  // staked demos
+  .c-stacked-example {
+    border-bottom: 2px solid color(a, -4);
+    font-size: 40px;
+    height: 2.1em;
+    width: 30%;
+  }
+  
+  .ball {
+    background: color(c, -4);
+    border-radius: 50%;
+    bottom: 0;
+    box-shadow: (
+      inset .1em -.1em .4em -.1em rgba(color(c, 8), .5),
+      inset 0 -.1em 1em -.2em rgba(color(a), .6),
+      inset .3em -.7em .5em .8em color(c),
+    );
+    height: 2em;
+    left: 50%;
+    margin-left: -1em;
+    position: absolute;
+    width: 2em;
+    
+    + pre {
+      margin-top: 5em;
+    }
+  }
+  
+  .a-bounce {
+    animation: bounce 1s ease-out infinite alternate;
+    
+    &.a-squish {
+      animation-name: bounce, squish;
+    }
+  }
+  
+  .a-squish {
+    animation: squish 1s ease-out infinite alternate;
+  }
+  
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    10% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-5em);
+    }
+  }
+
+  @keyframes squish {
+    0% {
+      height: 1.2em;
+      margin-left: -1.4em;
+      width: 2.8em;
+    }
+    10% {
+      height: 2em;
+      margin-left: -1em;
+      width: 2em;
+    }
+    100% {
+      height: 2em;
+      margin-left: -1em;
+      width: 2em;
+    }
+  }
+}
+
+
+// delay demos
+.c-race-item {
+  height: 4em;
+  width: 100%;
+}
+
+.a-delay {
+  @include modifiers {
+    .reveal .fragment.visible & {
+      animation: delay 4s ease-out forwards;
+      color: color(white);
+      display: inline-block;
+      left: 50%;
+      padding: .5em 1.5em;
+      position: absolute;
+      transform: translateX(-1000%);
+      width: 10em;
+    }
+  }
+}
+
+.reveal .fragment.visible .a-delay {
+  &--none {
+    animation-delay: 0;
+    background: color(b);
+  }
+  
+  &--plus {
+    animation-delay: 1s;
+    background: color(f);
+  }
+  
+  &--minus {
+    animation-delay: -1s;
+    background: color(c);
+  }
+  
+  @keyframes delay {
+    from {
+      transform: translateX(-1000%);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+
+@mixin spinCircle($size, $color, $width: 10px) {
+  border: $width solid $color;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  height: $size;
+  width: $size;
+}
+.c-spinning-cirles {
+  $spin: unique-id();
+  $dur-main: 6s;
+  $dur-before: (($dur-main / 4) * 3);
+  $dur-after: ($dur-main / 2);
+  
+  @include modifiers {
+    .reveal & {
+      @include spinCircle(200px, color(b, 3), 15px);
+      box-sizing: content-box;
+      position: relative;
+      
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+      }
+      
+      &:before {
+        @include spinCircle(150px, color(b), 15px);
+        left: 10px;
+        top: 10px;
+      }
+      
+      &:after {
+        @include spinCircle(100px, color(b, -3), 15px);
+        left: 35px;
+        top: 35px;
+      }
+      
+      &.is-paused {
+        &, &:before, &:after {
+          animation-play-state: paused;
+        }
+      }
+    }
+  }
+  
+  &--none {
+    animation: $spin $dur-main linear infinite;
+    
+    &:before {
+      animation: $spin $dur-before linear infinite reverse;
+    }
+    
+    &:after {
+      animation: $spin $dur-after linear infinite;
+    }
+  }
+  
+  &--plus {
+    animation: $spin $dur-main linear infinite;
+    
+    &:before {
+      animation: $spin $dur-before linear $dur-after infinite reverse;
+    }
+    
+    &:after {
+      animation: $spin $dur-after linear $dur-before infinite;
+    }
+  }
+  
+  &--minus {
+    animation: $spin $dur-main linear infinite;
+    
+    &:before {
+      animation: $spin $dur-before linear -#{$dur-after} infinite reverse;
+    }
+    
+    &:after {
+      animation: $spin $dur-after linear -#{$dur-before} infinite;
+    }
+  }
+  
+  @keyframes #{$spin} {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.c-delay-loading {
+  $spin: unique-id();
+  $len: 2s;
+  @include modifiers {
+    div {
+      animation: $spin $len linear infinite;
+      background: linear-gradient(-45deg, color(c) 20%, color(g) 70%, color(white) 70%, color(white) 75%);
+      border-radius: 2em;
+      height: 2em;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 2em;
+      
+      &:nth-child(2) {
+        left: 2em;
+      }
+      
+      &:nth-child(3) {
+        top: 2em;
+      }
+      
+      &:nth-child(4) {
+        left: 2em;
+        top: 2em;
+      }
+    }
+  }
+  
+  &--plus {
+    div {
+      &:nth-child(2) {
+        animation-delay: ($len * .25);
+      }
+      &:nth-child(3) {
+        animation-delay: ($len * .75);
+      }
+      &:nth-child(4) {
+        animation-delay: ($len * .5);
+      }
+    }
+  }
+  
+  &--minus {
+    div {
+      &:nth-child(2) {
+        animation-delay: ($len * -.25);
+      }
+      &:nth-child(3) {
+        animation-delay: ($len * -.75);
+      }
+      &:nth-child(4) {
+        animation-delay: ($len * -.5);
+      }
+    }
+  }
+  
+  @keyframes #{$spin} {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.c-change-timing.visible {
+  $keyframe: unique-id();
+  
+  animation: $keyframe 3s linear infinite alternate;
+  background: color(b);
+  border-radius: 10px;
+  height: 60px;
+  //position: absolute;
+  transform-origin: center;
+  width: 60px;
+  
+  @keyframes #{$keyframe} {
+    0% {
+      animation-timing-function: ease-in;
+      //top: 10%;
+      transform: translateY(0px);
+    }
+    33% {
+      animation-timing-function: steps(5);
+      //top: 33%;
+      transform: translateY(100px);
+    }
+    66% {
+      animation-timing-function: ease-out;
+      //top: 66%;
+      transform: translateY(200px);
+    }
+    100% {
+      //top: 90%;
+      transform: translateY(300px);
+    }
+  }
+}

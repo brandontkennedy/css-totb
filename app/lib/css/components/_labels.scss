@@ -1,0 +1,166 @@
+$font-size: 20px;
+.c-form {
+  @include modifiers {
+    .reveal & {
+      //border: 2px solid color(a);
+      //border-radius: 4px;
+      font-size: $font-size;
+      margin-top: $font-size;
+      padding: $font-size;
+      text-align: left;
+    }
+  }
+  
+  .reveal & {
+    .c-form-group {
+      * {
+        font-size: $font-size;
+      }
+      
+      // default - stacked
+      .c-label {
+        display: block;
+        width: 100%;
+        
+        .c-input {
+          margin-top: .5em;
+        }
+      }
+      
+      .c-input {
+        display: block;
+        width: 100%;
+      }
+      
+      // inline
+      &--inline {
+        $label-width: 100px;
+        
+        font-size: 0;
+        
+        * {
+          font-size: $font-size;
+        }
+        
+        .c-label {
+          display: inline-block;
+          padding: ($font-size / 2) 0;
+          width: $label-width;
+        }
+        
+        .c-input {
+          display: inline-block;
+          width: calc(100% - #{$label-width});
+        }
+        
+        //&.t-one {
+        //  background: color(white);
+        //  margin-bottom: 1em;
+        //  
+        //  .c-label {
+        //    color: color(e);
+        //    left: 0;
+        //    position: absolute;
+        //    bottom: 0;
+        //  }
+        //  
+        //  .c-input {
+        //    background: none;
+        //    border: 0;
+        //    border-bottom: 1px solid color(e);
+        //    display: block;
+        //    margin-bottom: 0;
+        //    padding-left: $label-width + ($font-size / 2);
+        //    width: 100%;
+        //    
+        //    &:focus {
+        //      border-color: color(b);
+        //    }
+        //  }
+        //}
+      }
+      
+      // placeholder as label
+      &--placeholder {
+        .c-input {
+          display: block;
+          width: 100%;
+        }
+        
+        ::-webkit-input-placeholder {
+          color: color(a);
+        }
+        :-moz-placeholder { /* Firefox 18- */
+          color: color(a);
+        }
+        ::-moz-placeholder {  /* Firefox 19+ */
+          color: color(a);
+        }
+        :-ms-input-placeholder {  
+          color: color(a);
+        }
+      }
+      
+      &--inset {
+        position: relative;
+        
+        .c-input {
+          display: block;
+          padding: ($font-size - 5) ($font-size / 2) ($font-size - ($font-size - 5));
+          width: 100%;
+          
+          &:focus, &:valid {
+            + .c-label--inset {
+              border-color: color(a);
+              font-size: .75em;
+              opacity: .7;
+              top: 0;
+            }
+          }
+        }
+        
+        .c-label--inset {
+          display: block;
+          left: $font-size / 2;
+          opacity: 1;
+          pointer-events: none;
+          position: absolute;
+          top: $font-size / 2;
+          transition: all .3s ease-in-out;
+        }
+      }
+    }
+    
+    &__break {
+      //border-top: 1px solid color(white, 4);
+      display: block;
+      height: 1px;
+      margin: 2em auto;
+      width: 100%;
+    }
+    
+    &__actions {
+      display: flex;
+      justify-content: space-between;
+      
+      > * {
+        margin: .5em;
+      }
+    }
+  }
+}
+
+.reveal {
+  .c-input {
+    border: 1px solid color(a);
+    border-radius: 2px;
+    font-size: $font-size;
+    margin-bottom: 1em;
+    padding: $font-size / 2;
+    
+    &:focus, &:active {
+      border-color: color(b);
+      outline: 0;
+    }
+  }
+}

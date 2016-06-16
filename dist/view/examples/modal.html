@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>CSS - Thinking Outside the Box</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+    <link rel="stylesheet" href="../../lib/css/index.min.css"/>
+  </head>
+  <body class="reveal" itemscope="" itemtype="http://schema.org/WebPage">
+    <input class="c-modal__control c-control-input--visible" id="modal-control" type="checkbox" name="modal-control"/>
+    <label class="c-button" for="modal-control">trigger modal</label>
+    <div class="c-modal__container">
+      <div class="c-modal__header">
+        <label class="c-button--close" for="modal-control"></label>
+        <h4 class="c-modal__title">Modal Title</h4>
+      </div>
+      <div class="c-modal__body">
+        <p>this is the content of the modal</p>
+      </div>
+      <div class="c-modal__footer">
+        <div class="c-modal__actions">
+          <label class="c-button" for="modal-control">Cancel</label><a class="c-button--primary" href="#">Continue</a>
+        </div>
+      </div>
+    </div>
+    <label class="c-modal__backdrop" for="modal-control"></label>
+  </body>
+</html>

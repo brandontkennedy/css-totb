@@ -1,0 +1,53 @@
+
+
+.c-control-input {
+  left: -999em !important;
+  position: fixed !important;
+  
+  &--visible {
+    left: -2em !important;
+    position: absolute !important;
+    zoom: 2;
+  }
+}
+
+.checkbox-hack {
+  #agree {
+    &:checked {
+      ~ .sign-up-button {
+        //background: color(b);
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+
+    ~ .sign-up-button {
+      //background: color(a);
+      font-size: 18px;
+      height: 2em;
+      line-height: 1em;
+      opacity: .4;
+      pointer-events: none;
+      transition: all .3s ease-in-out;
+    }
+  }
+
+  .ex {
+    &--rendered {
+      margin: 1em auto;
+      //order: 2;
+    }
+
+    &--html {
+      //order: 1;
+    }
+
+    &--css {
+      //order: 3;
+    }
+  }
+  
+  #modal-state {
+    
+  }
+}

@@ -1,0 +1,85 @@
+html.bg-image {
+  &--fantastic-4 {
+    background: url('../images/fantastic-4.jpg') no-repeat center/cover;
+    
+    body {
+      background: none;
+    }
+  }
+  
+  &--final-countdown {
+    background: url('../images/final-countdown.jpg') no-repeat center/cover;
+    
+    body {
+      background: none;
+    }
+  }
+  
+  &--layers {
+    background: url('../images/layers.jpg') no-repeat center/cover;
+    
+    body {
+      background: none;
+    }
+  }
+}
+
+.reveal section img {
+  border: 0;
+  box-shadow: none;
+  
+  &.codepen {
+    left: 50%;
+    opacity: .1 !important;
+    position: fixed;
+    top: 0;
+    transform: translateX(-50%);
+  }
+  
+  &.jonas,
+  &.charlie,
+  &.xbox,
+  &.disc-golf,
+  &.knives {
+    position: fixed;
+    width: 200px;
+    z-index: -1;
+  }
+  
+  &.jonas {
+    left: 0;
+    top: -20%;
+    transform: rotate(-10deg);
+    width: 300px;
+  }
+  
+  &.charlie {
+    right: 0%;
+    top: -20%;
+    transform: rotate(10deg);
+    width: 300px;
+  }
+
+  &.xbox {
+    left: 50%;
+    top: 68%;
+    transform: rotate(0deg) translateX(-50%);
+    z-index: -3;
+  }
+
+  &.disc-golf {
+    left: 10%;
+    top: 50%;
+    transform: rotate(7deg);
+    width: 200px;
+    z-index: 0;
+  }
+
+  &.knives {
+    right: 10%;
+    top: 50%;
+    transform: rotate(-7deg);
+    width: 200px;
+    z-index: 0;
+  }
+}

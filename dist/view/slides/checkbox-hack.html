@@ -1,0 +1,135 @@
+
+<section class="checkbox-hack">
+  <div class="c-slide__header--no-body">
+    <h1>The "Checkbox Hack"</h1>
+    <h3 class="fragment">Nesting styles after a <i>:checked</i> pseudo class on a checkbox to gain functionality instead of just style</h3>
+  </div>
+  <aside class="notes">
+    <ul>
+      <li>often used in combination with animations/transitions</li>
+      <li>built a nice basic one to show you how it works</li>
+    </ul>
+  </aside>
+</section>
+<section class="checkbox-hack" data-transition="">
+  <div class="c-slide__header">
+    <h4>The "Checkbox Hack"</h4>
+    <h2>A Basic Example</h2>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="d-flex__column">
+        <div class="ex--rendered">
+          <input id="agree" type="checkbox" name="agree"/>
+          <label for="agree">I blindly agree to your rules</label>
+          <button class="c-button--primary sign-up-button">Sign Me Up</button>
+        </div>
+        <div class="d-flex--center d-flex--spaced">
+          <div class="ex--html fragment">
+            <h6>markup</h6>
+            <pre><code class="html"><input id="agree" type="checkbox">
+  
+<label for="agree">I blindly agree to your rules</label>
+  
+<button class="sign-up-button">Sign Me Up</button></code></pre>
+          </div>
+          <div class="ex--css fragment">
+            <h6>CSS</h6>
+            <pre><code class="sass">#agree:checked ~ .sign-up-button {
+  opacity: 1;
+  pointer-events: all;
+}
+  
+#agree ~ .sign-up-button {
+  opacity: .6;
+  pointer-events: none;
+}</code></pre>
+          </div>
+        </div>
+        <p class="fragment">( https://css-tricks.com/child-and-sibling-selectors/ )</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    <ul>
+      <li>actually show the checkbox</li>
+      <li>common practice is to nest input in label - that won't work here</li>
+      <li>everything that changes based on :checked must be easily decended from the checkbox</li>
+      <li>lets look something more complex</li>
+    </ul>
+  </aside>
+</section>
+<section class="checkbox-hack" data-transition="">
+  <div class="c-slide__header">
+    <h4>The "Checkbox Hack"</h4>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <h2>A Checkbox Powered Modal</h2><a href="/dist/view/examples/modal.html" target="blank">demo</a>
+    </div>
+  </div>
+  <aside class="notes">
+    <ul>
+      <li>label/id relationship allows multiple labels</li>
+      <li>point out what items are labels</li>
+      <li>36 lines of CSS (prefixed, and cleanly organized)</li>
+      <li>40 lines of easy to read SCSS</li>
+      <li>vs 338 for bootstrap modal.js (PLUS jQuery)</li>
+    </ul>
+  </aside>
+</section>
+<section class="checkbox-hack" data-transition="">
+  <div class="c-slide__header">
+    <h4>The "Checkbox Hack"</h4>
+    <h2>Expand/Collapse & Dropdowns</h2>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="d-flex--even">
+        <div class="c-accordion" style="width: 50%">
+          <div class="c-accordion__item">
+            <input class="c-accordion__control c-control-input--visible" id="accordion-item--one" type="checkbox" name="accordion"/>
+            <label class="c-accordion__trigger" for="accordion-item--one">Lorem ipsum dolor sit amet</label>
+            <p class="c-accordion__content">Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.</p>
+          </div>
+          <div class="c-accordion__item">
+            <input class="c-accordion__control c-control-input--visible" id="accordion-item--two" type="checkbox" name="accordion"/>
+            <label class="c-accordion__trigger" for="accordion-item--two">Lorem ipsum dolor sit amet</label>
+            <p class="c-accordion__content">Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.</p>
+          </div>
+          <div class="c-accordion__item">
+            <input class="c-accordion__control c-control-input--visible" id="accordion-item--three" type="checkbox" name="accordion"/>
+            <label class="c-accordion__trigger" for="accordion-item--three">Lorem ipsum dolor sit amet</label>
+            <p class="c-accordion__content">Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.</p>
+          </div>
+        </div>
+        <div class="c-dropdown">
+          <input class="c-dropdown__control c-control-input--visible" id="dropdown" type="checkbox" name="dropdown"/>
+          <div class="c-dropdown__container">
+            <label class="c-button c-dropdown__trigger" for="dropdown">options</label>
+            <ul class="c-dropdown__menu">
+              <li class="c-dropdown__menu-item">
+                <label class="c-link" for="theme-one">option one</label>
+              </li>
+              <li class="c-dropdown__menu-item">
+                <label class="c-link" for="theme-two">option two</label>
+              </li>
+              <li class="c-dropdown__menu-item">
+                <label class="c-link" for="theme-three">option three</label>
+              </li>
+              <li class="c-dropdown__menu-item">
+                <label class="c-link" for="theme-four">option four</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    <ul>
+      <li>same concept, don't explain in detail</li>
+      <li>just for show to help give creative starting points</li>
+    </ul>
+  </aside>
+</section>

@@ -1,0 +1,138 @@
+
+.reveal
+  // Any section element inside of this container is displayed as a slide
+  .slides
+    include welcome
+
+    //- include about-me
+
+    //- include intro
+    //- may change this to a site mockup demo with modals, fancy labels, menus, and content entrance animations
+    
+    //- "before we get into HOW this is possible, we really should do a quick review of the parts necessary for this to work.  we'll need to know "
+
+    section(class=section)
+      .c-slide__header
+        h4 What Are We Going To Learn About?
+      .c-slide__body
+        .c-slide__content
+          .fragment
+            h3 Pseudo Elements
+            h3 Pseudo Classes
+            h3 Transitions
+            h3 Animations
+            h3 Box-Shadows
+      aside.notes
+        small
+          ul
+            li session description said no js
+            li we need to know some things to make that possible
+            li i threw box-shadows on there because i really like them
+            li anybody else here REALLY like box-shadows?
+
+    //- Pseudo Elements - (quick review):
+    include pseudo-elements
+    //- Before & afters
+    //- positioning (inline element, where they are, etc)
+    //- z-index = -1
+    //- data- attributes as content
+
+    //- Pseudo-classes- (quick review):
+    include pseudo-classes
+    //- common - :hover, :focus, :active
+    //- uncommon - :valid, :invalid, :checked, :required
+    //- [todo] get a definitive list
+    //- [?] what are some ways these can be used?
+
+
+    //- The Checkbox Hack:
+    include checkbox-hack
+    //- [example] open a modal with a checkbox
+    //- show how it works - the html & the css selector
+    //- [example] - slide out menus (don't go in to details on this one)
+
+    //- Other Pseudo-class Hacks:
+    include checkbox-hack-beyond
+    //- [example] label tranformation on focus/validation
+    //- show how it works
+    //- [segue] we saw a lot of beautiful transitions, let's talk about those now.
+
+
+    //- Transitions (quick review):
+    include transitions
+    //- specifying what will transition (all the things?, just the color?)
+    //- making a different transition happen in different states (like stopping hovering)
+    //- timing functions - what they are
+    //- timing functions - when to use what (if time)
+
+    //- Animations:
+    include animations
+    //- basic syntax
+    //- list animatable properties
+    //- combining multiple animations
+    //- adjusting starting position with "delay" (negative is a thing!)
+    //- chaining timing functions while animation is in progress (inside keyframes)
+
+    //- Animation Examples:
+    include animation-examples
+    //- subtle- bounce-in animation/fades
+    //- cool- the fish
+    //- complex- walking stick man
+    //- [segue] All of these things are super cool, but i saved the best for last...
+
+
+    //- Box Shadow Basics (Quick review):
+    include box-shadows
+    //- [done] box-shadow basics (and why it's important)
+    //- [example] - fixing the gaps for trevor
+    //- [example] - longshadow
+
+    //- Advanced Box Shadows:
+    include box-shadows-advanced
+    //- [example] icons (in just box shadow)
+    //- [example] icons (same one but with ugly colors so we see how it's put together)
+    //- [example] animated icon (simple)
+    //- [example] animated icon (detailed)
+
+    //- Combining it all:
+    //- base element provides the size and position of center circles ONLY
+    //- 2 pseudo elements creating the center circles only
+    //- both pseudo elements have the same animation changing their border-radius elliptically
+    //- the :after has an additional property reversing the animation
+    //- the 2 outer circles are just box-shadows of the pseudo elements
+    //- the entire thing is sized in ems so it is completely scalable with font-size
+
+    //- More Examples:
+    //- some loader with circle box shadows like the motives one or something
+
+    section(class=section)
+      //- .c-slide__header
+        //- h4 Homework
+      .c-slide__body
+        .c-slide__content
+          img.codepen(data-fragment-index="1" src="../lib/images/codepen-black.png")
+          h3.fragment(data-fragment-index="1") Set up a free account at <a href="http://codepen.io" target="blank">http://codepen.io</a>
+          h3.fragment Search for a pen I created named <a href="http://bit.ly/css-totb" target="blank">"dev.Objective() 2016"</a> (bit.ly/css-totb)
+          h2.fragment Fork it.
+          h3.fragment Make it cooler using something you learned here today.
+          h3.fragment Find me. Show/tell me what you did.
+          h2.fragment Get a prize <small>(while supplies last)</small>
+          .d-flex.d-flex--even.fragment
+            h3 - 3 Months Free of CodePen Pro
+            h3 - CodePen T-Shirt
+            h3 - CodePen Hat
+          br
+          br
+          h2.fragment More demos available at<br><a href="http://bit.ly/css-totb-demos" target="blank">bit.ly/css-totb-demos</a>
+
+      aside.notes
+        small
+          ul
+            li honest... we aren't going to go and implement all the tricks shown here in our prod sites
+            li doesn't mean we can't practice them and assess the future
+            li codepen sent over some swag
+            li codepen challenge
+            li first few to fork, significantly change pen, and find me to show/tell about it gets a prize
+            li 3 month pro account (2x), t-shirt (2x), hat (2x)
+
+    //- include welcome

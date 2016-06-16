@@ -1,0 +1,135 @@
+
+
+// scss-lint:disable all
+.example {
+  position: relative;
+  text-align: center;
+
+  //****************************************
+  // start sass variables
+  //
+  $color-a: #ff6347; // tomato
+  $color-b: #32cd32; // limegreen
+  $color-c: #1e90ff; // dodgerblue
+
+  $thickness: .15;
+  $spacing: .2;
+
+  $animation-duration: 1.25s;
+  $animation-delay: -#{$animation-duration / 5};
+  $transition: all .5s ease-in-out;
+
+  $i-opts: ('xs', 'sm', 'md', 'lg', 'xl');
+  $i-size: (
+    'xs': 2rem,
+    'sm': 4rem,
+    'md': 6rem,
+    'lg': 8rem,
+    'xl': 10rem
+  );
+  //
+  // end sass variables
+  //****************************************
+
+  //****************************************
+  // start utilities
+  //
+  %center {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  //
+  // end utilities
+  //****************************************
+
+  .prettyprint {
+    display: inline-block;
+    margin: {
+      top: 40px;
+    }
+
+    &.invisible {
+      visibility: hidden;
+    }
+  }
+
+  //****************************************
+  // start define size variations
+  //
+  .loading {
+    font-size: 3em;
+    @each $i in $i-opts {
+      &-#{$i} {
+        $size: #{map-get($i-size, $i)};
+        font-size: $size;
+      }
+    }
+  }
+  //
+  // end define size variations
+  //****************************************
+
+  //****************************************
+  // start loading icon styles
+  //
+  [class*="loading"] {
+    $space: #{1em + (1em * $spacing)};
+    display: inline-block;
+    height: #{$space};
+    // left: 50%;
+    margin: auto;
+    position: relative;
+    // transform: translateX(-50%);
+    width: calc(#{$space} * 3);
+    &:not(.stripped) {
+      &:before, &:after {
+        animation: loading $animation-duration linear $animation-delay infinite;
+        content: "";
+        @extend %center;
+      }
+      &:before {
+        background: $color-b;
+        border-radius: 80% 20% / 20% 80%;
+        box-shadow:
+          -$space 0 0 0 $color-a,
+          $space 0 0 0 $color-c
+        ;
+        height: 1em;
+        width: 1em;
+      }
+      &:after {
+        animation: {
+          direction: reverse;
+        };
+        background: white;
+        border-radius: 20% 80% / 80% 22%;
+        box-shadow:
+          -$space 0 0 0 white,
+          $space 0 0 0 white
+        ;
+        height: #{1em - ((1em * $thickness) * 2)};
+        width: #{1em - ((1em * $thickness) * 2)};
+      }
+    }
+  }
+  //
+  // end loading icon styles
+  //****************************************
+
+  //****************************************
+  // start animation keyframes
+  //
+  @keyframes loading {
+    from {
+      border-radius: 100% 0% / 0% 100%;
+    }
+    to {
+      border-radius: 0% 100% / 100% 0%;
+    }
+  }
+  //
+  // end animation keyframes
+  //****************************************
+}

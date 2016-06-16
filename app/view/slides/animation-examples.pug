@@ -1,0 +1,92 @@
+- var section = 'animation-demos'
+- var title = 'Animation Demos'
+
+section(class=section)
+  .c-slide__header--no-body
+    h1=title
+
+  aside.notes
+    small
+      ul
+        li now lets look at a few of the things i've built along the way while learning about animations.
+        li first up, overlooked animatable elements
+
+
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h3 Often Overlooked Options
+  .c-slide__body
+    .c-slide__content
+      .c-animated-bg.c-animated-bg--color-blend.fragment.destroyable
+      .c-animated-bg.c-animated-bg--color-spin.fragment.destroyable
+      a.c-animated-bg.c-animated-bg--3d-bars.fragment.destroyable(href="/dist/view/examples/bg-bars-animation.html", target="blank")
+        .html
+          .body
+
+  aside.notes
+    small
+      ul
+        li animations (and pseudo elements) can be applied to almost any target
+        li including the <html> tag
+        li which means we can build simple full page animated backgrounds
+        li or rediculously tedious ones
+        li combine this with some CSS filters and you can do some really cool things
+
+
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h3 Making an Entrance
+  .c-slide__body
+    .c-slide__content
+      .d-flex--wrap.d-flex--center.c-property-list.u-center--x.fragment.destroyable
+        - for(var i = 1; i <= 12; i++){
+          span.c-tile
+        - }
+
+      .d-flex--wrap.d-flex--center.c-property-list.c-property-list--fade.u-center--x.fragment.destroyable
+        - for(var i = 1; i <= 12; i++){
+          span.c-tile
+        - }
+
+      .d-flex--wrap.d-flex--center.c-property-list.c-property-list--swing.u-center--x.fragment.destroyable
+        - for(var i = 1; i <= 12; i++){
+          span.c-tile
+        - }
+
+      .d-flex--wrap.d-flex--center.c-property-list.c-property-list--slide.u-center--x.fragment.destroyable
+        - for(var i = 1; i <= 12; i++){
+          span.c-tile
+        - }
+
+  aside.notes
+    small
+      ul
+        li some entrance animation examples
+        li these can happen at page load or
+        li they make really nice enhancements to ajax loaded data
+        li but we aren't talking about that because its js and for the purpose of this session, we don't like js
+
+
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h3 Just For Fun
+  .c-slide__body
+    .c-slide__content
+      .u-center
+        a.c-button(href="/dist/view/examples/walking.html", target="blank") Walking/Running
+        a.c-button(href="/dist/view/examples/fish.html", target="blank") Speedy the Fish
+        a.c-button(href="/dist/view/examples/fish-3d.html", target="blank") 2D in 3D
+
+  aside.notes
+    small
+      ul
+        li stick figure (question opportunity: how many elements?)
+        li speedy fish
+        li 2d 3d fish
+

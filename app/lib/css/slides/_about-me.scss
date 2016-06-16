@@ -1,0 +1,75 @@
+.arrows {
+  bottom: 0;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.arrow-pos {
+  bottom: 0;
+  height: 15em;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  transform-origin: 0 30em;
+  width: 5em;
+
+  &:nth-child(1) {
+    transform: rotate(-20deg) translateX(-50%);
+  }
+  &:nth-child(2) {
+    transform: rotate(0deg) translateX(-50%);
+  }
+  &:nth-child(3) {
+    transform: rotate(20deg) translateX(-50%);
+  }
+}
+
+.arrow {
+  height: 15em;
+  transform: scale(0);
+  width: 5em;
+
+  &:before,
+  &:after {
+    border: 2.5em solid transparent {
+      bottom: 0;
+      top: 5em solid color(c);
+    };
+    bottom: 0;
+    content: '';
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+  }
+
+  &:before {
+    border: 1.5em solid transparent {
+      bottom: 0;
+      top: 15em solid color(c);
+    };
+  }
+}
+
+.visible {
+  .arrow-pos {
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}) .arrow {
+        animation-delay: #{$i * .125}s;
+      }
+    }
+  }
+
+  .arrow {
+    animation: pop-in 0.35s cubic-bezier(0, 1.5, .6, 1.5) forwards;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}

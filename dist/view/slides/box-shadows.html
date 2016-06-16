@@ -1,0 +1,380 @@
+
+<section class="box-shadows">
+  <div class="c-slide__header">
+    <h4>Box-Shadows</h4>
+    <h3>The Basics</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="fragment destroyable">
+        <pre><code class="sass">button {
+  box-shadow: none                  ;
+}</code></pre>
+        <button class="c-button u-shadow--basic-none">no box-shadow</button>
+      </div>
+      <div class="fragment destroyable">
+        <pre><code class="sass">button {
+  box-shadow: x-offset              ;
+}</code></pre>
+        <button class="c-button u-shadow--basic-x">x-offset box-shadow</button>
+      </div>
+      <div class="fragment destroyable">
+        <pre><code class="sass">button {
+  box-shadow:          y-offset     ;
+}</code></pre>
+        <button class="c-button u-shadow--basic-y">y-offset box-shadow</button>
+      </div>
+      <div class="fragment destroyable">
+        <pre><code class="sass">button {
+  box-shadow:                   blur;
+}</code></pre>
+        <button class="c-button u-shadow--basic-blur">blurry box-shadow</button>
+      </div>
+      <div class="fragment destroyable">
+        <pre><code class="sass">button {
+  box-shadow: 10px 10px 20px;
+}</code></pre>
+        <button class="c-button u-shadow--basic-all">a basic box-shadow</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="box-shadows">
+  <div class="c-slide__header">
+    <h4>Box-Shadows</h4>
+    <h3>The Basics</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="fragment destroyable">
+        <pre><code class="sass">button {
+  box-shadow: 0 10px 20px;
+}</code></pre>
+        <div class="u-bg--default">
+          <button class="c-button--primary u-shadow--color-inherit">I have a shadow?</button>
+        </div>
+      </div>
+      <div class="fragment destroyable">
+        <pre><code class="sass">button {
+  box-shadow: 0 10px 20px;
+}</code></pre>
+        <div class="u-bg--inverted">
+          <button class="c-button--primary u-shadow--color-inherit">Darn straight I do!</button>
+        </div>
+      </div>
+      <div class="fragment destroyable">
+        <pre><code class="sass">button {
+  box-shadow: 0 10px 20px #333;
+}</code></pre>
+        <div class="u-bg--default">
+          <button class="c-button--primary u-shadow--color-set">I gots all the shadows</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li><i>Why can't we see the shadow?</i> (give something away)</li>
+        <li>by default - inhert color of text</li>
+        <li>but we can define it</li>
+        <li><i>now lets look at a functional use case</i></li>
+      </ul></small></aside>
+</section>
+<section class="box-shadows">
+  <div class="c-slide__header">
+    <h4>Box-Shadows</h4>
+    <h3>Functional, Not Just Design</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="c-iphone fragment destroyable">
+        <ul class="c-trevor-list">
+          <li class="c-trevor-list-item">Information</li>
+          <li class="c-trevor-list-item">More Information</li>
+          <li class="c-trevor-list-item">A thing you should know.</li>
+          <li class="c-trevor-list-item">A much more intensive version of some things that might interest you. At least a little bit, we hope.</li>
+          <li class="c-trevor-list-item">Something dumb to take up space.</li>
+        </ul>
+      </div>
+      <div class="c-iphone fragment destroyable">
+        <ul class="c-trevor-list c-trevor-list--mod">
+          <li class="c-trevor-list-item">Information</li>
+          <li class="c-trevor-list-item">More Information</li>
+          <li class="c-trevor-list-item">A thing you should know.</li>
+          <li class="c-trevor-list-item">A much more intensive version of some things that might interest you. At least a little bit, we hope.</li>
+          <li class="c-trevor-list-item">Something dumb to take up space.</li>
+        </ul>
+      </div>
+      <div class="c-iphone fragment destroyable">
+        <ul class="c-trevor-list c-trevor-list--mod">
+          <li class="c-trevor-list-item c-trevor-list-item--fix">Information</li>
+          <li class="c-trevor-list-item c-trevor-list-item--fix">More Information</li>
+          <li class="c-trevor-list-item c-trevor-list-item--fix">A thing you should know.</li>
+          <li class="c-trevor-list-item c-trevor-list-item--fix">A much more intensive version of some things that might interest you. At least a little bit, we hope.</li>
+          <li class="c-trevor-list-item c-trevor-list-item--fix">Something dumb to take up space.</li>
+          <pre class="c-trevor-list__pre"><code class="sass">li {
+  box-shadow: 0 1px 0 0 white;
+}
+</code></pre>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li>co-worker had a list - didn't work right on one phone</li>
+        <li>couldn't be fixed with margins or paddings or positions</li>
+        <li>the solution: put a box-shadow on the bottom</li>
+        <li>no affect on dimensions, layout means it will always go behind the next item (in this case)</li>
+        <li>but this is just telling you about box-shadows...</li>
+      </ul></small></aside>
+</section>
+<section class="box-shadows" data-transition="concave-in fade-out">
+  <div class="c-slide__header--no-body">
+    <h1>So why are box-shadows so great?</h1>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li>so far this is very basic</li>
+        <li>"how is THIS his favorite thing in CSS?"</li>
+        <li>3 more things i haven't shown you yet</li>
+        <li>each one makes box-shadow exponentially more awesome</li>
+      </ul></small></aside>
+</section>
+<section class="box-shadows" data-transition="fade" data-background="../lib/images/fantastic-4.jpg" data-state="bg-image--fantastic-4">
+  <div class="c-slide__header">
+    <h1 class="u-text-shadow--light">The Fantastic 4th Number</h1>
+  </div>
+</section>
+<section class="box-shadows" data-transition="fade">
+  <div class="c-slide__header">
+    <h4>Box-Shadows</h4>
+    <h3>The 4th Number</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="d-flex d-flex--even fragment destroyable">
+        <div>
+          <pre><code class="sass">box-shadow: 0 0 0 6px #ffa500;</code></pre>
+          <button class="c-button u-shadow--spread-pos">still got a shadow</button>
+        </div>
+        <div>
+          <pre><code class="sass">box-shadow: 0 0 0 -6px #ffa500;</code></pre>
+          <button class="c-button u-shadow--spread-neg">still got a shadow?</button>
+        </div>
+      </div>
+      <div class="d-flex d-flex--even fragment destroyable">
+        <div>
+          <pre><code class="sass">box-shadow: 0 20px 0 6px #ffa500;</code></pre>
+          <button class="c-button u-shadow--spread-pos-offset">still got a shadow</button>
+        </div>
+        <div>
+          <pre><code class="sass">box-shadow: 0 20px 0 -6px #ffa500;</code></pre>
+          <button class="c-button u-shadow--spread-neg-offset">still got a shadow!</button>
+        </div>
+      </div>
+      <div class="fragment destroyable">
+        <pre><code class="sass">box-shadow: 0 10px 20px -5px #333;</code></pre>
+        <button class="c-button--primary u-shadow--spread-all">I love my shadow</button>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li>if you've used a box shadow, you problaby know about this already</li>
+        <li>"spread radius"</li>
+        <li>how far the shadow stretches beyond the edge</li>
+      </ul></small></aside>
+</section>
+<section class="box-shadows" data-transition="fade" data-background="../lib/images/final-countdown.gif" data-state="bg-image--final-countdown">
+  <div class="c-slide__header">
+    <h1 class="u-text-shadow--light">Its The Final Property</h1>
+  </div>
+</section>
+<section class="box-shadows" data-transition="fade">
+  <div class="c-slide__header">
+    <h4>Box-Shadows</h4>
+    <h3>The Final Property</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <pre><code class="sass">box-shadow: inset 0 0 10px 0 #1e90ff;</code></pre>
+      <pre><code class="sass">box-shadow: 0 0 10px 0 #1e90ff inset;</code></pre>
+      <div class="fragment c-example-grid">
+        <button class="c-button u-shadow--inset-x-pos">x-offset</button>
+        <button class="c-button u-shadow--inset-x-neg">x-offset negative</button>
+        <button class="c-button u-shadow--inset-y-pos">y-offset</button>
+        <button class="c-button u-shadow--inset-y-neg">y-offset negative</button>
+        <button class="c-button u-shadow--inset-blur">just blurry</button>
+        <button class="c-button u-shadow--inset-spread-pos">spread positive w/blur</button>
+        <button class="c-button u-shadow--inset-spread-neg">spread negative w/blur</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="box-shadows" data-transition="fade" data-background="../lib/images/layers.jpg" data-state="bg-image--layers">
+  <div class="c-slide__header">
+    <h1 class="u-text-shadow--light">Multiple Shadows</h1>
+  </div>
+</section>
+<section class="box-shadows" data-transition="fade-in concave-out">
+  <div class="c-slide__header">
+    <h4>Box-Shadows</h4>
+    <h3>Multiple Shadows</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="fragment">
+        <pre><code class="sass">box-shadow:
+  0 0 0  5px #ff6347,
+  0 0 0 10px #ffa500,
+  0 0 0 15px #ffd700,
+  0 0 0 20px #32cd32,
+  0 0 0 25px #1e90ff,
+  0 0 0 30px #9370db
+;</code></pre>
+      </div>
+      <button class="c-button--rainbow u-offset--4 u-shadow--rainbow fragment destroyable">Rainbow</button>
+      <button class="c-button--rainbow u-offset--4 u-shadow--double-rainbow fragment destroyable">Double Rainbow!!!</button>
+    </div>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li>point out list syntax</li>
+        <li>rainbow/double Rainbow</li>
+        <li>now lets look at some more practical uses for this</li>
+      </ul></small></aside>
+</section>
+<section class="box-shadows">
+  <div class="c-slide__header">
+    <h4>Box-Shadows</h4>
+    <h3>Multiple Shadows</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="fragment u-offset--1">
+        <button class="c-button u-shadow--3d-smooth">better 3-d effects</button>
+      </div>
+      <div class="fragment u-offset--1">
+        <button class="c-button u-shadow--3d-glow">better glowing effect</button>
+      </div>
+      <div class="fragment u-offset--1">
+        <button class="c-button u-shadow--wipe-horizontal">unique hover transitions</button>
+      </div>
+      <div class="fragment">
+        <p>animated underlines</p><a class="u-offset--1 u-shadow--underline-left" href="#">left to right</a><br/><a class="u-offset--1 u-shadow--underline-right" href="#">right to left</a><br/><a class="u-offset--1 u-shadow--underline-center" href="#">expand from center</a>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li>better 3d and glow</li>
+        <li>interesting hover options</li>
+        <li>creative underlining</li>
+      </ul></small></aside>
+</section>
+<!-- add slide for color tiles-->
+<section class="box-shadows">
+  <div class="c-slide__header">
+    <h4>Box-Shadows</h4>
+    <h3>Static Icons</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="d-flex--wrap d-flex--even c-property-list fragment">
+        <div class="space__icons">
+          <div class="c-icon--battery-empty"></div>
+        </div>
+        <div class="space__icons">
+          <div class="c-icon--battery-low"></div>
+        </div>
+        <div class="space__icons">
+          <div class="c-icon--battery-mid"></div>
+        </div>
+        <div class="space__icons">
+          <div class="c-icon--battery-high"></div>
+        </div>
+        <div class="space__icons">
+          <div class="c-icon--battery-full"></div>
+        </div>
+        <div class="space__icons">
+          <div class="c-icon--battery-charging"></div>
+        </div>
+        <div class="space__icons">
+          <div class="calendar-icon"></div>
+        </div>
+        <div class="space__icons">
+          <div class="c-icon--menu"></div>
+        </div>
+        <div class="space__icons">
+          <div class="c-icon--grid-block"></div>
+        </div>
+        <div class="space__icons">
+          <div class="c-icon--comments"></div>
+        </div>
+        <div class="space__icons">
+          <div class="c-icon--flower"></div>
+        </div>
+        <div class="space__icons">
+          <div class="c-icon--bar-graph"></div>
+        </div>
+        <div class="space__icons">
+          <div class="c-icon--mic"></div>
+        </div>
+        <div class="space__icons">
+          <div class="c-icon--desktop"></div>
+        </div>
+        <div class="space__icons">
+          <div class="c-icon--laptop"></div>
+        </div>
+        <div class="space__icons">
+          <div class="c-icon--tablet"></div>
+        </div>
+        <div class="space__icons">
+          <div class="c-icon--phone-apple"></div>
+        </div>
+        <div class="space__icons">
+          <div class="c-icon--phone-android"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li>static icons</li>
+      </ul></small></aside>
+</section>
+<section class="box-shadows">
+  <div class="c-slide__header">
+    <h4>Box-Shadows</h4>
+    <h3>Animated Icons</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="d-flex--wrap d-flex--even c-property-list fragment">
+        <div class="space__icons space__icons-animated">
+          <div class="c-icon--spin"></div>
+        </div>
+        <div class="space__icons space__icons-animated">
+          <div class="c-icon--loading-stacks"></div>
+        </div>
+        <div class="space__icons space__icons-animated">
+          <div class="c-icon--loading-pinwheel"></div>
+        </div>
+        <div class="space__icons space__icons-animated">
+          <div class="c-icon--bars"></div>
+        </div>
+        <div class="space__icons space__icons-animated">
+          <div class="c-icon--bars-wave"></div>
+        </div>
+        <div class="space__icons space__icons-animated">
+          <div class="c-icon--progress"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li>animated box-shadow icons</li>
+      </ul></small></aside>
+</section>

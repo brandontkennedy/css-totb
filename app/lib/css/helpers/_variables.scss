@@ -1,0 +1,34 @@
+@import '../../../../node_modules/scss-color/_color';
+
+$color-settings: (
+  'colors': (
+    'a': ( 0: #333, 'name': 'gray' ),
+    'b': ( 0: dodgerblue, 'name': 'blue'),
+    'c': ( 0: tomato, 'name': 'red'),
+    'd': ( 0: orange, 'name': 'orange'),
+    'e': ( 0: mediumpurple, 'name': 'purple'),
+    'f': ( 0: limegreen, 'name': 'green' ),
+    'g': ( 0: gold, 'name': 'yellow'),
+  )
+);
+@include define-color-set;
+
+$config: (
+  'border-radius': 1px,
+  'border-color': color(a, -6),
+  'color': color(a),
+  'font-family': unquote('"Lato", sans-serif'),
+  'font-size': 10px,
+  'line-height': 1.4em,
+  'padding': 10px,
+  'site-width': 960px,
+  'max-width': 1600px,
+);
+
+$transition-duration: .3s;
+$transition-easing: ease-in-out;
+$transition: all $transition-duration $transition-easing;
+
+$font-size-sm: 1.2rem;
+$font-size-md: 1.9rem;
+$font-size-lg: 2.6rem;

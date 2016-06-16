@@ -1,0 +1,861 @@
+@import '../helpers/variables';
+
+%active-btn {
+  background: color(b, 2);
+  border-bottom: .2rem solid color(b, 4);
+  border-top: .2rem solid color(b);
+}
+
+html, body {
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+.c-control-input {
+  left: -9999em;
+  position: absolute;
+}
+
+.c-person,
+[class*=' c-person__'],
+[class^='c-person__'] {
+  background: black;
+  border-radius: 1rem;
+  min-height: 1rem;
+  position: relative;
+  width: 1rem;
+}
+
+.c-person {
+  &__body {
+    height: 7rem;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);    
+  }
+  
+  &__head {
+    border-radius: 50%;
+    height: 3rem;
+    left: 50%;
+    position: absolute;
+    top: -3rem;
+    transform: translateX(-50%);
+    width: 3rem;
+  }
+
+  &__arm--left,
+  &__arm--right {
+    height: 4.6rem;
+    position: absolute;
+    top: 0;
+    transform-origin: .5rem .5rem;
+    
+    &:after {
+      background: black;
+      border-radius: 2rem;
+      content: "";
+      height: 4.6rem;
+      position: absolute;
+      top: 3.6rem;
+      transform-origin: .5rem .5rem;
+      width: 1rem;
+    }
+  }
+
+  &__leg--left,
+  &__leg--right {
+    height: 5.6rem;
+    position: absolute;
+    top: 6rem;
+    transform-origin: .5rem .5rem;
+
+    &:after {
+      background: black;
+      border-radius: 2rem;
+      content: "";
+      height: 5.6rem;
+      position: absolute;
+      top: 4.6rem;
+      transform-origin: .5rem .5rem;
+      width: 1rem;
+    }
+  }
+}
+
+.c-scene {
+  background: none;
+  border-bottom: .2rem solid black;
+  border-radius: 0;
+  height: 16rem;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 20rem;
+  
+  &__controls {
+    bottom: -4.5rem;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.c-btn {
+  background: color(b);
+  border: none;
+  border-bottom: .2rem solid color(b, 1);
+  border-top: .2rem solid color(b, -1);
+  border-radius: .2rem;
+  color: white;
+  display: inline-block;
+  font-size: 1.4rem;
+  line-height: 3.5rem;
+  padding: 0 1.2rem;
+  text-transform: uppercase;
+  transition: all .3s ease-in-out;
+  
+  &:hover {
+    background: color(b, -2);
+    border-bottom: .2rem solid color(b);
+    border-top: .2rem solid color(b, -4);
+  }
+}
+
+#walk:checked {
+  $speed: 2s;
+  $timing-arm-upper: ease-in-out;
+  $timing-arm-lower: linear;
+  $timing-leg-upper: ease-in-out;
+  $timing-leg-lower: linear;
+
+  ~ .c-scene__controls label.c-btn[for='walk'] {
+    @extend %active-btn;
+  }
+
+  ~ .c-person__body {
+    animation: walkBody ($speed / 4) ease-in-out infinite alternate;
+    
+    .c-person {
+      &__arm {
+        &--left {
+          animation: walkArmUpperLeft ($speed / 2) $timing-arm-upper infinite alternate;
+          
+          &:after {
+            animation: walkArmLowerLeft $speed $timing-arm-lower infinite;
+          }
+        }
+        
+        &--right {
+          animation: walkArmUpperRight ($speed / 2) $timing-arm-upper infinite alternate;
+          
+          &:after {
+            animation: walkArmLowerRight $speed $timing-arm-lower infinite;
+          }
+        }
+      }
+      &__leg {
+        
+        &--left {
+          animation: walkLegUpperLeft ($speed / 2) $timing-leg-upper infinite alternate;
+          
+          &:after {
+            animation: walkLegLowerLeft $speed $timing-leg-lower infinite;
+          }
+        }
+        
+        &--right {
+          animation: walkLegUpperRight ($speed / 2) $timing-leg-upper infinite alternate;
+          
+          &:after {
+            animation: walkLegLowerRight $speed $timing-leg-lower infinite;
+          }
+        }
+      }
+    }
+  }
+}
+
+#run:checked {
+  $speed: .6s;
+  $timing-arm-upper: ease-in-out;
+  $timing-arm-lower: linear;
+  $timing-leg-upper: ease-in-out;
+  $timing-leg-lower: linear;
+  
+  ~ .c-scene__controls label.c-btn[for='run'] {
+    @extend %active-btn;
+  }
+
+  ~ .c-person__body {
+    animation: runBody ($speed / 4) $timing-leg-lower infinite alternate;
+    transform: rotate(20deg) translateX(-50%);
+    
+    .c-person {
+      &__head {
+        left: 1rem;
+      }
+
+      &__arm {
+        &--left {
+          animation: runArmUpperLeft ($speed / 2) $timing-arm-upper infinite alternate;
+
+          &:after {
+            animation: runArmLowerLeft $speed $timing-arm-lower infinite;
+          }
+        }
+
+        &--right {
+          animation: runArmUpperRight ($speed / 2) $timing-arm-upper infinite alternate;
+
+          &:after {
+            animation: runArmLowerRight $speed $timing-arm-lower infinite;
+          }
+        }
+      }
+
+      &__leg {
+        &--left {
+          animation: runLegUpperLeft ($speed / 2) $timing-leg-upper infinite alternate;
+
+          &:after {
+            animation: runLegLowerLeft $speed $timing-leg-lower infinite;
+          }
+        }
+
+        &--right {
+          animation: runLegUpperRight ($speed / 2) $timing-leg-upper infinite alternate;
+
+          &:after {
+            animation: runLegLowerRight $speed $timing-leg-lower infinite;
+          }
+        }
+      }
+    }
+  }
+}
+
+#ninja:checked {
+  ~ .c-scene__controls label.c-btn[for='ninja'] {
+    @extend %active-btn;
+  }
+
+  ~ .c-person__body {
+    animation: ninjaBody .15s ease-in-out infinite alternate;
+    top: 5rem;
+    transform: rotate(60deg) translateX(-50%);
+
+    .c-person {
+      &__head {
+        left: 50%;
+        transform: rotate(-50deg) translateX(-50%) translateY(-50%);
+
+        &:before {
+          background: color(c);
+          border-radius: .5rem .5rem 0 0 / 1.1rem 1.1rem 0 0;
+          content: "";
+          height: .7rem;
+          top: .6rem;
+          left: -.1rem;
+          position: absolute;
+          width: 3.2rem;
+        }
+
+        &:after {
+          animation: ninjaHeadband .2s linear infinite reverse;
+          background: color(c);
+          content: "";
+          border-radius: 50%;
+          height: .8rem;
+          left: -.8rem;
+          position: absolute;
+          top: .8rem;
+          width: .9rem;
+          overflow: visible;
+          z-index: 1;
+        }
+      }
+
+      &__arm {
+        &--left {
+          animation: ninjaArmUpperLeft 1s linear infinite alternate;
+
+          &:after {
+            animation: ninjaArmLowerLeft 2s ease-in-out infinite;
+          }
+        }
+
+        &--right {
+          animation: ninjaArmUpperRight 1s linear infinite alternate;
+
+          &:after {
+            animation: ninjaArmLowerRight 2s ease-in-out infinite;
+          }
+        }
+      }
+
+      &__leg {
+        &--left {
+          animation: ninjaLegUpperLeft .3s linear infinite;
+
+          &:after {
+            animation: ninjaLegLowerLeft .3s ease-in-out infinite;
+          }
+        }
+
+        &--right {
+          animation: ninjaLegUpperRight .3s linear infinite;
+
+          &:after {
+            animation: ninjaLegLowerRight .3s ease-in-out infinite;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//**********************************************************
+//
+// start walking animations
+//
+//
+
+@keyframes walkBody {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-.3rem);
+  }
+}
+
+@keyframes walkLegUpperLeft {
+  from {
+    transform: rotate(20deg);
+  }
+  to {
+    transform: rotate(-30deg);
+  }
+}
+@keyframes walkLegUpperRight {
+  from {
+    transform: rotate(-30deg);
+  }
+  to {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes walkLegLowerLeft {
+  0% {
+    transform: rotate(5deg);
+  }
+  25% {
+    transform: rotate(50deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+@keyframes walkLegLowerRight {
+  0% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(50deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes walkArmUpperLeft {
+  from {
+    transform: rotate(-20deg);
+  }
+  to {
+    transform: rotate(20deg);
+  }
+}
+@keyframes walkArmUpperRight {
+  from {
+    transform: rotate(20deg);
+  }
+  to {
+    transform: rotate(-20deg);
+  }
+}
+
+@keyframes walkArmLowerLeft {
+  0% {
+    transform: rotate(-5deg);
+  }
+  25% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+@keyframes walkArmLowerRight {
+  0% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+
+//
+//
+// end walking animations
+//
+//**********************************************************
+
+//**********************************************************
+//
+// start running animations
+//
+//
+
+@keyframes runBody {
+  from {
+    transform: rotate(20deg) translateY(0);
+  }
+  to {
+    transform: rotate(20deg) translateY(.4rem);
+  }
+}
+
+@keyframes runLegUpperLeft {
+  from {
+    transform: rotate(30deg);
+  }
+  to {
+    transform: rotate(-100deg);
+  }
+}
+@keyframes runLegUpperRight {
+  from {
+    transform: rotate(-100deg);
+  }
+  to {
+    transform: rotate(30deg);
+  }
+}
+
+@keyframes runLegLowerLeft {
+  0% {
+    transform: rotate(5deg);
+  }
+  25% {
+    transform: rotate(100deg);
+  }
+  50% {
+    transform: rotate(100deg);
+  }
+  75% {
+    transform: rotate(25deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+@keyframes runLegLowerRight {
+  0% {
+    transform: rotate(100deg);
+  }
+  25% {
+    transform: rotate(25deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(100deg);
+  }
+  100% {
+    transform: rotate(100deg);
+  }
+}
+
+@keyframes runArmUpperLeft {
+  from {
+    transform: rotate(-20deg);
+  }
+  to {
+    transform: rotate(20deg);
+  }
+}
+@keyframes runArmUpperRight {
+  from {
+    transform: rotate(20deg);
+  }
+  to {
+    transform: rotate(-20deg);
+  }
+}
+
+@keyframes runArmLowerLeft {
+  0% {
+    transform: rotate(-100deg);
+  }
+  25% {
+    transform: rotate(-110deg);
+  }
+  50% {
+    transform: rotate(-100deg);
+  }
+  100% {
+    transform: rotate(-100deg);
+  }
+}
+@keyframes runArmLowerRight {
+  0% {
+    transform: rotate(-100deg);
+  }
+  50% {
+    transform: rotate(-100deg);
+  }
+  75% {
+    transform: rotate(-110deg);
+  }
+  100% {
+    transform: rotate(-100deg);
+  }
+}
+
+//
+//
+// end running animations
+//
+//**********************************************************
+
+//**********************************************************
+//
+// start ninja animations
+//
+//
+
+@keyframes ninjaBody {
+  from {
+    transform: rotate(60deg) translateY(0);
+  }
+  to {
+    transform: rotate(60deg) translateY(-.3rem);
+  }
+}
+
+@keyframes ninjaLegUpperLeft {
+  0% {
+    transform: rotate(15deg);
+  }
+  20% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(-140deg);
+  }
+  70% {
+    transform: rotate(-140deg);
+  }
+  100% {
+    transform: rotate(15deg);
+  }
+}
+@keyframes ninjaLegUpperRight {
+  0% {
+    transform: rotate(-140deg);
+  }
+  20% {
+    transform: rotate(-140deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  70% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(-140deg);
+  }
+}
+
+@keyframes ninjaLegLowerLeft {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(100deg);
+  }
+  50% {
+    transform: rotate(155deg);
+  }
+  70% {
+    transform: rotate(155deg);
+  }
+  85% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes ninjaLegLowerRight {
+  0% {
+    transform: rotate(155deg);
+  }
+  20% {
+    transform: rotate(155deg);
+  }
+  35% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(0deg);
+  }
+  85% {
+    transform: rotate(100deg);
+  }
+  100% {
+    transform: rotate(155deg);
+  }
+}
+
+@keyframes ninjaArmUpperLeft {
+  from {
+    transform: rotate(30deg);
+  }
+  to {
+    transform: rotate(20deg);
+  }
+}
+@keyframes ninjaArmUpperRight {
+  from {
+    transform: rotate(20deg);
+  }
+  to {
+    transform: rotate(30deg);
+  }
+}
+
+@keyframes ninjaArmLowerLeft {
+  0% {
+    transform: rotate(-20deg);
+  }
+  25% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(-20deg);
+  }
+}
+@keyframes ninjaArmLowerRight {
+  0% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  75% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(-20deg);
+  }
+}
+
+@keyframes ninjaHeadband {
+  0% {
+    box-shadow:
+     -0.5rem  0.1rem 0 0 color(c),
+     -1.0rem  0.3rem 0 0 color(c),
+     -1.5rem  0.6rem 0 0 color(c),
+     -2.0rem  0.8rem 0 0 color(c),
+     -2.5rem  0.9rem 0 0 color(c),
+     -3.0rem  0.8rem 0 0 color(c),
+     -3.5rem  0.6rem 0 0 color(c),
+     -4.0rem  0.3rem 0 0 color(c),
+     -4.5rem  0.1rem 0 0 color(c),
+     -5.0rem  0.0rem 0 0 color(c),
+
+     -0.5rem  0.1rem 0 0 color(c, 1),
+     -1.0rem  0.35rem 0 0 color(c, 1),
+     -1.5rem  0.7rem 0 0 color(c, 1),
+     -2.0rem  1.0rem 0 0 color(c, 1),
+     -2.5rem  1.2rem 0 0 color(c, 1),
+     -3.0rem  1.1rem 0 0 color(c, 1),
+     -3.5rem  1.0rem 0 0 color(c, 1),
+     -4.0rem  0.8rem 0 0 color(c, 1),
+     -4.5rem  0.7rem 0 0 color(c, 1),
+     -5.0rem  0.7rem 0 0 color(c, 1)
+    ;
+  }
+  20% {
+    box-shadow: 
+     -0.5rem  0.0rem 0 0 color(c),
+     -1.0rem  0.2rem 0 0 color(c),
+     -1.5rem  0.5rem 0 0 color(c),
+     -2.0rem  0.7rem 0 0 color(c),
+     -2.5rem  0.6rem 0 0 color(c),
+     -3.0rem  0.3rem 0 0 color(c),
+     -3.5rem  0.1rem 0 0 color(c),
+     -4.0rem  0.0rem 0 0 color(c),
+     -4.5rem  0.1rem 0 0 color(c),
+     -5.0rem  0.3rem 0 0 color(c),
+
+     -0.5rem  0.0rem 0 0 color(c, 1),
+     -1.0rem  0.25rem 0 0 color(c, 1),
+     -1.5rem  0.6rem 0 0 color(c, 1),
+     -2.0rem  0.9rem 0 0 color(c, 1),
+     -2.5rem  0.9rem 0 0 color(c, 1),
+     -3.0rem  0.7rem 0 0 color(c, 1),
+     -3.5rem  0.6rem 0 0 color(c, 1),
+     -4.0rem  0.6rem 0 0 color(c, 1),
+     -4.5rem  0.8rem 0 0 color(c, 1),
+     -5.0rem  1.1rem 0 0 color(c, 1)
+    ;
+  }
+  40% {
+    box-shadow: 
+     -0.5rem  0.1rem 0 0 color(c),
+     -1.0rem  0.3rem 0 0 color(c),
+     -1.5rem  0.4rem 0 0 color(c),
+     -2.0rem  0.3rem 0 0 color(c),
+     -2.5rem  0.1rem 0 0 color(c),
+     -3.0rem  0.0rem 0 0 color(c),
+     -3.5rem  0.1rem 0 0 color(c),
+     -4.0rem  0.3rem 0 0 color(c),
+     -4.5rem  0.6rem 0 0 color(c),
+     -5.0rem  0.8rem 0 0 color(c),
+
+     -0.5rem  0.1rem 0 0 color(c, 1),
+     -1.0rem  0.35rem 0 0 color(c, 1),
+     -1.5rem  0.5rem 0 0 color(c, 1),
+     -2.0rem  0.5rem 0 0 color(c, 1),
+     -2.5rem  0.4rem 0 0 color(c, 1),
+     -3.0rem  0.4rem 0 0 color(c, 1),
+     -3.5rem  0.6rem 0 0 color(c, 1),
+     -4.0rem  0.9rem 0 0 color(c, 1),
+     -4.5rem  1.3rem 0 0 color(c, 1),
+     -5.0rem  1.6rem 0 0 color(c, 1)
+    ;
+  }
+  60% {
+    box-shadow: 
+     -0.5rem  0.1rem 0 0 color(c),
+     -1.0rem  0.2rem 0 0 color(c),
+     -1.5rem  0.1rem 0 0 color(c),
+     -2.0rem  0.0rem 0 0 color(c),
+     -2.5rem  0.1rem 0 0 color(c),
+     -3.0rem  0.3rem 0 0 color(c),
+     -3.5rem  0.6rem 0 0 color(c),
+     -4.0rem  0.8rem 0 0 color(c),
+     -4.5rem  0.9rem 0 0 color(c),
+     -5.0rem  0.8rem 0 0 color(c),
+
+     -0.5rem  0.1rem 0 0 color(c, 1),
+     -1.0rem  0.25rem 0 0 color(c, 1),
+     -1.5rem  0.2rem 0 0 color(c, 1),
+     -2.0rem  0.3rem 0 0 color(c, 1),
+     -2.5rem  0.5rem 0 0 color(c, 1),
+     -3.0rem  0.8rem 0 0 color(c, 1),
+     -3.5rem  1.2rem 0 0 color(c, 1),
+     -4.0rem  1.4rem 0 0 color(c, 1),
+     -4.5rem  1.6rem 0 0 color(c, 1),
+     -5.0rem  1.6rem 0 0 color(c, 1)
+    ;
+  }
+  80% {
+    box-shadow: 
+     -0.5rem  0.1rem 0 0 color(c),
+     -1.0rem  0.0rem 0 0 color(c),
+     -1.5rem  0.1rem 0 0 color(c),
+     -2.0rem  0.3rem 0 0 color(c),
+     -2.5rem  0.6rem 0 0 color(c),
+     -3.0rem  0.8rem 0 0 color(c),
+     -3.5rem  0.9rem 0 0 color(c),
+     -4.0rem  0.8rem 0 0 color(c),
+     -4.5rem  0.6rem 0 0 color(c),
+     -5.0rem  0.3rem 0 0 color(c),
+
+     -0.5rem  0.1rem 0 0 color(c, 1),
+     -1.0rem  0.15rem 0 0 color(c, 1),
+     -1.5rem  0.2rem 0 0 color(c, 1),
+     -2.0rem  0.5rem 0 0 color(c, 1),
+     -2.5rem  0.9rem 0 0 color(c, 1),
+     -3.0rem  1.2rem 0 0 color(c, 1),
+     -3.5rem  1.4rem 0 0 color(c, 1),
+     -4.0rem  1.4rem 0 0 color(c, 1),
+     -4.5rem  1.3rem 0 0 color(c, 1),
+     -5.0rem  1.1rem 0 0 color(c, 1)
+    ;
+  }
+  100% {
+    box-shadow: 
+     -0.5rem  0.1rem 0 0 color(c),
+     -1.0rem  0.3rem 0 0 color(c),
+     -1.5rem  0.6rem 0 0 color(c),
+     -2.0rem  0.8rem 0 0 color(c),
+     -2.5rem  0.9rem 0 0 color(c),
+     -3.0rem  0.8rem 0 0 color(c),
+     -3.5rem  0.6rem 0 0 color(c),
+     -4.0rem  0.3rem 0 0 color(c),
+     -4.5rem  0.1rem 0 0 color(c),
+     -5.0rem  0.0rem 0 0 color(c),
+
+     -0.5rem  0.1rem 0 0 color(c, 1),
+     -1.0rem  0.35rem 0 0 color(c, 1),
+     -1.5rem  0.7rem 0 0 color(c, 1),
+     -2.0rem  1.0rem 0 0 color(c, 1),
+     -2.5rem  1.2rem 0 0 color(c, 1),
+     -3.0rem  1.1rem 0 0 color(c, 1),
+     -3.5rem  1.0rem 0 0 color(c, 1),
+     -4.0rem  0.8rem 0 0 color(c, 1),
+     -4.5rem  0.7rem 0 0 color(c, 1),
+     -5.0rem  0.7rem 0 0 color(c, 1)
+    ;
+  }
+}
+
+//
+//
+// end ninja animations
+//
+//**********************************************************
+
+* {
+  &, &:before, &:after, &:focus, &:active, &:focus:active {
+    box-sizing: border-box;
+    outline: none;
+  }
+}

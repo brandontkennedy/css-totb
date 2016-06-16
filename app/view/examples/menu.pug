@@ -1,0 +1,18 @@
+<!doctype html>
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title CSS - Thinking Outside the Box
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='black-translucent')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui')
+    //- START CSS ASSETS ---------------------------------------------------------//
+    link(rel='stylesheet', href='../../lib/css/index.min.css')
+
+  body.reveal(itemscope='', itemtype='http://schema.org/WebPage')
+
+
+
+    input(id='accordion-item--one', class='c-accordion__control', type='checkbox', name='accordion')
+    label(for='accordion-item--one', class='c-accordion__trigger') click me to expand
+    p.c-accordion__content this is the content of the item

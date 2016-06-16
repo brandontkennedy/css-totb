@@ -1,0 +1,201 @@
+.transition {
+  @include modifiers {
+    border: 4px solid color(a) !important;
+    box-shadow: 0 0 0 -1px color(a) !important;
+    line-height: 3rem !important;
+
+    &:hover {
+      background: color(c) !important;
+      border-color: color(white) !important;
+      box-shadow: 0 0 20px 10px color(a) !important;
+      color: color(white);
+    }
+  }
+  
+  &--no,
+  &--yes {
+    box-shadow: none;
+    font-size: 1.2em;
+    transition: none !important;
+    
+    &:hover {
+      background: color(e, -6) !important;
+      border-color: color(e, 2) !important;
+      box-shadow: none;
+      color: color(e, 2);
+      font-size: 1.2em;
+    }
+  }
+  
+  &--yes {
+    transition: all .4s ease-in-out !important;
+  }
+
+  &--all {
+    transition: all 1s linear !important;
+  }
+
+  &--one {
+    transition: box-shadow 1s linear !important;
+  }
+
+  &--two {
+    transition: background 1s linear, box-shadow 1s linear !important;
+  }
+  
+  &--back {
+    transition: box-shadow 1s linear !important;
+    
+    &:hover {
+      color: color(a);
+      transition: all 1s linear !important;
+    }
+  }
+}
+
+.reveal {
+  .c-timing-block {
+    @extend %u-center;
+    width: 96%;
+
+    span {
+      color: color(white);
+      display: inline-block;
+      margin-bottom: 2px;
+      padding: 5px 15px;
+      text-align: center;
+      width: 200px;
+    }
+
+    .c-timing {
+      &--ease {
+        transition-timing-function: ease;
+      }
+
+      &--ease-in {
+        transition-timing-function: ease-in;
+      }
+
+      &--ease-out {
+        transition-timing-function: ease-out;
+      }
+
+      &--ease-in-out {
+        transition-timing-function: ease-in-out;
+      }
+
+      &--linear {
+        transition-timing-function: linear;
+      }
+
+      &--step {
+        transition-timing-function: steps(12);
+      }
+
+      &--cubic {
+        transition-timing-function: cubic-bezier(.5, -.5, .5, 1.5);
+        //transition-timing-function: cubic-bezier(.3, 2, .7, -1);
+      }
+    }
+  }
+  
+  .slides section {
+    .slide-in {
+      .fragment {
+        display: block;
+        position: relative;
+        text-align: left;
+        transition: color .01s ease !important;
+        
+        .c-timing {
+          left: 100%;
+          transition-property: left;
+          transition-duration: 2s;
+        }
+        
+        &.visible {
+          .c-timing {
+            left: 0;
+          }
+        }
+      }
+      
+      span {
+        background: color(e);
+      }
+    }
+    
+    .slide-back {
+      text-align: right;
+      .c-timing {
+        right: calc(100% - 200px);
+        transition-property: right;
+        transition-duration: 0.3s;
+      }
+      
+      &.visible {
+        .c-timing {
+          right: 0;
+          transition-duration: 5s;
+        }
+      }
+      
+      span {
+        background: color(f);
+      }
+    }
+  }
+}
+
+
+
+
+
+[class^="ex__"] {
+  background: color(b);
+  //border: 1px solid color(b);
+  box-shadow: 0 0 0 0 color(a);
+  color: white;
+  display: block;
+  font: {
+    size: 24px;
+  }
+  //line-height: 24px;
+  //padding: 20px;
+  transition: $transition !important;
+  transition-duration: .5s;
+  width: 100%;
+}
+
+.ex {
+  &__color {
+    &:hover {
+      background: color(c);
+    }
+  }
+
+  &__shadow {
+    &:hover {
+      box-shadow: 0 0 20px 0 color(a);
+    }
+  }
+
+  &__font {
+    &:hover {
+      font: {
+        size: 36px;
+      }
+    }
+  }
+  
+  &__all {
+    transition-duration: .5s;
+    &:hover {
+      background: color(c);
+      box-shadow: 0 6px 10px -3px color(a);
+      font: {
+        size: 36px;
+      }
+    }
+  }
+}

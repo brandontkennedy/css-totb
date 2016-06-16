@@ -1,0 +1,223 @@
+- var section = 'transitions'
+- var title = 'Transitions'
+
+section(class=section)
+  .c-slide__header--no-body
+    h1=title
+    h3.fragment A change in property values over a specified duration of time instead of occurring immediately
+
+  aside.notes
+    ul
+      li what are they?
+      li for example, that definition had a transition on it to make the opacity fade from 0 to 1
+
+
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h3 Why bother?
+  .c-slide__body
+    .c-slide__content
+      .d-flex--center.d-flex--spaced.u-center
+        div
+          button.c-button.transition--no No Transition
+        div
+          button.c-button.transition--yes Yes Transition
+
+  aside.notes
+    ul
+      li they just make things FEEL nicer
+      li for example, when these slides change they are using transitions
+
+
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h3 Syntax
+  .c-slide__body
+    .c-slide__content
+      .d-flex__column--center
+        pre.fit-code.fragment
+          code.css.
+            .defaults {
+              transition-property: all;
+              transition-duration: 0s;
+              transition-timing-function: ease;
+              transition-delay: 0s;
+            }
+        pre.fit-code.fragment
+          code.css.
+            .shorthand {
+              transition: all 0s ease 0s;
+            }
+
+  aside.notes
+    small
+      ul
+        li default properites
+        li shorthand
+
+
+
+//- specifying what will transition (all the things?, just the color?)
+section(class=section)
+  .c-slide__header
+    h4=title
+    h3 Specifying What Changes
+  .c-slide__body
+    .c-slide__content
+      pre.fit-code
+        code.sass.
+          button:hover {
+            background: #ff6347;
+            border-color: #fff;
+            box-shadow: 0 0 20px 10px #333;
+          }
+
+      .d-flex--center.d-flex--spaced.d-flex--wrap
+        div.fragment.destroyable
+          button.c-button.transition--one Just One Thing
+          pre.fit-code
+            code.sass.
+              button:hover {
+                transition: box-shadow 1s linear;
+              }
+        div.fragment.destroyable
+          button.c-button.transition--two More Than One Thing
+          pre.fit-code
+            code.sass.
+              button:hover {
+                transition: 
+                  background 1s linear,
+                  box-shadow 1s linear;
+              }
+        div.fragment.destroyable
+          button.c-button.transition--all Everything Different
+          pre.fit-code
+            code.sass.
+              button:hover {
+                transition: all 1s linear;
+              }
+
+  aside.notes
+    ul
+      li safe thought: if it can be defined numerically
+      li all transition examples will be using buttons, :hover, '1s', and 'linear'
+      li notice that each thing transitions evenly from the original to the hover state as well as from the hover state back to the original.  we can change that too.
+
+
+
+//- making a different transition happen in different states (like stopping hovering) - different out than in
+section(class=section)
+  .c-slide__header
+    h4=title
+    h3 Different Reverse Transitions
+  .c-slide__body
+    .c-slide__content
+      .d-flex--center.d-flex--spaced.d-flex--wrap
+        div
+          button.c-button.transition--back Different Things
+          pre.fit-code
+            code.scss.
+              button {
+                transition: box-shadow 1s linear;
+              
+                &:hover {
+                  transition: all 1s linear;
+                }
+              }
+
+  aside.notes
+    ul
+      li all the things on hover
+      li ONLY box-shadow on return
+
+
+
+//- timing functions - what they are
+section(class=section)
+  .c-slide__header
+    h4=title
+    h3 Timing Functions
+  .c-slide__body
+    .c-slide__content
+      h3.fragment How to handle the progress of the transition over time
+      .c-timing-block.slide-in
+        .fragment
+          .c-timing.c-timing--ease
+            span ease
+        .fragment
+          .c-timing.c-timing--ease-in
+            span ease-in
+        .fragment
+          .c-timing.c-timing--ease-out
+            span ease-out
+        .fragment
+          .c-timing.c-timing--ease-in-out
+            span ease-in-out
+        .fragment
+          .c-timing.c-timing--linear
+            span linear
+        .fragment
+          .c-timing.c-timing--step
+            span steps()
+        .fragment
+          .slide-in.c-timing.c-timing--cubic
+            span cubic-bezier()
+      .c-timing-block.fragment.slide-back
+        .c-timing.c-timing--ease
+          span ease
+        .c-timing.c-timing--ease-in
+          span ease-in
+        .c-timing.c-timing--ease-out
+          span ease-out
+        .c-timing.c-timing--ease-in-out
+          span ease-in-out
+        .c-timing.c-timing--linear
+          span linear
+        .c-timing.c-timing--step
+          span steps()
+        .c-timing.c-timing--cubic
+          span cubic-bezier()
+          
+
+  aside.notes
+    ul
+      li there a few keyword functions
+      li cubic-bezier can be tricky to master, but gives you a lot more control over how your transitions progress
+      li lets see all of them at the same time but way slower
+
+
+
+//- //- timing functions - when to use what (if time)
+//- section(class=section)
+//-   .c-slide__header
+//-     h4=title
+//-     h2 When To Use Which Timing
+//-   .c-slide__body
+//-     .c-slide__content
+//-       //- things entering screen - ease-out is best
+//-       //- things leaving screen - ease-in
+//-       //- things moving on the screen - ease-in-out
+//-       //- things that repeat - linear (more for animations)
+//-       //- fancier things like 'bounce' - cubic-bezier
+//-       
+//-       
+//-       .d-flex--center.d-flex--spaced.d-flex--wrap
+//-         div
+//-           button.c-button.transition--back Different Things
+//-           pre.fit-code
+//-             code.scss.
+//-               button {
+//-                 transition: box-shadow 1s linear;
+//-               
+//-                 &:hover {
+//-                   transition: all 1s linear;
+//-                 }
+//-               }
+//- 
+//-   aside.notes
+//-     ul
+//-       li i generally just use 'ease-in-out'

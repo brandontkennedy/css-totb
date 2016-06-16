@@ -1,0 +1,294 @@
+- var section = 'animations'
+- var title = 'Animations'
+
+section(class=section)
+  .c-slide__header--no-body
+    h1=title
+    h3.fragment A change in property values over a specified duration of time instead of occurring immediately
+
+  aside.notes
+    small
+      ul
+        li notice that is the same definition i gave for transitions
+
+
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h3 How are they different?
+  .c-slide__body
+    .c-slide__content
+      h2.vs.fragment
+        span.vs--animation Animations
+        | vs
+        span.vs--transition Transitions
+      h3.c-comparison.fragment
+        .c-comparison__item.animations can stack on top of each other
+        .c-comparison__item.transitions you only get one per element
+      h3.c-comparison.fragment
+        .c-comparison__item.animations can loop
+        .c-comparison__item.transitions only forward/backward
+      h3.c-comparison.fragment
+        .c-comparison__item.animations reset when finished (default)
+        .c-comparison__item.transitions don't reset when finished
+      h3.c-comparison.fragment
+        .c-comparison__item.animations don't reverse themselves
+        .c-comparison__item.transitions automatically reverse
+
+  aside.notes
+    small
+      ul
+        li animations stack
+        li repeatable
+        li reset by default
+        li don't automatically reverse
+
+
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h3 Syntax
+  .c-slide__body
+    .c-slide__content
+      .d-flex__column--center
+        pre.fit-code.fragment
+          code.css.
+            .defaults {
+              animation-name: none;
+              animation-duration: 0s;
+              animation-timing-function: ease;
+              animation-delay: 0s;
+              animation-iteration-count: 1;
+              animation-direction: normal;
+              animation-fill-mode: none;
+              animation-play-state: running;
+            }
+        pre.fit-code.fragment
+          code.css.
+            .shorthand {
+              animation: none 0s ease 0s 1 normal none running;
+            }
+
+  aside.notes
+    small
+      ul
+        li default properites
+        li shorthand
+        li name refers to keyframe
+        li without keyframe, you have no animation
+
+
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h3 Keyframes
+  .c-slide__body
+    .c-slide__content
+      .d-flex__column--start.d-flex--spaced
+        pre.fit-code
+          code.css.
+            .example {
+              animation: spin 2s linear infinite;
+            }
+          code.css.fragment.
+            @keyframes spin {
+              0% {
+                transform: rotate(0);
+              }
+              100% {
+                transform: rotate(360deg);
+              }
+            }
+        .a-basic.fragment
+
+  aside.notes
+    small
+      ul
+        li great resource - animate.css
+
+
+
+- var properties = ['-moz-outline-radius', '-moz-outline-radius-bottomleft', '-moz-outline-radius-bottomright', '-moz-outline-radius-topleft', '-moz-outline-radius-topright', '-webkit-text-fill-color', '-webkit-text-stroke', '-webkit-text-stroke-color', '-webkit-touch-callout', 'all', 'backdrop-filter', 'background', 'background-color', 'background-position', 'background-size', 'border', 'border-bottom', 'border-bottom-color', 'border-bottom-left-radius', 'border-bottom-right-radius', 'border-bottom-width', 'border-color', 'border-left', 'border-left-color', 'border-left-width', 'border-radius', 'border-right', 'border-right-color', 'border-right-width', 'border-top', 'border-top-color', 'border-top-left-radius', 'border-top-right-radius', 'border-top-width', 'border-width', 'bottom', 'box-shadow', 'clip', 'clip-path', 'color', 'column-count', 'column-gap', 'column-rule', 'column-rule-color', 'column-rule-width', 'column-width', 'columns', 'filter', 'flex', 'flex-basis', 'flex-grow', 'flex-shrink', 'font', 'font-size', 'font-size-adjust', 'font-stretch', 'font-weight', 'grid-column-gap', 'grid-gap', 'grid-row-gap', 'height', 'left', 'letter-spacing', 'line-height', 'margin', 'margin-bottom', 'margin-left', 'margin-right', 'margin-top', 'mask', 'mask-position', 'mask-size', 'max-height', 'max-width', 'min-height', 'min-width', 'motion-offset', 'motion-rotation', 'object-position', 'opacity', 'order', 'outline', 'outline-color', 'outline-offset', 'outline-width', 'padding', 'padding-bottom', 'padding-left', 'padding-right', 'padding-top', 'perspective', 'perspective-origin', 'right', 'scroll-snap-coordinate', 'scroll-snap-destination', 'shape-image-threshold', 'shape-margin', 'shape-outside', 'text-decoration', 'text-decoration-color', 'text-emphasis', 'text-emphasis-color', 'text-indent', 'text-shadow', 'top', 'transform', 'transform-origin', 'vertical-align', 'visibility', 'width', 'word-spacing', 'z-index'];
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h3 What Can We Animate?
+  .c-slide__body
+    .c-slide__content
+      .d-flex--wrap.d-flex--justify.c-property-list.fragment
+        each prop in properties
+          span= prop
+
+  aside.notes
+    small
+      ul
+        li these are the properties that are animatable
+        li in this case 'can be changed with an animation'
+        li not necessarily changed SMOOTHLY
+        //- li lets take at look at <i>that</i> animation as an example
+        li rule of thumb = numeric values
+        li exception - z-index - paper analogy
+
+
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h3 Stacking Animations
+  .c-slide__body
+    .c-slide__content
+      .d-flex__column--center.u-center
+        .d-flex--justify.d-flex--spaced
+          .c-stacked-example.fragment(data-fragment-index="1")
+            .ball.a-bounce
+          .c-stacked-example.fragment(data-fragment-index="2")
+            .ball.a-squish
+          .c-stacked-example.fragment(data-fragment-index="3")
+            .ball.a-bounce.a-squish
+
+        .d-flex--even
+          .fragment(data-fragment-index="1", style="width: 30%;")
+            pre
+              code.css.
+                .a-bounce {
+                  animation:
+                    bounce
+                    1s
+                    ease-out
+                    infinite
+                    alternate
+                  ;
+                }
+          .fragment(data-fragment-index="2", style="width: 30%;")
+            pre
+              code.css.
+                .a-squish {
+                  animation:
+                    squish
+                    1s
+                    ease-out
+                    infinite
+                    alternate
+                  ;
+                }
+          .fragment(data-fragment-index="3", style="width: 30%;")
+            pre
+              code.css.
+                .a-bounce.a-squish {
+                  animation-name:
+                    bounce,
+                    squish
+                  ;
+                }
+  aside.notes
+    small
+      ul
+        li
+
+
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h3 Delayed Progress
+  .c-slide__body
+    .c-slide__content
+      .c-race.fragment
+        .c-race-item
+          span.a-delay--none no delay
+        .c-race-item
+          span.a-delay--plus positive delay
+        .c-race-item
+          span.a-delay--minus negative delay
+
+  aside.notes
+    small
+      ul
+        li 3 elements: no delay, 1s delay, -1s delay
+        li which is going to get here first?
+        //- li why would this be useful?
+        //- li -- take this loading animation...
+
+
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h3 Change The Starting Point
+  .c-slide__body
+    .c-slide__content.c-delay-demos
+      .d-flex--even.u-center.fragment.destroyable.visible.current-fragment
+        div
+          h4 no delay
+          .c-spinning-cirles--none
+        div
+          h4 + delay
+          .c-spinning-cirles--plus
+        div
+          h4 - delay
+          .c-spinning-cirles--minus
+      .d-flex--even.u-center.fragment.destroyable
+        div
+          h4 no delay
+          .c-spinning-cirles--none.is-paused
+        div
+          h4 + delay
+          .c-spinning-cirles--plus.is-paused
+        div
+          h4 - delay
+          .c-spinning-cirles--minus.is-paused
+      .d-flex--even.u-center.fragment.destroyable
+        div
+          h4 no delay
+          .c-spinning-cirles--none
+        div
+          h4 + delay
+          .c-spinning-cirles--plus
+        div
+          h4 - delay
+          .c-spinning-cirles--minus
+
+  aside.notes
+    small
+      ul
+        li
+
+
+
+section(class=section)
+  .c-slide__header
+    h4=title
+    h3 Chaining Timing Functions
+  .c-slide__body
+    .c-slide__content
+      .d-flex--even
+        div.fragment
+          pre
+            code.css.
+              @keyframes sample {
+                0% {
+                  animation-timing-function: ease-in;
+                  ...
+                }
+                33% {
+                  animation-timing-function: steps(5);
+                  ...
+                }
+                66% {
+                  animation-timing-function: ease-out;
+                  ...
+                }
+                100% {
+                  ...
+                }
+              }
+        .c-change-timing.fragment
+
+  aside.notes
+    small
+      ul
+        li 

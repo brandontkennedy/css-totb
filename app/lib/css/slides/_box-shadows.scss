@@ -1,0 +1,400 @@
+.box-shadows {
+  .u-shadow {
+    // basic shadows
+    &--basic {
+      &-none {
+        box-shadow: none;
+      }
+
+      &-x {
+        box-shadow: 10px 0 0;
+      }
+
+      &-y {
+        box-shadow: 0 10px 0;
+      }
+
+      &-blur {
+        box-shadow: 0 0 20px;
+      }
+
+      &-all {
+        box-shadow: 10px 10px 20px;
+      }
+    }
+
+    // color shadows
+    &--color {
+      &-inherit {
+        box-shadow: 0 10px 20px;
+      }
+
+      &-set {
+        box-shadow: 0 10px 20px color(a);
+      }
+    }
+
+    // spread radius
+    &--spread {
+      &-pos {
+        box-shadow: 0 0 0 6px color(d);
+      }
+
+      &-pos-offset {
+        box-shadow: 0 20px 0 6px color(d);
+      }
+
+      &-neg {
+        box-shadow: 0 0 0 -6px color(d);
+      }
+
+      &-neg-offset {
+        box-shadow: 0 20px 0 -6px color(d);
+      }
+
+      &-all {
+        box-shadow: 0 10px 20px -10px color(a);
+      }
+    }
+
+    // inset shadows
+    &--inset {
+      &-x-pos {
+        box-shadow: inset 10px 0 0 0 color(b);
+      }
+
+      &-x-neg {
+        box-shadow: inset -10px 0 0 0 color(b);
+      }
+
+      &-y-pos {
+        box-shadow: inset 0 10px 0 0 color(b);
+      }
+
+      &-y-neg {
+        box-shadow: inset 0 -10px 0 0 color(b);
+      }
+
+      &-blur {
+        box-shadow: inset 0 0 15px 0 color(b);
+      }
+
+      &-spread-pos {
+        box-shadow: inset 0 0 10px 5px color(b);
+      }
+
+      &-spread-neg {
+        box-shadow: inset 0 0 20px -5px color(b);
+      }
+    }
+
+    // rainbow
+    $red: #ff6347;
+    $orange: #ffa500;
+    $yellow: #ffd700;
+    $green: #32cd32;
+    $blue: #1e90ff;
+    $purple: #9370db;
+    
+    $bar-size: 5px;
+
+    &--rainbow {
+      box-shadow:
+      0 0 0 ($bar-size * 1) $purple,
+      0 0 0 ($bar-size * 2) $blue,
+      0 0 0 ($bar-size * 3) $green,
+      0 0 0 ($bar-size * 4) $yellow,
+      0 0 0 ($bar-size * 5) $orange,
+      0 0 0 ($bar-size * 6) $red,
+      ;
+    }
+
+    &--double-rainbow {
+      box-shadow:
+        0 0 0 ($bar-size * 1) $purple,
+        0 0 0 ($bar-size * 2) $blue,
+        0 0 0 ($bar-size * 3) $green,
+        0 0 0 ($bar-size * 4) $yellow,
+        0 0 0 ($bar-size * 5) $orange,
+        0 0 0 ($bar-size * 6) $red,
+        0 0 0 ($bar-size * 8) color(white),
+        0 0 0 ($bar-size * 9) $purple,
+        0 0 0 ($bar-size * 10) $blue,
+        0 0 0 ($bar-size * 11) $green,
+        0 0 0 ($bar-size * 12) $yellow,
+        0 0 0 ($bar-size * 13) $orange,
+        0 0 0 ($bar-size * 14) $red,
+      ;
+    }
+
+
+
+
+
+
+    &--3d-smooth {
+      background: color(d);
+      border: none !important {
+        radius: 100px;
+      }
+      box-shadow:
+        inset 0 0 0 0 color(a),
+        inset 0 0 1px 1px color(d),
+        inset 0 3px 3px 0 color(d, -8),
+        inset 0 -3px 3px 0 color(d, 2),
+      ;
+      color: color(white) !important;
+      text-shadow: 0 0 2px color(d, 2);
+      transition: all 0.2s ease-in-out;
+      
+      &:hover {
+        background: color(d, -2);
+      }
+      &:active {
+        box-shadow:
+          inset 0 4px 0 0 color(a),
+          inset 0 4px 1px 1px color(d),
+          inset 0 7px 3px 0 color(d, -8),
+          inset 0 0 3px 0 color(d, 2),
+        ;
+        line-height: 67px;
+      }
+      &:focus, &:active {
+        outline: 0;
+      }
+    }
+
+    &--3d-glow {
+      background: color(d);
+      border: none !important {
+        radius: 15px;
+      }
+      box-shadow:
+        inset 0 0 1px 1px color(d, -2),
+        inset 0 3px 3px 0 color(d, -8),
+        inset 0 -3px 3px 0 color(d, 1),
+      ;
+      color: color(white) !important;
+      text-shadow: 0 0 2px color(d, 2);
+      transition: all .4s ease-in-out;
+      
+      &:hover, &:focus, &:active {
+        background: color(d, -2);
+        box-shadow:
+          inset 0 0 1px 1px color(d, -2),
+          inset 0 3px 3px 0 color(d, -8),
+          inset 0 -3px 3px 0 color(d, 1),
+          0 0 3px 0 color(d, -4),
+          0 0 8px 3px color(d, -4),
+          0 0 15px 0 color(d, -8),
+        ;
+        outline: 0;
+      }
+    }
+    
+    &--3d-glow-ugly {
+      background: color(a);
+      border: none {
+        radius: 15px;
+      }
+      box-shadow:
+        inset 0 0 1px 1px color(a, -2),
+        inset 0 3px 3px 0 color(a, -8),
+        inset 0 -3px 3px 0 color(a, 1),
+      ;
+      color: color(white);
+      text-shadow: 0 0 2px color(white, 2);
+      transition: all .4s ease-in-out;
+      
+      &:hover, &:focus, &:active {
+        animation: shadows 3s linear forwards;
+        background: color(a, -2);
+        box-shadow:
+          inset 0 0 1px 1px color(a, -2),
+          inset 0 3px 3px 0 color(a, -8),
+          inset 0 -3px 3px 0 color(a, 1),
+          0 0 3px 0 color(d, -4),
+          0 0 8px 3px color(d, -4),
+          0 0 15px 0 color(d, -8),
+        ;
+        outline: 0;
+      }
+      
+      @keyframes shadows {
+        0% {
+          box-shadow:
+            inset 0 0 1px 1px color(a, -2),
+            inset 0 3px 3px 0 color(a, -8),
+            inset 0 -3px 3px 0 color(a, 1),
+            0 0 0 0 color(d, -4),
+            0 0 0 0 color(d, -4),
+            0 0 0 0 color(d, -8),
+          ;
+        }
+        33% {
+          box-shadow:
+            inset 0 0 1px 1px color(a, -2),
+            inset 0 3px 3px 0 color(a, -8),
+            inset 0 -3px 3px 0 color(a, 1),
+            0 0 30px 0 color(d, -4),
+            0 0 0 0 color(d, -4),
+            0 0 0 0 color(d, -8),
+          ;
+        }
+        66% {
+          box-shadow:
+            inset 0 0 1px 1px color(a, -2),
+            inset 0 3px 3px 0 color(a, -8),
+            inset 0 -3px 3px 0 color(a, 1),
+            0 0 30px 0 color(d, -4),
+            0 0 80px 30px color(d, -4),
+            0 0 0 0 color(d, -8),
+          ;
+        }
+        100% {
+          box-shadow:
+            inset 0 0 1px 1px color(a, -2),
+            inset 0 3px 3px 0 color(a, -8),
+            inset 0 -3px 3px 0 color(a, 1),
+            0 0 30px 0 color(d, -4),
+            0 0 80px 30px color(d, -4),
+            0 0 150px 0 color(d, -8),
+          ;
+        }
+      }
+    }
+    
+    
+    &--underline {
+      &-left {
+        box-shadow:
+          inset -300px 0 0 0 color(white),
+          inset 0 -2px 0 0 color(white),
+        ;
+        display: inline-block;
+        text-decoration: none;
+        transition: all .5s ease-in-out;
+        
+        &:hover {
+          box-shadow:
+            inset 0 0 0 0 color(white),
+            inset 0 -2px 0 0 color(a),
+          ;
+        }
+      }
+
+      &-right {
+        box-shadow:
+          inset 300px 0 0 0 color(white),
+          inset 0 -2px 0 0 color(white),
+        ;
+        display: inline-block;
+        text-decoration: none;
+        transition: all .5s ease-in-out;
+        
+        &:hover {
+          box-shadow:
+            inset 0 0 0 0 color(white),
+            inset 0 -2px 0 0 color(a),
+          ;
+        }
+      }
+
+      &-center {
+        box-shadow:
+          inset -180px 0 0 0 color(white),
+          inset 180px 0 0 0 color(white),
+          inset 0 -2px 0 0 color(white),
+        ;
+        display: inline-block;
+        text-decoration: none;
+        transition: all .5s ease-in-out;
+        
+        &:hover {
+          box-shadow:
+            inset 0 0 0 0 color(white),
+            inset 0 0 0 0 color(white),
+            inset 0 -2px 0 0 color(a),
+          ;
+        }
+      }
+    }
+
+    &--wipe-horizontal {
+      box-shadow:
+        inset 0 0 0 -20px rgba(color(b), .5),
+        inset 0 0 0 -20px rgba(color(b), .5)
+      ;
+      transition: all .6s ease-in-out;
+
+      &:hover {
+        box-shadow:
+          inset 400px 0 0 -20px rgba(color(b), .8),
+          inset -400px 0 0 -20px rgba(color(b), .8),
+        ;
+      }
+    }
+  }
+}
+
+.c-button--rainbow {
+  background: color(white) !important;
+  border: 0 !important;
+  border-radius: 100px 100px 0 0 !important;
+  height: 100px !important;
+  line-height: 1 !important;
+  width: 200px;
+  
+  &:after {
+    background: color(white);
+    bottom: -200px;
+    content: '';
+    height: 200px;
+    left: -100px;
+    position: absolute;
+    width: 400px;
+  }
+}
+
+
+.reveal {
+  .c-trevor-list {
+    background: color(white, 1) url('../images/beer.png') no-repeat center 10px;
+    color: color(a);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    &--mod {
+      background-color: color(c);
+    }
+    
+    &__pre {
+      left: 50%;
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%);
+    }
+  }
+
+  .c-trevor-list-item {
+    background: color(white);
+    margin: 0 auto;
+    margin-bottom: 1px;
+    padding: .25em .5em;
+    width: 100%;
+
+    
+    &:first-child {
+      background: linear-gradient(transparent, color(white) 50%);
+    }
+    
+    &--fix {
+      box-shadow: 0 1px 0 0 color(white);
+    }
+  }
+}

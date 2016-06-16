@@ -1,0 +1,286 @@
+.introduction {
+  .title {
+    display: inline-block;
+    font: {
+      size: 66px;
+    }
+    position: relative;
+  }
+  
+  .author {
+    font: {
+      size: 42px;
+    }
+    margin: 1em 0;
+  }
+  
+  .links {
+    font: {
+      size: 28px;
+    }
+  }
+  
+  .a__intro {
+    bottom: 60px;
+    left: 10px;
+    position: absolute;
+  }
+
+  .box {
+    height: 150px;
+    margin: {
+      top: 100px;
+    }
+    position: relative;
+    width: 200px;
+
+    .front {
+      background: mix(tan, black, 90%);
+      height: 48px;
+      left: 100px;
+      top: 148px;
+      //margin-bottom: -148px;
+      //margin-left: 101px;
+      width: 101px;
+      &:before,
+      &:after {
+        background: linear-gradient(-30deg, mix(tan, black, 90%), tan);
+        box-shadow: inset 0 0 0 1px mix(tan, black, 90%);
+        content: '';
+        height: 150px;
+        left: -100px;
+        //opacity: 0;
+        position: absolute;
+        top: -100px;
+        width: 200px;
+        z-index: 1;
+      }
+      &:after {
+        background: linear-gradient(-30deg, mix(tan, black, 90%), mix(tan, black, 85%));
+        left: 0px;
+        opacity: 1;
+        top: -150px;
+        z-index: -1;
+      }
+    }
+
+    .side {
+      &:before,
+      &:after {
+        background: linear-gradient(45deg, mix(tan, black, 90%), mix(tan, black, 85%));
+        content: '';
+        height: 150px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform: skewY(-26.5deg) {
+          origin: left center;
+        }
+        width: 100px;
+        z-index: -1;
+      }
+      &:after {
+        background: linear-gradient(45deg, mix(tan, black, 90%), tan);
+        left: 100%;
+        z-index: 1;
+      }
+    }
+  }
+
+  $brain-x: unique-id();
+  $brain-y: unique-id();
+  $brain-r: unique-id();
+  $brain-o: unique-id();
+  $shadow: unique-id();
+  $animation-length: 4s;
+
+  .brain {
+    animation: {
+      duration: $animation-length;
+      iteration-count: infinite;
+      name: $brain-x, $brain-y, $brain-o;
+      timing-function: ease-out, cubic-bezier(.2, .5, .3, 1), ease-in;
+    }
+    position: absolute;
+    &:after {
+      animation: $brain-r $animation-length ease-out infinite;
+      content: '';
+      background: pink;
+      border: {
+        radius: 50%;
+      }
+      box-shadow:
+        -0.6em -0.2em 0 0.9em pink,
+        -0.4em -0.1em 0 0.8em hotpink,
+        -0.5em  0.8em 0 1.0em pink,
+        -0.6em  0.9em 0 1.0em hotpink,
+        -1.5em  1.0em 0 0.6em pink,
+         1.9em  0.7em 0 0.7em pink,
+         2.0em  0.6em 0 0.8em hotpink,
+         0.8em  0.9em 0 1.0em pink,
+         2.1em -0.1em 0 0.7em pink,
+         0.9em -0.3em 0 1.4em pink,
+         0.9em -0.4em 0 1.4em hotpink,
+        -0.1em -1.3em 0 0.6em pink,
+        -1.8em  0.3em 0 0.8em pink,
+        -1.6em -0.5em 0 0.8em pink,
+        -1.6em -0.6em 0 0.8em hotpink,
+        -1.0em -1.2em 0 0.6em pink,
+        -1.8em  0.3em 0 1.0em hotpink,
+        -1.6em -0.5em 0 1.0em hotpink,
+        -1.0em -1.2em 0 0.8em hotpink,
+        -0.1em -1.3em 0 0.8em hotpink,
+         0.9em -0.3em 0 1.6em hotpink,
+         2.1em -0.1em 0 0.9em hotpink,
+         1.9em  0.7em 0 0.9em hotpink,
+         0.8em  0.9em 0 1.2em hotpink,
+        -0.5em  0.8em 0 1.2em hotpink,
+        -1.4em  0.8em 0 1.0em hotpink
+      ;
+      font: {
+        size: 20px;
+      }
+      height: 4px;
+      position: absolute;
+      top: 50%;
+      width: 4px;
+    }
+  }
+
+  .shadow {
+    animation: {
+      duration: $animation-length;
+      iteration-count: infinite;
+      name: $brain-x, $shadow;
+      timing-function: ease-out, ease-out;
+    }
+    background: rgba(color(a, -9), .7);
+    border: {
+      radius: 50%;
+    }
+    box-shadow: -10px 0 6px 0 color(a, -9), 10px 0 6px 0 color(a, -9), 0px 0 6px 0 color(a, -9);
+    height: 4px;
+    position: absolute;
+    top: 165px;
+    width: 30px;
+    z-index: -10;
+  }
+
+  @keyframes #{$brain-x} {
+    0% {
+      left: 100px;
+    }
+    100% {
+      left: 1000px;
+    }
+  }
+
+  @keyframes #{$brain-r} {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(1440deg);
+    }
+  }
+
+  @keyframes #{$brain-o} {
+    0% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes #{$brain-y} {
+    from {
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      top: 125px;
+      transform: scaleY(1);
+    }
+
+    16% {
+      animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+      top: -125px;
+      transform: scaleY(1.1);
+    }
+
+    28% {
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      top: 125px;
+      transform: scaleY(.6);
+    }
+
+    38% {
+      animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+      top: -25px;
+      transform: scaleY(1.1);
+    }
+
+    46% {
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      top: 125px;
+      transform: scaleY(.6);
+    }
+
+    52% {
+      animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+      top: 55px;
+      transform: scaleY(1.1);
+    }
+
+    56% {
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      top: 125px;
+      transform: scaleY(.9);
+    }
+
+    to {
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      top: 125px;
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes #{$shadow} {
+    from {
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      opacity: 1;
+      transform: scaleX(1.5) translateX(-50%);
+    }
+    16% {
+      animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+      transform: scaleX(.35) translateX(-50%);
+    }
+    28% {
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      transform: scaleX(1.5) translateX(-50%);
+    }
+    38% {
+      animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+      transform: scaleX(.55) translateX(-50%);
+    }
+    46% {
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      transform: scaleX(1.5) translateX(-50%);
+    }
+    52% {
+      animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+      transform: scaleX(.75) translateX(-50%);
+    }
+    56% {
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      opacity: 1;
+      transform: scaleX(1.5) translateX(-50%);
+    }
+    to {
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      opacity: 0;
+      transform: scaleX(1.5) translateX(-50%);
+    }
+  }
+}

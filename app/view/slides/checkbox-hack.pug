@@ -1,0 +1,117 @@
+section.checkbox-hack
+  .c-slide__header--no-body
+    h1 The "Checkbox Hack"
+    h3.fragment Nesting styles after a <i>:checked</i> pseudo class on a checkbox to gain functionality instead of just style
+
+  aside.notes
+    ul
+      li often used in combination with animations/transitions
+      li built a nice basic one to show you how it works
+
+
+
+section.checkbox-hack(data-transition='')
+  .c-slide__header
+    h4 The "Checkbox Hack"
+    h2 A Basic Example
+  .c-slide__body
+    .c-slide__content
+      .d-flex__column
+        .ex--rendered
+          input(id='agree', type='checkbox', name='agree')
+          label(for='agree') I blindly agree to your rules
+          button.c-button--primary.sign-up-button Sign Me Up
+        .d-flex--center.d-flex--spaced
+          .ex--html.fragment
+            h6 markup
+            pre
+              code.html.
+                <input id="agree" type="checkbox">
+                  
+                <label for="agree">I blindly agree to your rules</label>
+                  
+                <button class="sign-up-button">Sign Me Up</button>
+          .ex--css.fragment
+            h6 CSS
+            pre
+              code.sass.
+                #agree:checked ~ .sign-up-button {
+                  opacity: 1;
+                  pointer-events: all;
+                }
+                  
+                #agree ~ .sign-up-button {
+                  opacity: .6;
+                  pointer-events: none;
+                }
+        p.fragment ( https://css-tricks.com/child-and-sibling-selectors/ )
+
+  aside.notes
+    ul
+      li actually show the checkbox
+      li common practice is to nest input in label - that won't work here
+      li everything that changes based on :checked must be easily decended from the checkbox
+      li lets look something more complex
+
+
+
+section.checkbox-hack(data-transition='')
+  .c-slide__header
+    h4 The "Checkbox Hack"
+  .c-slide__body
+    .c-slide__content
+      h2 A Checkbox Powered Modal
+      a(href="/dist/view/examples/modal.html", target="blank") demo
+
+  aside.notes
+    ul
+      li label/id relationship allows multiple labels
+      li point out what items are labels
+      li 36 lines of CSS (prefixed, and cleanly organized)
+      li 40 lines of easy to read SCSS
+      li vs 338 for bootstrap modal.js (PLUS jQuery)
+
+
+
+section.checkbox-hack(data-transition='')
+  .c-slide__header
+    h4 The "Checkbox Hack"
+    h2 Expand/Collapse & Dropdowns
+  .c-slide__body
+    .c-slide__content
+      .d-flex--even
+        .c-accordion(style="width: 50%;")
+          .c-accordion__item
+            input(id='accordion-item--one', class='c-accordion__control c-control-input--visible', type='checkbox', name='accordion')
+            label(for='accordion-item--one', class='c-accordion__trigger') Lorem ipsum dolor sit amet
+            p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.
+
+          .c-accordion__item
+            input(id='accordion-item--two', class='c-accordion__control c-control-input--visible', type='checkbox', name='accordion')
+            label(for='accordion-item--two', class='c-accordion__trigger') Lorem ipsum dolor sit amet
+            p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.
+
+          .c-accordion__item
+            input(id='accordion-item--three', class='c-accordion__control c-control-input--visible', type='checkbox', name='accordion')
+            label(for='accordion-item--three', class='c-accordion__trigger') Lorem ipsum dolor sit amet
+            p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.
+
+
+        .c-dropdown
+          input(id='dropdown', class='c-dropdown__control c-control-input--visible', type='checkbox', name='dropdown')
+          .c-dropdown__container
+            label(for='dropdown', class='c-button c-dropdown__trigger') options
+            ul.c-dropdown__menu
+              li.c-dropdown__menu-item
+                label(for='theme-one', class='c-link') option one
+              li.c-dropdown__menu-item
+                label(for='theme-two', class='c-link') option two
+              li.c-dropdown__menu-item
+                label(for='theme-three', class='c-link') option three
+              li.c-dropdown__menu-item
+                label(for='theme-four', class='c-link') option four
+
+  aside.notes
+    ul
+      li same concept, don't explain in detail
+      li just for show to help give creative starting points

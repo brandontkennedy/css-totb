@@ -1,0 +1,239 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color: color(a);
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+
+  &.img-right .reveal div.slide-background.present {
+    background-position: right;
+  }
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+.reveal {
+  font: {
+    size: 20px;
+  }
+
+  section {
+    bottom: 0 !important;
+    top: 0 !important;
+  }
+
+  h1, h2, h3, h4, h5 ,h6 {
+    font-weight: 400;
+    text-transform: none;
+  }
+
+  h1 {
+    font: {
+      size: 64px;
+      weight: 700;
+    }
+  }
+
+  h2 {
+    font: {
+      size: 48px;
+    }
+  }
+
+  h3 {
+    font: {
+      size: 32px;
+    }
+  }
+
+  p {
+    font: {
+      size: 26px;
+    }
+    margin: {
+      top: 1em;
+    }
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  small {
+    vertical-align: middle;
+  }
+  
+  div.slides {
+    zoom: 1 !important;
+  }
+  
+  .c-link {
+    cursor: pointer;
+  }
+  
+  .c-image {
+    max-width: 100%;
+  }
+
+  .u-list-unstyled {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .c-js-badge {
+    background: url('../images/js-shield.svg') no-repeat center center / contain;
+    bottom: .5rem;
+    height: 60px;
+    left: .5rem;
+    position: fixed;
+    width: 50px;
+  }
+}
+
+.fragment.destroyable:not(.current-fragment):not(.keep-block),
+.fragment.destroyable.visible:not(.current-fragment) {
+  display: none;
+  font-size: 0;
+  height: 0;
+  line-height: 0;
+}
+
+.fragment.u-scratched.visible:not(.current-fragment) {
+  text-decoration: line-through;
+}
+
+
+%hover {
+  background: color(white, 1);
+  border: 2px solid color(a);
+  color: color(a);
+  cursor: pointer;
+}
+
+%hover--primary {
+  background: color(b, 2);
+  border: 2px solid color(b, 2);
+  color: color(white);
+  cursor: pointer;
+}
+
+a.c-button {
+  &:hover {
+    @extend %hover;
+  }
+  
+  &--primary {
+    &:hover {
+      @extend %hover--primary;
+    }
+  }
+}
+
+.c-button {
+  @include modifiers {
+    .reveal & {
+      background: color(white);
+      border: 2px solid color(a) {
+        radius: 10px;
+      }
+      color: color(a);
+      display: block;
+      font: {
+        size: 1.2em;
+      }
+      height: 2.5em;
+      line-height: 2.5em;
+      margin: {
+        left: auto;
+        right: auto;
+      }
+      max-width: 400px;
+      padding: 0 1.5em;
+      text-align: center;
+      transition: all .3s ease-in-out;
+      
+      &:hover {
+        @extend %hover;
+      }
+    }
+  }
+  
+  .reveal & {
+    &--primary {
+      background: color(b);
+      border: {
+        color: color(b);
+      }
+      color: color(white);
+      
+      &:hover {
+        @extend %hover--primary;
+      }
+    }
+    
+    &--close {
+      background: color(a);
+      border: 0;
+      border-radius: 30px;
+      height: 60px;
+      padding: 0;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      width: 60px;
+      z-index: 10;
+
+      &:hover {
+        background: color(a, -2);
+      }
+
+      &:before, &:after {
+        background: color(white);
+        content: '';
+        height: 4px;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: rotate(45deg) translate(-50%, -50%);
+        transform-origin: top left;
+        width: 54px;
+      }
+
+      &:after {
+        transform: rotate(-45deg) translate(-50%, -50%);
+      }
+    }
+
+    + .c-button {
+      margin: {
+        top: 1rem;
+      }
+    }
+  }
+}
+
+
+.reveal .c-iphone {
+  height: (649px - 75px - 77px);
+  margin: 75px auto 77px;
+  //padding: 75px 22px 77px;
+  position: relative;
+  width: 280px;
+  z-index: 1;
+  
+  &:before {
+    background: url('../images/iphone.png') no-repeat;
+    content: '';
+    height: 649px;
+    left: -22px;
+    position: absolute;
+    top: -75px;
+    width: 323px;
+    z-index: -1;
+  }
+}

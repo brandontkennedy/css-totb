@@ -1,0 +1,42 @@
+@mixin modifiers($class: '', $root: true) {
+  $parent: '#{&}';
+  $class: unquote($class);
+  $modifier: '';
+
+  @if $class == '' {
+    $modifier: unquote(str-slice($parent, 2) + '--');
+    $class: &;
+    @if str-index($parent, ' ') != null {
+      @warning 'This version of the mixin only supports simple selectors'
+    }
+  } @else {
+    @if str-index($class, '.') {
+      $modifier: str-slice($class, 2);
+    } @else {
+      $modifier: $class;
+      $class: unquote('.#{$class}');
+    }
+
+    @if str-index($modifier, '--') {
+      $class: str-slice($class, 0, -3);
+    } @else {
+      $modifier: $modifier + '--';
+    }
+  }
+
+  @if str-index($modifier, '----') {
+    $modifier: str-slice($modifier, 0, -3);
+  }
+
+  $selectors: "#{$class}, [class^='#{$modifier}'], [class*=' #{$modifier}']";
+
+  @if $root {
+    @at-root #{$selectors} {
+      @content;
+    }
+  } @else {
+    #{$selectors} {
+      @content;
+    }
+  }
+}

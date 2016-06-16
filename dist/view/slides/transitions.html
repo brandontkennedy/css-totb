@@ -1,0 +1,189 @@
+
+<section class="transitions">
+  <div class="c-slide__header--no-body">
+    <h1>Transitions</h1>
+    <h3 class="fragment">A change in property values over a specified duration of time instead of occurring immediately</h3>
+  </div>
+  <aside class="notes">
+    <ul>
+      <li>what are they?</li>
+      <li>for example, that definition had a transition on it to make the opacity fade from 0 to 1</li>
+    </ul>
+  </aside>
+</section>
+<section class="transitions">
+  <div class="c-slide__header">
+    <h4>Transitions</h4>
+    <h3>Why bother?</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="d-flex--center d-flex--spaced u-center">
+        <div>
+          <button class="c-button transition--no">No Transition</button>
+        </div>
+        <div>
+          <button class="c-button transition--yes">Yes Transition</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    <ul>
+      <li>they just make things FEEL nicer</li>
+      <li>for example, when these slides change they are using transitions</li>
+    </ul>
+  </aside>
+</section>
+<section class="transitions">
+  <div class="c-slide__header">
+    <h4>Transitions</h4>
+    <h3>Syntax</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="d-flex__column--center">
+        <pre class="fit-code fragment"><code class="css">.defaults {
+  transition-property: all;
+  transition-duration: 0s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+}</code></pre>
+        <pre class="fit-code fragment"><code class="css">.shorthand {
+  transition: all 0s ease 0s;
+}
+</code></pre>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li>default properites</li>
+        <li>shorthand</li>
+      </ul></small></aside>
+</section>
+<section class="transitions">
+  <div class="c-slide__header">
+    <h4>Transitions</h4>
+    <h3>Specifying What Changes</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <pre class="fit-code"><code class="sass">button:hover {
+  background: #ff6347;
+  border-color: #fff;
+  box-shadow: 0 0 20px 10px #333;
+}
+</code></pre>
+      <div class="d-flex--center d-flex--spaced d-flex--wrap">
+        <div class="fragment destroyable">
+          <button class="c-button transition--one">Just One Thing</button>
+          <pre class="fit-code"><code class="sass">button:hover {
+  transition: box-shadow 1s linear;
+}</code></pre>
+        </div>
+        <div class="fragment destroyable">
+          <button class="c-button transition--two">More Than One Thing</button>
+          <pre class="fit-code"><code class="sass">button:hover {
+  transition: 
+    background 1s linear,
+    box-shadow 1s linear;
+}</code></pre>
+        </div>
+        <div class="fragment destroyable">
+          <button class="c-button transition--all">Everything Different</button>
+          <pre class="fit-code"><code class="sass">button:hover {
+  transition: all 1s linear;
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    <ul>
+      <li>safe thought: if it can be defined numerically</li>
+      <li>all transition examples will be using buttons, :hover, '1s', and 'linear'</li>
+      <li>notice that each thing transitions evenly from the original to the hover state as well as from the hover state back to the original.  we can change that too.</li>
+    </ul>
+  </aside>
+</section>
+<section class="transitions">
+  <div class="c-slide__header">
+    <h4>Transitions</h4>
+    <h3>Different Reverse Transitions</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <div class="d-flex--center d-flex--spaced d-flex--wrap">
+        <div>
+          <button class="c-button transition--back">Different Things</button>
+          <pre class="fit-code"><code class="scss">button {
+  transition: box-shadow 1s linear;
+
+  &:hover {
+    transition: all 1s linear;
+  }
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    <ul>
+      <li>all the things on hover</li>
+      <li>ONLY box-shadow on return</li>
+    </ul>
+  </aside>
+</section>
+<section class="transitions">
+  <div class="c-slide__header">
+    <h4>Transitions</h4>
+    <h3>Timing Functions</h3>
+  </div>
+  <div class="c-slide__body">
+    <div class="c-slide__content">
+      <h3 class="fragment">How to handle the progress of the transition over time</h3>
+      <div class="c-timing-block slide-in">
+        <div class="fragment">
+          <div class="c-timing c-timing--ease"><span>ease</span></div>
+        </div>
+        <div class="fragment">
+          <div class="c-timing c-timing--ease-in"><span>ease-in</span></div>
+        </div>
+        <div class="fragment">
+          <div class="c-timing c-timing--ease-out"><span>ease-out</span></div>
+        </div>
+        <div class="fragment">
+          <div class="c-timing c-timing--ease-in-out"><span>ease-in-out</span></div>
+        </div>
+        <div class="fragment">
+          <div class="c-timing c-timing--linear"><span>linear</span></div>
+        </div>
+        <div class="fragment">
+          <div class="c-timing c-timing--step"><span>steps()</span></div>
+        </div>
+        <div class="fragment">
+          <div class="slide-in c-timing c-timing--cubic"><span>cubic-bezier()</span></div>
+        </div>
+      </div>
+      <div class="c-timing-block fragment slide-back">
+        <div class="c-timing c-timing--ease"><span>ease</span></div>
+        <div class="c-timing c-timing--ease-in"><span>ease-in</span></div>
+        <div class="c-timing c-timing--ease-out"><span>ease-out</span></div>
+        <div class="c-timing c-timing--ease-in-out"><span>ease-in-out</span></div>
+        <div class="c-timing c-timing--linear"><span>linear</span></div>
+        <div class="c-timing c-timing--step"><span>steps()</span></div>
+        <div class="c-timing c-timing--cubic"><span>cubic-bezier()</span></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    <ul>
+      <li>there a few keyword functions</li>
+      <li>cubic-bezier can be tricky to master, but gives you a lot more control over how your transitions progress</li>
+      <li>lets see all of them at the same time but way slower</li>
+    </ul>
+  </aside>
+</section>

@@ -1,0 +1,194 @@
+@import '../helpers/variables';
+
+$shadow-length: 700px;
+$shadow-width: 10px;
+$space: 80px;
+
+@function getRandom() {
+  $random: max(random(4800), random(4800));
+  @return $random;
+}
+
+@function buildComplexBoxShadow($direction: "v") {
+  $boxShadowVal: 0px $shadow-length 0 0 rgba(color(f), .25),;
+  $colors: (
+    color(b),
+    color(c),
+    color(d),
+    color(e),
+    color(f),
+    color(g),
+  );
+  
+  @for $i from 1 through 12 {
+    
+    $x: random(2);
+    @if $x == 2 {$x: -1};
+    
+    $n: random(6);
+    
+    @if $direction == "v" {
+      $depth: random(5);
+      $boxShadowVal: $boxShadowVal, -(($i * $space) + ($shadow-width * $depth)) (getRandom() * $x) + px 0 ($shadow-width * $depth) rgba(nth($colors, $n), ($depth * .1));
+      //$depth: random(5);
+      $boxShadowVal: $boxShadowVal, (($i * $space) + ($shadow-width * $depth)) getRandom() + px 0 ($shadow-width * $depth) rgba(nth($colors, $n), ($depth * .1));
+    }
+    @else {
+      $depth: random(5);
+      $boxShadowVal: $boxShadowVal, ((getRandom() * $x) + px) -(($i * $space) + ($shadow-width * $depth)) 0 ($shadow-width * $depth) rgba(nth($colors, $n), ($depth * .1));
+      //$depth: random(5);
+      $boxShadowVal: $boxShadowVal, (getRandom() + px) (($i * $space) + ($shadow-width * $depth)) 0 ($shadow-width * $depth) rgba(nth($colors, $n), ($depth * .1));
+    }
+  }
+  
+  @return $boxShadowVal;
+}
+
+/* end functions */
+
+
+@at-root html, body {
+  height: 100vh;
+  overflow: hidden;
+  perspective: 1000px;
+  position: relative;
+  width: 100%;
+  &:before,
+  &:after {
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    transform-origin: center center;
+    transform-style: preserve-3d;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  &:before {
+    width: $shadow-width;
+    left: 50%;
+  }
+  &:after {
+    height: $shadow-width;
+  }
+}
+
+@at-root html {
+  background: color(white, 2);
+  &:before {
+    animation: moveHtmlV 16s linear -6s infinite;
+    box-shadow: buildComplexBoxShadow("v");
+    transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg);
+  }
+  &:after {
+    animation: moveHtmlH 14s linear -6s infinite;
+    box-shadow: buildComplexBoxShadow("h");
+    transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg);
+  }
+}
+
+@at-root body {
+  &:before {
+    animation: moveBodyV 14s linear -6s infinite;
+    box-shadow: buildComplexBoxShadow("v");
+    transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg);
+  }
+  &:after {
+    animation: moveBodyH 16s linear -6s infinite;
+    box-shadow: buildComplexBoxShadow("h");
+    transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg);
+  }
+}
+
+@keyframes moveHtmlH {
+  0% {
+    transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg) translateX(0);
+  }
+  45% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+    transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg) translateX(1000%);
+  }
+  51% {
+    opacity: 0;
+    transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg) translateX(-1000%);
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg) translateX(0);
+  }
+}
+
+@keyframes moveHtmlV {
+  0% {
+    transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg) translateY(0);
+  }
+  45% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+    transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg) translateY(1000%);
+  }
+  51% {
+    opacity: 0;
+    transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg) translateY(-1000%);
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(-45deg) rotateY(-45deg) rotateZ(0deg) translateY(0);
+  }
+}
+
+@keyframes moveBodyH {
+  0% {
+    transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg) translateX(0);
+  }
+  45% {
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+    transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg) translateX(-1000%);
+  }
+  51% {
+    opacity: 0;
+    transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg) translateX(1000%);
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg) translateX(0);
+  }
+}
+
+@keyframes moveBodyV {
+  0% {
+    transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg) translateY(0);
+  }
+  45% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+    transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg) translateY(-1000%);
+  }
+  51%{
+    opacity: 0;
+    transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg) translateY(1000%);
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg) translateY(0);
+  }
+}

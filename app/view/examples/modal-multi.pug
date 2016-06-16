@@ -1,0 +1,35 @@
+<!doctype html>
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title CSS - Thinking Outside the Box
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='black-translucent')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui')
+    //- START CSS ASSETS ---------------------------------------------------------//
+    link(rel='stylesheet', href='../../lib/css/index.min.css')
+
+  body.reveal(itemscope='', itemtype='http://schema.org/WebPage')
+
+
+    input(id='modal-close', class='c-modal__control c-control-input--visible', type='radio', name='modal-control', checked)
+    br
+    input(id='modal-control-one', class='c-modal__control c-control-input--visible', type='radio', name='modal-control')
+    label(for='modal-control-one', class='c-button') trigger first modal
+    .c-modal__container
+      .c-modal__header
+        label(for='modal-close', class='c-button--close')
+        h4.c-modal__title First Modal
+      .c-modal__body
+        p this is the content of the modal
+    
+    input(id='modal-control-two', class='c-modal__control c-control-input--visible', type='radio', name='modal-control')
+    label(for='modal-control-two', class='c-button') trigger second modal
+    .c-modal__container
+      .c-modal__header
+        label(for='modal-close', class='c-button--close')
+        h4.c-modal__title Second Modal
+      .c-modal__body
+        p oh hey, this one is different!
+
+    label(for='modal-close', class='c-modal__backdrop')

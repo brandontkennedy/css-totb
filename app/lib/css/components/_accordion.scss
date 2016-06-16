@@ -1,0 +1,116 @@
+.c-accordion-container {
+  @include modifiers {
+    .reveal & {
+      //border: 2px solid color(a);
+      border-radius: 6px;
+      float: left;
+      padding: 20px;
+      
+      &:not(:first-child) {
+        margin-left: 40px;
+      }
+      
+      .c-accordion {
+        &__control {
+          left: -9999em;
+          opacity: 0;
+          position: fixed;
+          zoom: .1;
+          
+          &:checked {
+            + .c-accordion__trigger:before {
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.reveal .c-accordion-container {
+  &--one {
+    border-color: color(b);
+    width: calc(50% - 20px);
+
+    .c-accordion {
+      &__trigger {
+        color: color(b);
+        
+        &:before {
+          box-shadow: 2px -2px 0 0 color(b);
+        }
+      }
+    }
+  }
+
+  &--two {
+    //border-color: color(f);
+    width: calc(50% - 20px);
+
+    .c-accordion {
+      &__trigger {
+        color: color(f);
+        
+        &:before {
+          box-shadow: 2px -2px 0 0 color(f);
+        }
+      }
+    }
+  }
+}
+
+.reveal {
+  .c-accordion__control {
+    &:checked {
+      + .c-accordion__trigger {
+        &:before {
+          transform: rotate(135deg) translateY(-50%);
+        }
+        
+        + .c-accordion__content {
+          max-height: 2.9em;
+        }
+      }
+    }
+  }
+  
+  .c-accordion__item {
+    &:not(:first-child) {
+      margin-top: 1em;
+    }
+  }
+
+  .c-accordion__trigger {
+    cursor: pointer;
+    display: block;
+    font-size: 20px;
+    padding: 15px;
+    padding-left: 40px;
+    text-align: left;
+        
+    &:before {
+      box-shadow: (
+        2px -2px 0 0 color(a),
+      );
+      content: '';
+      height: 10px;
+      left: 0;
+      position: absolute;
+      top: 50%;
+      transform: rotate(45deg) translateY(-50%);
+      transform-origin: 66.66666% -33.33333%;
+      transition: all .3s ease-in-out;
+      width: 10px;
+    }
+  }
+
+  .c-accordion__content {
+    font-size: 18px;
+    overflow: hidden;
+    margin: 0;
+    max-height: 0;
+    padding: 5px 15px 0;
+    text-align: left;
+    transition: all .3s ease-in-out;
+  }
+}
