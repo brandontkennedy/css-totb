@@ -1520,7 +1520,7 @@
               <li class="c-trevor-list-item c-trevor-list-item--fix">A much more intensive version of some things that might interest you. At least a little bit, we hope.</li>
               <li class="c-trevor-list-item c-trevor-list-item--fix">Something dumb to take up space.</li>
               <pre class="c-trevor-list__pre"><code class="sass">li {
-  box-shadow: 0 1px 0 0 white;
+  box-shadow: 0 2px 0 0 white;
 }
 </code></pre>
             </ul>
@@ -1560,7 +1560,7 @@
       </div>
       <div class="c-slide__body">
         <div class="c-slide__content">
-          <div class="d-flex--even fragment destroyable">
+          <div class="d-flex__column d-flex--spaced fragment destroyable">
             <div>
               <pre><code class="sass">box-shadow: 0 0 0 6px currentColor;</code></pre>
               <button class="c-button t-bg-color u-shadow--spread-pos">still got a shadow</button>
@@ -1570,7 +1570,7 @@
               <button class="c-button t-bg-color u-shadow--spread-neg">still got a shadow?</button>
             </div>
           </div>
-          <div class="d-flex--even fragment destroyable">
+          <div class="d-flex__column d-flex--spaced fragment destroyable">
             <div>
               <pre><code class="sass">box-shadow: 0 20px 0 6px currentColor;</code></pre>
               <button class="c-button t-bg-color u-shadow--spread-pos-offset">still got a shadow</button>
@@ -1625,7 +1625,7 @@ box-shadow: 0 0 10px 0 currentColor inset;</code></pre>
         <h1 class="u-text-shadow--light">Multiple Shadows</h1>
       </div>
     </section>
-    <section class="box-shadows" data-transition="fade-in concave-out">
+    <section class="box-shadows" data-transition="fade-in">
       <div class="c-slide__header t-bg-color">
         <h4 class="c-slide__header--topic">Box-Shadows</h4>
         <h3 class="c-slide__header--slide">Multiple Shadows</h3>
@@ -1789,14 +1789,8 @@ box-shadow: 0 0 10px 0 currentColor inset;</code></pre>
     <section class="introduction">
       <div class="c-slide__body--no-header">
         <div class="c-slide__content">
-          <h1 class="title fragment destroyable" data-fragment-index="0">Questions?</h1>
-          <h1 class="title fragment">Thinking Outside the Box With CSS</h1>
-          <h2 class="fragment"><a href="http://bit.ly/css-totb-demos" target="blank">bit.ly/css-totb-demos</a></h2>
-          <div class="follow-author fragment">
-            <h2 class="u-text--right">Brandon Kennedy</h2>
-            <div class="links d-flex__column u-text--right"><a href="http://codepen.io/brandonkennedy" target="blank">codepen.io/brandonkennedy</a><a href="http://twitter.com/brandontkennedy" target="blank">twitter.com/brandontkennedy</a></div>
-          </div>
-          <div class="a__intro fragment" data-fragment-index="0">
+          <h1 class="title" data-fragment-index="0">Questions?</h1>
+          <div class="a__intro" data-fragment-index="0">
             <div class="box">
               <div class="front"></div>
               <div class="side"></div>
@@ -1809,6 +1803,29 @@ box-shadow: 0 0 10px 0 currentColor inset;</code></pre>
       <aside class="notes"><small>
           <ul>
             <li>any questions?</li>
+          </ul></small></aside>
+    </section>
+    <section class="introduction" data-transition="none">
+      <div class="c-slide__body--no-header">
+        <div class="c-slide__content">
+          <h1 class="title">Thinking Outside the Box With CSS</h1>
+          <h2><a href="http://bit.ly/css-totb-demos" target="blank">bit.ly/css-totb-demos</a></h2>
+          <div class="follow-author">
+            <h2 class="u-text--right">Brandon Kennedy</h2>
+            <div class="links d-flex__column u-text--right"><a href="http://codepen.io/brandonkennedy" target="blank">codepen.io/brandonkennedy</a><a href="http://twitter.com/brandontkennedy" target="blank">twitter.com/brandontkennedy</a></div>
+          </div>
+          <div class="a__intro">
+            <div class="box">
+              <div class="front"></div>
+              <div class="side"></div>
+              <div class="brain"></div>
+              <div class="shadow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="notes"><small>
+          <ul>
             <li>link to codepen collection of examples</li>
             <li>follow me if you wanna</li>
           </ul></small></aside>
