@@ -136,16 +136,24 @@
 
 
   // bg color utils
-  $bg-padding: 30px;
+  $bg-padding: 30px 30px 40px;
+
+  [class*=' u-bg--'],
+  [class^='u-bg--'] {
+    border-radius: ($border-radius * 2);
+    margin-left: auto;
+    margin-right: auto;
+    padding: $bg-padding;
+    width: 50%;
+  }
+
   .u-bg {
     &--default {
       background: color(white);
-      padding: $bg-padding;
     }
 
     &--inverted {
       background: color(a);
-      padding: $bg-padding;
     }
   }
 
