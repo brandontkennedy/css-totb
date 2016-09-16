@@ -9,7 +9,7 @@
     transition: transform .5s ease-out !important;
 
     &.past {
-      transform: translateX(-100vw) !important;
+      transform: translateX(-600vw) !important;
     }
 
     &.present {
@@ -17,7 +17,7 @@
     }
 
     &.future {
-      transform: translateX(100vw) !important;
+      transform: translateX(600vw) !important;
     }
   }
 }

@@ -12,16 +12,12 @@ html(lang='en')
 
   script.
     var bg_items = [].slice.call( document.querySelectorAll('section') );
-    var slide_number = 1;
     bg_items.forEach((item) => {
       if (item.classList) {
         item.classList.add('c-slide');
-        item.classList.add('c-slide--' + slide_number);
       } else {
         item.className += ' c-slide';
-        item.className += ' c-slide--' + slide_number;
       }
-      slide_number++;
     });
 
     Reveal.initialize({
@@ -31,7 +27,7 @@ html(lang='en')
       center: true,
       //- width: "100%",
       //- height: "100%",
-      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      transition: 'fade', // none/fade/slide/convex/concave/zoom
       // Optional reveal.js plugins
       dependencies: [
         {
