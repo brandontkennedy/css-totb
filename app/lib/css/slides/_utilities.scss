@@ -2,13 +2,14 @@
 
 .reveal {
 
+  // reset utils
   .u-reset {
     &--margin {
       margin: 0;
     }
   }
   
-  // text color
+  // text color utils
   .u-text {
     &--red {
       color: color(c);
@@ -23,21 +24,77 @@
       color: color(a, -8);
     }
   }
-  
+
+  // text align utils
+  .u-text {
+    &--left {
+      text-align: left;
+    }
+
+    &--center {
+      text-align: center;
+    }
+
+    &--right {
+      text-align: right;
+    }
+  }
+
+  // list utils
+  .u-list-unstyled {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  // font utils
   .u-font--normal {
     font-weight: 400;
   }
 
-  // center align text
+  .u-font--bold {
+    font-weight: 700;
+  }
+
+  .u-font--small {
+    font: {
+      size: 1.2rem;
+    }
+  }
+
+  .u-font--medium {
+    font: {
+      size: 1.9rem;
+    }
+  }
+
+  .u-font--large {
+    font: {
+      size: 2.6rem;
+    }
+  }
+
+
+  // center align utils
   .u-center--text {
     text-align: center;
   }
 
+
+  .u-center--block {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  // position utils
   .u-pos--absolute {
     position: absolute !important;
   }
 
-  // vertical offset text
+
+  // vertical offset utils
   .u-offset--1 {
     margin: {
       top: 1rem !important;
@@ -62,31 +119,23 @@
     }
   }
 
-  // override font size
-  .u-font--small {
-    font: {
-      size: 1.2rem;
-    }
-  }
-
-  .u-font--medium {
-    font: {
-      size: 1.9rem;
-    }
-  }
-
-  .u-font--large {
-    font: {
-      size: 2.6rem;
-    }
-  }
 
   // display overrides
+  .u-hide {
+    display: none;
+  }
+
+  .u-show {
+    display: block;
+  }
+
   .u-inline-block {
     display: inline-block;
   }
+  
 
-  // background colors
+
+  // bg color utils
   $bg-padding: 30px;
   .u-bg {
     &--default {
@@ -100,6 +149,8 @@
     }
   }
 
+
+  // text shadow utils
   .u-text-shadow {
     &--light {
       text-shadow: 0 0 10px color(white), 0 0 10px color(white), 0 0 10px color(white), 0 0 10px color(white);
@@ -107,9 +158,11 @@
   }
 
 
+  // emphasis utils
   .u-strike, [class*=' u-strike'], [class^='u-strike'] {
-    background: linear-gradient(to top, transparent 48%, color(a) 48%, color(a) 52%, transparent 52%);
+    //background: linear-gradient(to top, transparent 48%, color(a) 48%, color(a) 52%, transparent 52%);
     opacity: 0.8;
+    text-decoration: line-through;
   }
   
   .u-strike--decoration {

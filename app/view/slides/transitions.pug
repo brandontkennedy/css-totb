@@ -3,8 +3,8 @@
 
 section(class=section)
   .c-slide__header--no-body
-    h1=title
-    h3.fragment A change in property values over a specified duration of time instead of occurring immediately
+    h1.t-color=title
+    h3.fragment A change in property values over a specified duration of time<br>instead of occurring immediately
 
   aside.notes
     ul
@@ -14,16 +14,16 @@ section(class=section)
 
 
 section(class=section)
-  .c-slide__header
-    h4=title
-    h3 Why bother?
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide Why bother?
   .c-slide__body
     .c-slide__content
-      .d-flex--center.d-flex--spaced.u-center
+      .d-flex--center.d-flex--spaced
         div
-          button.c-button.transition--no No Transition
+          button.c-button.c-example--transitions--no.t-bg-color.t-box-shadow--hover No Transition
         div
-          button.c-button.transition--yes Yes Transition
+          button.c-button.c-example--transitions--yes.t-bg-color.t-box-shadow--hover Yes Transition
 
   aside.notes
     ul
@@ -33,13 +33,13 @@ section(class=section)
 
 
 section(class=section)
-  .c-slide__header
-    h4=title
-    h3 Syntax
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide Syntax
   .c-slide__body
     .c-slide__content
       .d-flex__column--center
-        pre.fit-code.fragment
+        pre.fragment
           code.css.
             .defaults {
               transition-property: all;
@@ -47,7 +47,7 @@ section(class=section)
               transition-timing-function: ease;
               transition-delay: 0s;
             }
-        pre.fit-code.fragment
+        pre.fragment
           code.css.
             .shorthand {
               transition: all 0s ease 0s;
@@ -63,124 +63,133 @@ section(class=section)
 
 //- specifying what will transition (all the things?, just the color?)
 section(class=section)
-  .c-slide__header
-    h4=title
-    h3 Specifying What Changes
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide Specifying What Changes
   .c-slide__body
     .c-slide__content
-      pre.fit-code
-        code.sass.
-          button:hover {
-            background: #ff6347;
-            border-color: #fff;
-            box-shadow: 0 0 20px 10px #333;
-          }
+      .d-flex--even
+        div
+          button.c-button.t-bg-color.c-example--transitions Default
+        .u-icon--arrow-right.o-flex--center-y
+        div
+          button.c-button.t-bg-color.c-example--transitions.is-hover Hovered
 
-      .d-flex--center.d-flex--spaced.d-flex--wrap
-        div.fragment.destroyable
-          button.c-button.transition--one Just One Thing
-          pre.fit-code
-            code.sass.
-              button:hover {
-                transition: box-shadow 1s linear;
-              }
-        div.fragment.destroyable
-          button.c-button.transition--two More Than One Thing
-          pre.fit-code
-            code.sass.
-              button:hover {
-                transition: 
-                  background 1s linear,
-                  box-shadow 1s linear;
-              }
-        div.fragment.destroyable
-          button.c-button.transition--all Everything Different
-          pre.fit-code
-            code.sass.
-              button:hover {
-                transition: all 1s linear;
-              }
+  aside.notes
+    ul
+      li our next examples will be using buttons, :hover, '1s', and 'linear'
+
+
+
+
+section(class=section)
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide Specifying What Changes
+  .c-slide__body
+    .c-slide__content
+      div.u-offset--2.fragment
+        button.c-button.t-bg-color.c-example--transitions--one Just One Thing
+        pre
+          code.sass.
+            button:hover {
+              transition: background 1s linear;
+            }
+      div.u-offset--2.fragment
+        button.c-button.t-bg-color.c-example--transitions--two More Than One Thing
+        pre
+          code.sass.
+            button:hover {
+              transition: background 1s linear, transform 1s linear;
+            }
+      div.u-offset--2.fragment
+        button.c-button.t-bg-color.c-example--transitions--all Everything Different
+        pre
+          code.sass.
+            button:hover {
+              transition: all 1s linear;
+            }
 
   aside.notes
     ul
       li safe thought: if it can be defined numerically
-      li all transition examples will be using buttons, :hover, '1s', and 'linear'
       li notice that each thing transitions evenly from the original to the hover state as well as from the hover state back to the original.  we can change that too.
 
 
 
 //- making a different transition happen in different states (like stopping hovering) - different out than in
 section(class=section)
-  .c-slide__header
-    h4=title
-    h3 Different Reverse Transitions
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide Different Reverse Transitions
   .c-slide__body
     .c-slide__content
-      .d-flex--center.d-flex--spaced.d-flex--wrap
-        div
-          button.c-button.transition--back Different Things
-          pre.fit-code
-            code.scss.
-              button {
-                transition: box-shadow 1s linear;
-              
-                &:hover {
-                  transition: all 1s linear;
-                }
+      div
+        button.c-button.t-bg-color.c-example--transitions--reverse Different Things
+        pre
+          code.scss.
+            button {
+              transition: background 1s linear;
+            
+              &:hover {
+                transition: all 1s linear;
               }
+            }
 
   aside.notes
     ul
       li all the things on hover
-      li ONLY box-shadow on return
+      li ONLY background on return
 
 
 
 //- timing functions - what they are
 section(class=section)
-  .c-slide__header
-    h4=title
-    h3 Timing Functions
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide Timing Functions
   .c-slide__body
     .c-slide__content
       h3.fragment How to handle the progress of the transition over time
-      .c-timing-block.slide-in
-        .fragment
+      .o-container
+        .c-timing-block.slide-in
+          .fragment
+            .c-timing.c-timing--ease
+              span.t-color.t-border-color ease
+          .fragment
+            .c-timing.c-timing--ease-in
+              span.t-color.t-border-color ease-in
+          .fragment
+            .c-timing.c-timing--ease-out
+              span.t-color.t-border-color ease-out
+          .fragment
+            .c-timing.c-timing--ease-in-out
+              span.t-color.t-border-color ease-in-out
+          .fragment
+            .c-timing.c-timing--linear
+              span.t-color.t-border-color linear
+          .fragment
+            .c-timing.c-timing--step
+              span.t-color.t-border-color steps()
+          .fragment
+            .slide-in.c-timing.c-timing--cubic
+              span.t-color.t-border-color cubic-bezier()
+        
+        .c-timing-block.fragment.slide-back.o-container--horizontal
           .c-timing.c-timing--ease
-            span ease
-        .fragment
+            span.t-bg-color ease
           .c-timing.c-timing--ease-in
-            span ease-in
-        .fragment
+            span.t-bg-color ease-in
           .c-timing.c-timing--ease-out
-            span ease-out
-        .fragment
+            span.t-bg-color ease-out
           .c-timing.c-timing--ease-in-out
-            span ease-in-out
-        .fragment
+            span.t-bg-color ease-in-out
           .c-timing.c-timing--linear
-            span linear
-        .fragment
+            span.t-bg-color linear
           .c-timing.c-timing--step
-            span steps()
-        .fragment
-          .slide-in.c-timing.c-timing--cubic
-            span cubic-bezier()
-      .c-timing-block.fragment.slide-back
-        .c-timing.c-timing--ease
-          span ease
-        .c-timing.c-timing--ease-in
-          span ease-in
-        .c-timing.c-timing--ease-out
-          span ease-out
-        .c-timing.c-timing--ease-in-out
-          span ease-in-out
-        .c-timing.c-timing--linear
-          span linear
-        .c-timing.c-timing--step
-          span steps()
-        .c-timing.c-timing--cubic
-          span cubic-bezier()
+            span.t-bg-color steps()
+          .c-timing.c-timing--cubic
+            span.t-bg-color cubic-bezier()
           
 
   aside.notes
@@ -208,7 +217,7 @@ section(class=section)
 //-       .d-flex--center.d-flex--spaced.d-flex--wrap
 //-         div
 //-           button.c-button.transition--back Different Things
-//-           pre.fit-code
+//-           pre
 //-             code.scss.
 //-               button {
 //-                 transition: box-shadow 1s linear;

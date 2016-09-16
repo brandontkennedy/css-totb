@@ -12,8 +12,9 @@
     //- "before we get into HOW this is possible, we really should do a quick review of the parts necessary for this to work.  we'll need to know "
 
     section(class=section)
-      .c-slide__header
-        h4 What Are We Going To Learn About?
+      .c-slide__header.t-bg-color
+        h4.c-slide__header--topic Introduction
+        h3.c-slide__header--slide What Are We Going To Learn About?
       .c-slide__body
         .c-slide__content
           .fragment
@@ -105,34 +106,32 @@
     //- More Examples:
     //- some loader with circle box shadows like the motives one or something
 
-    section(class=section)
-      //- .c-slide__header
-        //- h4 Homework
-      .c-slide__body
-        .c-slide__content
-          img.codepen(data-fragment-index="1" src="../lib/images/codepen-black.png")
-          h3.fragment(data-fragment-index="1") Set up a free account at <a href="http://codepen.io" target="blank">http://codepen.io</a>
-          h3.fragment Search for a pen I created named <a href="http://bit.ly/css-totb" target="blank">"dev.Objective() 2016"</a> (bit.ly/css-totb)
-          h2.fragment Fork it.
-          h3.fragment Make it cooler using something you learned here today.
-          h3.fragment Find me. Show/tell me what you did.
-          h2.fragment Get a prize <small>(while supplies last)</small>
-          .d-flex.d-flex--even.fragment
-            h3 - 3 Months Free of CodePen Pro
-            h3 - CodePen T-Shirt
-            h3 - CodePen Hat
-          br
-          br
-          h2.fragment More demos available at<br><a href="http://bit.ly/css-totb-demos" target="blank">bit.ly/css-totb-demos</a>
+    //- section(class=section)
+    //-   //- .c-slide__header
+    //-     //- h4 Homework
+    //-   .c-slide__body
+    //-     .c-slide__content
+    //-       img.codepen(data-fragment-index="1" src="../lib/images/codepen-black.png")
+    //-       h3.fragment(data-fragment-index="1") Set up a free account at <a href="http://codepen.io" target="blank">http://codepen.io</a>
+    //-       h3.fragment Search for a pen I created named <a href="http://bit.ly/css-totb" target="blank">"dev.Objective() 2016"</a> (bit.ly/css-totb)
+    //-       h2.fragment Fork it.
+    //-       h3.fragment Make it cooler using something you learned here today.
+    //-       h3.fragment Find me. Show/tell me what you did.
+    //-       h2.fragment Get a prize <small>(while supplies last)</small>
+    //-       .d-flex.d-flex--even.fragment
+    //-         h3 - 3 Months Free of CodePen Pro
+    //-         h3 - CodePen T-Shirt
+    //-         h3 - CodePen Hat
+    //-       h2.fragment More demos available at<br><a href="http://bit.ly/css-totb-demos" target="blank">bit.ly/css-totb-demos</a>
+    //- 
+    //-   aside.notes
+    //-     small
+    //-       ul
+    //-         li honest... we aren't going to go and implement all the tricks shown here in our prod sites
+    //-         li doesn't mean we can't practice them and assess the future
+    //-         li codepen sent over some swag
+    //-         li codepen challenge
+    //-         li first few to fork, significantly change pen, and find me to show/tell about it gets a prize
+    //-         li 3 month pro account (2x), t-shirt (2x), hat (2x)
 
-      aside.notes
-        small
-          ul
-            li honest... we aren't going to go and implement all the tricks shown here in our prod sites
-            li doesn't mean we can't practice them and assess the future
-            li codepen sent over some swag
-            li codepen challenge
-            li first few to fork, significantly change pen, and find me to show/tell about it gets a prize
-            li 3 month pro account (2x), t-shirt (2x), hat (2x)
-
-    //- include welcome
+    include outro

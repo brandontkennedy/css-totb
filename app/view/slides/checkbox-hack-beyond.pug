@@ -3,7 +3,7 @@
 
 section(class=section)
   .c-slide__header--no-body
-    h1=title
+    h1.t-color= title
     h3.fragment
       | Same concept.
       br
@@ -14,42 +14,45 @@ section(class=section)
 
 
 section(class=section)
-  .c-slide__header
-    h4=title
-    h2 Accordions
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic= title
+    h2.c-slide__header--slide Accordions
   .c-slide__body
     .c-slide__content
-      .c-accordion.c-accordion-container--one
-        .c-accordion__item
-          input(id='accordion-one--item-one', class='c-accordion__control c-control-input', type='checkbox', name='accordion-one')
-          label(for='accordion-one--item-one', class='c-accordion__trigger') Lorem ipsum dolor sit amet
-          p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.
+      .d-flex--spaced
+        .c-accordion.c-accordion-container
+          h3.u-text--gray checkboxes
+          .c-accordion__item
+            input(id='accordion-one--item-one', class='c-accordion__control c-control-input', type='checkbox', name='accordion-one')
+            label(for='accordion-one--item-one', class='c-accordion__trigger t-color') Lorem ipsum dolor sit amet
+            p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix.
 
-        .c-accordion__item
-          input(id='accordion-one--item-two', class='c-accordion__control c-control-input', type='checkbox', name='accordion-one')
-          label(for='accordion-one--item-two', class='c-accordion__trigger') Lorem ipsum dolor sit amet
-          p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.
+          .c-accordion__item
+            input(id='accordion-one--item-two', class='c-accordion__control c-control-input', type='checkbox', name='accordion-one')
+            label(for='accordion-one--item-two', class='c-accordion__trigger t-color') Lorem ipsum dolor sit amet
+            p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix.
 
-        .c-accordion__item
-          input(id='accordion-one--item-three', class='c-accordion__control c-control-input', type='checkbox', name='accordion-one')
-          label(for='accordion-one--item-three', class='c-accordion__trigger') Lorem ipsum dolor sit amet
-          p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.
+          .c-accordion__item
+            input(id='accordion-one--item-three', class='c-accordion__control c-control-input', type='checkbox', name='accordion-one')
+            label(for='accordion-one--item-three', class='c-accordion__trigger t-color') Lorem ipsum dolor sit amet
+            p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix.
 
-      .c-accordion.c-accordion-container--two
-        .c-accordion__item
-          input(id='accordion-two--item-one', class='c-accordion__control c-control-input', type='radio', name='accordion-two')
-          label(for='accordion-two--item-one', class='c-accordion__trigger') Lorem ipsum dolor sit amet
-          p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.
+        .c-accordion.c-accordion-container
+          h3.t-color.u-font--bold radios
+          .c-accordion__item
+            input(id='accordion-two--item-one', class='c-accordion__control c-control-input', type='radio', name='accordion-two')
+            label(for='accordion-two--item-one', class='c-accordion__trigger t-bg-color') Lorem ipsum dolor sit amet
+            p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix.
 
-        .c-accordion__item
-          input(id='accordion-two--item-two', class='c-accordion__control c-control-input', type='radio', name='accordion-two')
-          label(for='accordion-two--item-two', class='c-accordion__trigger') Lorem ipsum dolor sit amet
-          p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.
+          .c-accordion__item
+            input(id='accordion-two--item-two', class='c-accordion__control c-control-input', type='radio', name='accordion-two')
+            label(for='accordion-two--item-two', class='c-accordion__trigger t-bg-color') Lorem ipsum dolor sit amet
+            p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix.
 
-        .c-accordion__item
-          input(id='accordion-two--item-three', class='c-accordion__control c-control-input', type='radio', name='accordion-two')
-          label(for='accordion-two--item-three', class='c-accordion__trigger') Lorem ipsum dolor sit amet
-          p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.
+          .c-accordion__item
+            input(id='accordion-two--item-three', class='c-accordion__control c-control-input', type='radio', name='accordion-two')
+            label(for='accordion-two--item-three', class='c-accordion__trigger t-bg-color') Lorem ipsum dolor sit amet
+            p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix.
 
 
   aside.notes
@@ -63,19 +66,19 @@ section(class=section)
 
 
 section(class=section)
-  .c-slide__header
-    h4=title
-    h2 Tab Navigation
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic= title
+    h2.c-slide__header--slide Tab Navigation
   .c-slide__body
     .c-slide__content
-      .c-tabs.c-tabs__wrapper
+      .c-tabs.c-tabs__wrapper.t-border-color
         input(id="tab-1", class="c-control-input", type="radio", name="tabs", checked)
         input(id="tab-2", class="c-control-input", type="radio", name="tabs")
         input(id="tab-3", class="c-control-input", type="radio", name="tabs")
         .c-tabs__nav
-          label(for="tab-1", class="c-tabs__nav-item") Tab One
-          label(for="tab-2", class="c-tabs__nav-item") HTML
-          label(for="tab-3", class="c-tabs__nav-item") CSS
+          label(for="tab-1", class="c-tabs__nav-item t-border-color t-color") Rendered Tab
+          label(for="tab-2", class="c-tabs__nav-item t-border-color t-color") HTML
+          label(for="tab-3", class="c-tabs__nav-item t-border-color t-color") SCSS
         .c-tabs__content
           .c-tabs__content-item(data-for="tab-1")
             p Lorem ipsum dolor sit amet, no mea accommodare reprehendunt. Erat civibus insolens vix te, eu vel soluta minimum tacimates, sed te alia ullum consectetuer. Cu melius viderer est, eum nulla liberavisse ei. Id timeam viderer bonorum sea. Ea justo fuisset antiopam sea. Nec ex inermis splendide, pro nonumy dicunt qualisque no.
@@ -84,7 +87,7 @@ section(class=section)
             pre
               code.html.
                 <div class="c-tabs c-tabs__wrapper">
-                  <input id="tab-1" type="radio" name="tabs" class="c-control"> //checked
+                  <input id="tab-1" type="radio" name="tabs" class="c-control">
                   ...
                   
                   <div class="c-tabs__nav">
@@ -102,7 +105,8 @@ section(class=section)
           .c-tabs__content-item(data-for="tab-3")
             pre
               code.sass.
-                .c-tabs #tab-1:checked {
+                .c-tabs {
+                  &#tab-1:checked {
                     ~ .c-tabs__nav > label[for='tab-1'] {
                       // active tab styles
                     }
@@ -119,7 +123,6 @@ section(class=section)
                   // rest of appearance styles
                 }
 
-
   aside.notes
     small
       ul
@@ -129,65 +132,63 @@ section(class=section)
 
 
 section(class=section)
-  .c-slide__header
-    h4=title
-    h2 Dropdown Menu
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic= title
+    h2.c-slide__header--slide Dropdown Menu
   .c-slide__body
     .c-slide__content
-      .d-flex--even.u-offset--4
-        .c-dropdown
-          input(id='dropdown-1', class='c-dropdown__control c-control-input', type='checkbox', name='dropdown')
-          .c-dropdown__container
-            label(for='dropdown-1', class='c-button c-dropdown__trigger') OLD
-            ul.c-dropdown__menu
-              li.c-dropdown__menu-item
-                label(for='theme-one', class='c-link') option one
-              li.c-dropdown__menu-item
-                label(for='theme-two', class='c-link') option two
-              li.c-dropdown__menu-item
-                label(for='theme-three', class='c-link') option three
-              li.c-dropdown__menu-item
-                label(for='theme-four', class='c-link') option four
-        .c-dropdown
-          input(id='dropdown-2', class='c-dropdown__control c-control-input', type='checkbox', name='dropdown')
-          .c-dropdown__container
-            label(for='dropdown-2', class='c-button c-dropdown__trigger') OLD
-            ul.c-dropdown__menu
-              li.c-dropdown__menu-item
-                label(for='theme-one', class='c-link') option one
-              li.c-dropdown__menu-item
-                label(for='theme-two', class='c-link') option two
-              li.c-dropdown__menu-item
-                label(for='theme-three', class='c-link') option three
-              li.c-dropdown__menu-item
-                label(for='theme-four', class='c-link') option four
-        // text inputs
-        .c-dropdown
-          input(id='dropdown-3', class='c-dropdown__control c-control-input', type='text', name='dropdown')
-          .c-dropdown__container
-            label(for='dropdown-3', class='c-button c-dropdown__trigger c-dropdown__trigger--alt') NEW
-            ul.c-dropdown__menu
-              li.c-dropdown__menu-item
-                label(for='theme-one', class='c-link') option one
-              li.c-dropdown__menu-item
-                label(for='theme-two', class='c-link') option two
-              li.c-dropdown__menu-item
-                label(for='theme-three', class='c-link') option three
-              li.c-dropdown__menu-item
-                label(for='theme-four', class='c-link') option four
-        .c-dropdown
-          input(id='dropdown-4', class='c-dropdown__control c-control-input', type='text', name='dropdown')
-          .c-dropdown__container
-            label(for='dropdown-4', class='c-button c-dropdown__trigger c-dropdown__trigger--alt') NEW
-            ul.c-dropdown__menu
-              li.c-dropdown__menu-item
-                label(for='theme-one', class='c-link') option one
-              li.c-dropdown__menu-item
-                label(for='theme-two', class='c-link') option two
-              li.c-dropdown__menu-item
-                label(for='theme-three', class='c-link') option three
-              li.c-dropdown__menu-item
-                label(for='theme-four', class='c-link') option four
+      .d-flex--even.c-dropdown-groups
+        .c-dropdown-group
+          h3.u-text--gray checkboxes 
+          .d-flex--spaced
+            .c-dropdown
+              input(id='dropdown-1', class='c-dropdown__control c-control-input', type='checkbox', name='dropdown')
+              .c-dropdown__container
+                label(for='dropdown-1', class='c-button c-dropdown__trigger t-color') Drop 1
+                ul.c-dropdown__menu
+                  li.c-dropdown__menu-item
+                    label(for='theme-one', class='c-link') option one
+                  li.c-dropdown__menu-item
+                    label(for='theme-two', class='c-link') option two
+                  li.c-dropdown__menu-item
+                    label(for='theme-three', class='c-link') option three
+            .c-dropdown
+              input(id='dropdown-2', class='c-dropdown__control c-control-input', type='checkbox', name='dropdown')
+              .c-dropdown__container
+                label(for='dropdown-2', class='c-button c-dropdown__trigger t-color') Drop 2
+                ul.c-dropdown__menu
+                  li.c-dropdown__menu-item
+                    label(for='theme-one', class='c-link') option one
+                  li.c-dropdown__menu-item
+                    label(for='theme-two', class='c-link') option two
+                  li.c-dropdown__menu-item
+                    label(for='theme-three', class='c-link') option three
+
+        .c-dropdown-group
+          h3.t-color.u-font--bold radios
+          .d-flex--spaced
+            .c-dropdown
+              input(id='dropdown-3', class='c-dropdown__control c-control-input', type='text', name='dropdown')
+              .c-dropdown__container
+                label(for='dropdown-3', class='c-button--primary c-dropdown__trigger c-dropdown__trigger--alt t-bg-color') NEW
+                ul.c-dropdown__menu
+                  li.c-dropdown__menu-item
+                    label(for='theme-one', class='c-link') option one
+                  li.c-dropdown__menu-item
+                    label(for='theme-two', class='c-link') option two
+                  li.c-dropdown__menu-item
+                    label(for='theme-three', class='c-link') option three
+            .c-dropdown
+              input(id='dropdown-4', class='c-dropdown__control c-control-input', type='text', name='dropdown')
+              .c-dropdown__container
+                label(for='dropdown-4', class='c-button--primary c-dropdown__trigger c-dropdown__trigger--alt t-bg-color') NEW
+                ul.c-dropdown__menu
+                  li.c-dropdown__menu-item
+                    label(for='theme-one', class='c-link') option one
+                  li.c-dropdown__menu-item
+                    label(for='theme-two', class='c-link') option two
+                  li.c-dropdown__menu-item
+                    label(for='theme-three', class='c-link') option three
 
   aside.notes
     ul
@@ -197,12 +198,13 @@ section(class=section)
 
 
 section(class=section)
-  .c-slide__header
-    h4=title
-    h2 Multiple Modals
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic= title
+    h2.c-slide__header--slide Multiple Modals
   .c-slide__body
     .c-slide__content
-      a(href="/dist/view/examples/modal-multi.html", target="blank") demo
+      h2 Radio Powered Modals
+      a(class="c-button t-bg-color", href="/dist/view/examples/modal-multi.html", target="blank") demo
 
   aside.notes
     small
@@ -214,27 +216,27 @@ section(class=section)
 
 
 section(class=section)
-  .c-slide__header
-    h4=title
-    h2 Form Labels
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic= title
+    h2.c-slide__header--slide Form Labels
   .c-slide__body
     .c-slide__content
       .d-flex.d-flex--center
         form(class="c-form", name="form-1", action="#", method="post", style="width: 50%;")
           .c-form-group.fragment
             h6 Stacked Label/Input
-            label.c-label First Name
-              input(class="c-input", type="text", name="stacked")
+            label.c-label.t-color First Name
+              input(class="c-input t-border-color--focus", type="text", name="stacked")
           .c-form__break
           .c-form-group--inline.fragment
             h6 Inline Label/Input
-            label(for="inline", class="c-label") First Name
-            input(id="inline" class="c-input", type="text", name="inline")
+            label(for="inline", class="c-label t-color") First Name
+            input(id="inline" class="c-input t-border-color--focus", type="text", name="inline")
           .c-form__break
           .c-form-group--placeholder.fragment
             h6 Placeholder as Label
             //- label(for="inline", class="c-label") First Name
-            input(class="c-input", type="text", name="placeholder", placeholder="First Name")
+            input(class="c-input t-border-color--focus", type="text", name="placeholder", placeholder="First Name")
 
   aside.notes
     small
@@ -251,36 +253,39 @@ section(class=section)
 
 
 section(class=section)
-  .c-slide__header
-    h4=title
-    h2 Form Labels cont.
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic= title
+    h2.c-slide__header--slide Form Labels cont.
   .c-slide__body
-    .c-slide__content
-      .d-flex__column.d-flex--center
-        form(class="c-form u-center--x fragment", name="form-1", action="#", method="post", style="margin: 0; width: 50%;")
-          .c-form-group--inset
-            input(class="c-input", type="text", name="inset", required, style="margin: 0;")
-            span.c-label--inset First Name
-        pre.fragment
-          code.html.
-            <input id="firstname" class="c-input" type="text" name="firstname" required="true">
-            <label for="firstname" class="c-label--inset">First Name</label>
-          code.u-offset--2.sass.fragment.
-            .c-form-group--inset { position: relative; }
-            
-            .c-form-group--inset .c-input:focus + .c-label--inset,
-            .c-form-group--inset .c-input:valid + .c-label--inset {
-              font-size: .75em;
-              opacity: .7;
-              top: 0;
-            }
-            
-            .c-form-group--inset .c-label--inset {
-              left: 10px;
-              opacity: 1;
-              position: absolute;
-              top: 10px;
-            }
+    .c-slide__content.o-container--horizontal
+      form(class="c-form u-center--x fragment", name="form-1", action="#", method="post", style="margin: 0; width: 50%;")
+        .c-form-group--inset
+          input(class="c-input t-border-color--focus", type="text", name="inset", required, style="margin: 0;")
+          span.c-label--inset.t-color First Name
+      pre.o-block.fragment
+        code.html.
+          <!-- HTML -->
+          <input id="firstname" class="c-input" type="text" name="firstname" required="true">
+          <label for="firstname" class="c-label--inset">First Name</label>
+        
+        
+        code.sass.fragment.
+          // SCSS
+          .c-form-group--inset { position: relative; }
+          
+          .c-form-group--inset .c-input:focus + .c-label--inset,
+          .c-form-group--inset .c-input:valid + .c-label--inset {
+            font-size: .75em;
+            opacity: .7;
+            top: 0;
+          }
+          
+          .c-form-group--inset .c-label--inset {
+            left: 10px;
+            opacity: 1;
+            position: absolute;
+            top: 10px;
+          }
 
   aside.notes
     small

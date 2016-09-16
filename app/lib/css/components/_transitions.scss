@@ -1,0 +1,23 @@
+//.reveal .slides section[data-transition=none],
+//.reveal.none .slides section:not([data-transition])
+
+.reveal.none .slides {
+  section {
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    transition: transform .5s ease-out !important;
+
+    &.past {
+      transform: translateX(-100vw) !important;
+    }
+
+    &.present {
+      transform: translateX(0) !important;
+    }
+
+    &.future {
+      transform: translateX(100vw) !important;
+    }
+  }
+}

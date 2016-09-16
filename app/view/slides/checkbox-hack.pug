@@ -1,6 +1,9 @@
-section.checkbox-hack
+- var section = 'checkbox-hack'
+- var title = 'The "Checkbox Hack"'
+
+section(class=section)
   .c-slide__header--no-body
-    h1 The "Checkbox Hack"
+    h1.t-color= title
     h3.fragment Nesting styles after a <i>:checked</i> pseudo class on a checkbox to gain functionality instead of just style
 
   aside.notes
@@ -10,41 +13,44 @@ section.checkbox-hack
 
 
 
-section.checkbox-hack(data-transition='')
-  .c-slide__header
-    h4 The "Checkbox Hack"
-    h2 A Basic Example
+section(class=section)
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic= title
+    h2.c-slide__header--slide A Basic Example
   .c-slide__body
     .c-slide__content
-      .d-flex__column
-        .ex--rendered
-          input(id='agree', type='checkbox', name='agree')
-          label(for='agree') I blindly agree to your rules
-          button.c-button--primary.sign-up-button Sign Me Up
-        .d-flex--center.d-flex--spaced
-          .ex--html.fragment
-            h6 markup
-            pre
-              code.html.
-                <input id="agree" type="checkbox">
-                  
-                <label for="agree">I blindly agree to your rules</label>
-                  
-                <button class="sign-up-button">Sign Me Up</button>
-          .ex--css.fragment
-            h6 CSS
-            pre
-              code.sass.
-                #agree:checked ~ .sign-up-button {
+      input(id='agree', type='checkbox', name='agree')
+      label(for='agree') I blindly agree to your rules
+      button.c-button--primary.sign-up-button Sign Me Up
+
+      .fragment
+        pre
+          code.html.
+            <!-- HTML -->
+            <input id="agree" type="checkbox">
+              
+            <label for="agree">I blindly agree to your rules</label>
+              
+            <button class="sign-up-button">Sign Me Up</button>
+          
+          
+          code.fragment.sass.
+            // SCSS
+            #agree {
+              &:checked {
+                ~ .sign-up-button {
                   opacity: 1;
                   pointer-events: all;
                 }
-                  
-                #agree ~ .sign-up-button {
-                  opacity: .6;
-                  pointer-events: none;
-                }
-        p.fragment ( https://css-tricks.com/child-and-sibling-selectors/ )
+              }
+              
+              ~ .sign-up-button {
+                opacity: .6;
+                pointer-events: none;
+              }
+            }
+
+      p.fragment ( https://css-tricks.com/child-and-sibling-selectors/ )
 
   aside.notes
     ul
@@ -55,13 +61,14 @@ section.checkbox-hack(data-transition='')
 
 
 
-section.checkbox-hack(data-transition='')
-  .c-slide__header
-    h4 The "Checkbox Hack"
+section(class=section)
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic= title
+    h2.c-slide__header--slide ¿Modals con no JS?
   .c-slide__body
     .c-slide__content
       h2 A Checkbox Powered Modal
-      a(href="/dist/view/examples/modal.html", target="blank") demo
+      a(class="c-button t-bg-color" href="/dist/view/examples/modal.html", target="blank") demo
 
   aside.notes
     ul
@@ -73,34 +80,34 @@ section.checkbox-hack(data-transition='')
 
 
 
-section.checkbox-hack(data-transition='')
-  .c-slide__header
-    h4 The "Checkbox Hack"
-    h2 Expand/Collapse & Dropdowns
+section(class=section)
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic= title
+    h2.c-slide__header--slide Expand/Collapse & Dropdowns
   .c-slide__body
     .c-slide__content
       .d-flex--even
         .c-accordion(style="width: 50%;")
           .c-accordion__item
             input(id='accordion-item--one', class='c-accordion__control c-control-input--visible', type='checkbox', name='accordion')
-            label(for='accordion-item--one', class='c-accordion__trigger') Lorem ipsum dolor sit amet
-            p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.
+            label(for='accordion-item--one', class='c-accordion__trigger t-color') Lorem ipsum dolor sit amet
+            p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix.
 
           .c-accordion__item
             input(id='accordion-item--two', class='c-accordion__control c-control-input--visible', type='checkbox', name='accordion')
-            label(for='accordion-item--two', class='c-accordion__trigger') Lorem ipsum dolor sit amet
-            p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.
+            label(for='accordion-item--two', class='c-accordion__trigger t-color') Lorem ipsum dolor sit amet
+            p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix.
 
           .c-accordion__item
             input(id='accordion-item--three', class='c-accordion__control c-control-input--visible', type='checkbox', name='accordion')
-            label(for='accordion-item--three', class='c-accordion__trigger') Lorem ipsum dolor sit amet
-            p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.
+            label(for='accordion-item--three', class='c-accordion__trigger t-color') Lorem ipsum dolor sit amet
+            p.c-accordion__content Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix.
 
 
         .c-dropdown
           input(id='dropdown', class='c-dropdown__control c-control-input--visible', type='checkbox', name='dropdown')
           .c-dropdown__container
-            label(for='dropdown', class='c-button c-dropdown__trigger') options
+            label(for='dropdown', class='c-button c-dropdown__trigger t-bg-color') options
             ul.c-dropdown__menu
               li.c-dropdown__menu-item
                 label(for='theme-one', class='c-link') option one
@@ -108,8 +115,6 @@ section.checkbox-hack(data-transition='')
                 label(for='theme-two', class='c-link') option two
               li.c-dropdown__menu-item
                 label(for='theme-three', class='c-link') option three
-              li.c-dropdown__menu-item
-                label(for='theme-four', class='c-link') option four
 
   aside.notes
     ul

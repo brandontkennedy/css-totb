@@ -1,79 +1,152 @@
 $speed-up: cubic-bezier(.75, .05, .85, .06);
 $slow-down: cubic-bezier(.2, .6, .3, 1);
-@mixin bounce-in-animation($name, $from: left) {
-  $adjust: 1;
+
+@mixin enter-animation($name, $from: left) {
+  $adjust: -1;
   @if $from == 'left' {
-    $adjust: -1;
+    $adjust: 1;
   }
-  
+
   @keyframes #{$name} {
-    0% {
-      animation-timing-function: $speed-up;
-      transform: translateX(50em * $adjust);
+    from {
+      opacity: 0;
+      transform: rotateY(90deg * $adjust);
     }
-    80% {
-      animation-timing-function: $slow-down;
-      transform: translateX(.5em * $adjust);
-    }
-    88% {
-      animation-timing-function: $speed-up;
-      transform: translateX(5em * $adjust);
-    }
-    94% {
-      animation-timing-function: $slow-down;
-      transform: translateX(.5em * $adjust);
-    }
-    96% {
-      animation-timing-function: $speed-up;
-      transform: translateX(2em * $adjust);
-    }
-    100% {
-      animation-timing-function: $slow-down;
-      transform: translateX(.5em * $adjust);
+    to {
+      opacity: 1;
+      transform: rotateY(0deg * $adjust);
     }
   }
+
+  // @keyframes #{$name} {
+  //   0% {
+  //     animation-timing-function: $speed-up;
+  //     transform: translateX(50em * $adjust);
+  //   }
+  //   80% {
+  //     animation-timing-function: $slow-down;
+  //     transform: translateX(.5em * $adjust);
+  //   }
+  //   88% {
+  //     animation-timing-function: $speed-up;
+  //     transform: translateX(5em * $adjust);
+  //   }
+  //   94% {
+  //     animation-timing-function: $slow-down;
+  //     transform: translateX(.5em * $adjust);
+  //   }
+  //   96% {
+  //     animation-timing-function: $speed-up;
+  //     transform: translateX(2em * $adjust);
+  //   }
+  //   100% {
+  //     animation-timing-function: $slow-down;
+  //     transform: translateX(.5em * $adjust);
+  //   }
+  // }
 }
+
+
 
 .animations {
   .vs.fragment {
     $enter-a: unique-id();
     $enter-b: unique-id();
-    $enter-timing: linear;
-    
+    $enter-vs: unique-id();
+    $shake: unique-id();
+    $vs-flip: unique-id();
+
     %span {
       display: inline-block;
-      text-transform: uppercase;
       width: 40%;
     }
-    
+
     &.visible {
+      transform-style: preserve-3d;
+      perspective: 50vh;
       .vs--animation {
-        animation: #{$enter-a} 2s $enter-timing .1s forwards;
+        animation: #{$enter-a} 1s $slow-down .1s forwards;
+        // animation: #{$enter-a} 1s $slow-down .1s forwards, #{$shake} 4s ease 3s infinite;
       }
       .vs--transition {
-        animation: #{$enter-b} 2s $enter-timing .1s forwards;
+        animation: #{$enter-b} 1s $slow-down .1s forwards;
+      }
+      .vs--vs {
+        animation: #{$enter-vs} 1s $slow-down 1.2s forwards;
       }
     }
-    
+
+    .vs--vs {
+      $vs-size: 1.2em;
+
+      border-radius: 50%;
+      display: inline-block;
+      font-size: ($vs-size / 2);
+      height: $vs-size;
+      line-height: $vs-size;
+      margin: 0 ($vs-size / 2);
+      opacity: 0;
+      top: ($vs-size / -5);
+      width: $vs-size;
+    }
+
     .vs--animation {
       @extend %span;
-      color: color(c);
       text-align: right;
+      text-transform: uppercase;
       transform: translateX(-40em);
     }
-    
+
     .vs--transition {
       @extend %span;
-      color: color(b);
       text-align: left;
       transform: translateX(40em);
     }
-    
-    @include bounce-in-animation('#{$enter-a}');
-    @include bounce-in-animation('#{$enter-b}', 'right');
+
+    @include enter-animation('#{$enter-a}');
+
+    @include enter-animation('#{$enter-b}', 'right');
+
+    @keyframes #{$enter-vs} {
+      from {
+        opacity: 0;
+        transform: translateY(.5em);
+      }
+      to {
+        opacity: .6;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes #{$shake} {
+      from, 1%, 2%, 3%, 4%, 5%, 6%, 7%, 8%, 9%, to {
+        animation-timing-function: $speed-up;
+        transform: translate(0, 0) rotateZ(0deg);
+      }
+      .5%, 4.5%, 8.5% {
+        animation-timing-function: $slow-down;
+        transform: translate(.1em, 0) rotateZ(1deg);
+      }
+      1.5%, 5.5%, 9.5% {
+        animation-timing-function: $slow-down;
+        transform: translate(-.1em, 0) rotateZ(-1deg);
+      }
+      2.5%, 6.5% {
+        animation-timing-function: $slow-down;
+        transform: translate(.15em, 0) rotateZ(1deg);
+      }
+      3.5%, 7.5% {
+        animation-timing-function: $slow-down;
+        transform: translate(-.15em, 0) rotateZ(-1deg);
+      }
+      10% {
+        animation-timing-function: $slow-down;
+        transform: translate(0, 0) rotateZ(0deg);
+      }
+    }
   }
-  
-  
+
+
   .c-comparison {
     @extend .d-flex;
     @extend .d-flex--justify;
@@ -82,8 +155,12 @@ $slow-down: cubic-bezier(.2, .6, .3, 1);
     &__item {
       margin: .5em 1em;
       flex-grow: 1;
-      text-align: center;
+      text-align: left;
       width: 50%;
+
+      &.animations {
+        text-align: right;
+      }
     }
   }
 
@@ -112,74 +189,212 @@ $slow-down: cubic-bezier(.2, .6, .3, 1);
 
   // staked demos
   .c-stacked-example {
-    border-bottom: 2px solid color(a, -4);
-    font-size: 40px;
-    height: 2.1em;
-    width: 30%;
+    &__rendered,
+    &__rendered--large {
+      border-bottom: 2px solid color(a, -4);
+      display: inline-block;
+      // font-size: 20px;
+      height: 10em;
+      width: 10em;
+
+      &--large {
+        font-size: 2em;
+      }
+    }
+
+    &__caption {
+      display: inline-block;
+      width: 90%;
+    }
   }
-  
-  .ball {
+
+  .c-ball {
     background: color(c, -4);
     border-radius: 50%;
     bottom: 0;
     box-shadow: (
-      inset .1em -.1em .4em -.1em rgba(color(c, 8), .5),
-      inset 0 -.1em 1em -.2em rgba(color(a), .6),
-      inset .3em -.7em .5em .8em color(c),
+      inset .2em -.2em .8em -.2em rgba(color(a), .8),
+      inset 0 -.2em 2em -.4em rgba(color(a), .4),
     );
-    height: 2em;
+    height: 4em;
     left: 50%;
-    margin-left: -1em;
+    margin-left: -2em;
     position: absolute;
-    width: 2em;
-    
-    + pre {
-      margin-top: 5em;
+    width: 4em;
+  }
+
+  $animation-duration: 1.5s;
+  %a-warp__bounce {
+    animation-name: bounce, warp;
+    animation-direction: alternate, normal;
+    animation-duration: ($animation-duration / 2), $animation-duration;
+  }
+
+  .a-mod {
+    &--slow {
+      &.a-bounce {
+        animation-duration: $animation-duration;
+
+        &.a-warp {
+          animation-duration: $animation-duration, ($animation-duration * 2);
+        }
+      }
+
+      &.a-warp {
+        animation-duration: ($animation-duration * 2)
+      }
+    }
+
+    &--shift {
+      animation-delay: ($animation-duration / -2) !important;
+    }
+
+    &--break {
+      &.a-bounce {
+        animation-name: bounce--break;
+
+        &.a-mod--shift {
+          animation-name: bounce--break--shift;
+        }
+
+        &.a-warp {
+          animation-name: bounce--break, warp--break;
+
+          &.a-mod--shift {
+            animation-name: bounce--break--shift, warp--break--shift;
+          }
+        }
+      }
+
+      &.a-warp {
+        animation-name: warp--break;
+
+        &.a-mod--shift {
+          animation-name: warp--break--shift;
+        }
+      }
     }
   }
-  
+
   .a-bounce {
-    animation: bounce 1s ease-out infinite alternate;
-    
-    &.a-squish {
-      animation-name: bounce, squish;
+    animation-delay: 0s;
+    animation-direction: alternate;
+    animation-duration: ($animation-duration / 2);
+    animation-iteration-count: infinite;
+    animation-name: bounce;
+    animation-timing-function: $slow-down;
+
+    &.a-warp {
+      @extend %a-warp__bounce;
     }
   }
-  
-  .a-squish {
-    animation: squish 1s ease-out infinite alternate;
+
+  .a-warp {
+    animation-delay: 0s;
+    animation-direction: normal;
+    animation-duration: $animation-duration;
+    animation-iteration-count: infinite;
+    animation-name: warp;
+    animation-timing-function: ease-in-out;
   }
-  
+
   @keyframes bounce {
-    0% {
-      transform: translateY(0);
-    }
-    10% {
+    0%, 16% {
+      animation-timing-function: $slow-down;
       transform: translateY(0);
     }
     100% {
+      animation-timing-function: $speed-up;
       transform: translateY(-5em);
     }
   }
 
-  @keyframes squish {
-    0% {
-      height: 1.2em;
-      margin-left: -1.4em;
-      width: 2.8em;
-    }
-    10% {
-      height: 2em;
-      margin-left: -1em;
-      width: 2em;
+  @keyframes bounce--break {
+    0%, 58% {
+      animation-timing-function: $slow-down;
+      transform: translateY(0);
     }
     100% {
-      height: 2em;
-      margin-left: -1em;
-      width: 2em;
+      animation-timing-function: $speed-up;
+      transform: translateY(-5em);
+    }
+  }
+
+  @keyframes bounce--break--shift {
+    0%, 8% {
+      animation-timing-function: $slow-down;
+      transform: translateY(0);
+    }
+    50%, 100% {
+      animation-timing-function: $speed-up;
+      transform: translateY(-5em);
+    }
+  }
+
+  @keyframes warp {
+    0%, 100% { // flat
+      animation-timing-function: ease-in;
+      height: 2.2em;
+      margin-left: -2.4em;
+      width: 4.8em;
+    }
+    8% { // tall
+      animation-timing-function: ease-in-out;
+      height: 4.8em;
+      margin-left: -1.6em;
+      width: 3.2em;
+    }
+    20%, 92% { // full
+      animation-timing-function: ease-out;
+      height: 4em;
+      margin-left: -2em;
+      width: 4em;
+    }
+  }
+
+  @keyframes warp--break {
+    0%, 25%, 75%, 100% { // flat
+      animation-timing-function: ease-in;
+      height: 2.2em;
+      margin-left: -2.4em;
+      width: 4.8em;
+    }
+    29% { // tall
+      animation-timing-function: ease-in-out;
+      height: 4.8em;
+      margin-left: -1.6em;
+      width: 3.2em;
+    }
+    39%, 71% { // full
+      animation-timing-function: ease-out;
+      height: 4em;
+      margin-left: -2em;
+      width: 4em;
+    }
+  }
+
+  @keyframes warp--break--shift {
+    0%, 100% { // flat
+      animation-timing-function: ease-in;
+      height: 2.2em;
+      margin-left: -2.4em;
+      width: 4.8em;
+    }
+    4% { // tall
+      animation-timing-function: ease-in-out;
+      height: 4.8em;
+      margin-left: -1.6em;
+      width: 3.2em;
+    }
+    10%, 96% { // full
+      animation-timing-function: ease-out;
+      height: 4em;
+      margin-left: -2em;
+      width: 4em;
     }
   }
 }
+
 
 
 // delay demos
@@ -192,6 +407,7 @@ $slow-down: cubic-bezier(.2, .6, .3, 1);
   @include modifiers {
     .reveal .fragment.visible & {
       animation: delay 4s ease-out forwards;
+      border: .1em solid;
       color: color(white);
       display: inline-block;
       left: 50%;
@@ -200,28 +416,47 @@ $slow-down: cubic-bezier(.2, .6, .3, 1);
       transform: translateX(-1000%);
       width: 10em;
     }
+
+    &:before,
+    &:after {
+      box-sizing: border-box;
+      height: 100%;
+      left: 0;
+      padding: .5em 1.5em;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
   }
 }
 
 .reveal .fragment.visible .a-delay {
   &--none {
-    animation-delay: 0;
-    background: color(b);
+    animation-delay: 0s;
   }
-  
+
   &--plus {
     animation-delay: 1s;
-    background: color(f);
+    background: currentColor;
+
+    &:before {
+      background: rgba(color(white), .75);
+      content: '';
+    }
+    &:after {
+      color: currentColor;
+      content: attr(data-content);
+      text-shadow: 0 1px 1px color(white);
+    }
   }
-  
+
   &--minus {
     animation-delay: -1s;
-    background: color(c);
   }
-  
+
   @keyframes delay {
     from {
-      transform: translateX(-1000%);
+      transform: translateX(1000%);
     }
     to {
       transform: translateX(-50%);
@@ -229,195 +464,231 @@ $slow-down: cubic-bezier(.2, .6, .3, 1);
   }
 }
 
+// 
+// @mixin spinCircle($size, $color, $opacity: 1, $width: 10px) {
+//   border: $width solid $color;
+//   border-bottom-color: transparent;
+//   border-radius: 50%;
+//   height: $size;
+//   opacity: $opacity;
+//   width: $size;
+// }
+// .c-spinning-cirles {
+//   $spin: unique-id();
+//   $dur-main: 6s;
+//   $dur-before: (($dur-main / 4) * 3);
+//   $dur-after: ($dur-main / 2);
+//   
+//   @include modifiers {
+//     .reveal & {
+//       @include spinCircle(200px, currentColor, 1, 15px);
+//       box-sizing: content-box;
+//       position: relative;
+//       
+//       &:before,
+//       &:after {
+//         content: '';
+//         position: absolute;
+//       }
+//       
+//       &:before {
+//         @include spinCircle(150px, currentColor, .7, 15px);
+//         color: inherit;
+//         left: 10px;
+//         top: 10px;
+//       }
+//       
+//       &:after {
+//         @include spinCircle(100px, currentColor, .4, 15px);
+//         left: 35px;
+//         top: 35px;
+//       }
+//       
+//       &.is-paused {
+//         &, &:before, &:after {
+//           animation-play-state: paused;
+//         }
+//       }
+//     }
+//   }
+//   
+//   &--none {
+//     animation: $spin $dur-main linear infinite;
+//     
+//     &:before {
+//       animation: $spin $dur-before linear infinite reverse;
+//     }
+//     
+//     &:after {
+//       animation: $spin $dur-after linear infinite;
+//     }
+//   }
+//   
+//   &--plus {
+//     animation: $spin $dur-main linear infinite;
+//     
+//     &:before {
+//       animation: $spin $dur-before linear $dur-after infinite reverse;
+//     }
+//     
+//     &:after {
+//       animation: $spin $dur-after linear $dur-before infinite;
+//     }
+//   }
+//   
+//   &--minus {
+//     animation: $spin $dur-main linear infinite;
+//     
+//     &:before {
+//       animation: $spin $dur-before linear -#{$dur-after} infinite reverse;
+//     }
+//     
+//     &:after {
+//       animation: $spin $dur-after linear -#{$dur-before} infinite;
+//     }
+//   }
+//   
+//   @keyframes #{$spin} {
+//     from {
+//       transform: rotate(0);
+//     }
+//     to {
+//       transform: rotate(360deg);
+//     }
+//   }
+// }
+// 
+// .c-delay-loading {
+//   $spin: unique-id();
+//   $len: 2s;
+//   @include modifiers {
+//     div {
+//       animation: $spin $len linear infinite;
+//       background: linear-gradient(-45deg, color(c) 20%, color(g) 70%, color(white) 70%, color(white) 75%);
+//       border-radius: 2em;
+//       height: 2em;
+//       left: 0;
+//       position: absolute;
+//       top: 0;
+//       width: 2em;
+//       
+//       &:nth-child(2) {
+//         left: 2em;
+//       }
+//       
+//       &:nth-child(3) {
+//         top: 2em;
+//       }
+//       
+//       &:nth-child(4) {
+//         left: 2em;
+//         top: 2em;
+//       }
+//     }
+//   }
+//   
+//   &--plus {
+//     div {
+//       &:nth-child(2) {
+//         animation-delay: ($len * .25);
+//       }
+//       &:nth-child(3) {
+//         animation-delay: ($len * .75);
+//       }
+//       &:nth-child(4) {
+//         animation-delay: ($len * .5);
+//       }
+//     }
+//   }
+//   
+//   &--minus {
+//     div {
+//       &:nth-child(2) {
+//         animation-delay: ($len * -.25);
+//       }
+//       &:nth-child(3) {
+//         animation-delay: ($len * -.75);
+//       }
+//       &:nth-child(4) {
+//         animation-delay: ($len * -.5);
+//       }
+//     }
+//   }
+//   
+//   @keyframes #{$spin} {
+//     from {
+//       transform: rotate(0);
+//     }
+//     to {
+//       transform: rotate(360deg);
+//     }
+//   }
+// }
 
-@mixin spinCircle($size, $color, $width: 10px) {
-  border: $width solid $color;
-  border-bottom-color: transparent;
-  border-radius: 50%;
-  height: $size;
-  width: $size;
-}
-.c-spinning-cirles {
-  $spin: unique-id();
-  $dur-main: 6s;
-  $dur-before: (($dur-main / 4) * 3);
-  $dur-after: ($dur-main / 2);
-  
-  @include modifiers {
-    .reveal & {
-      @include spinCircle(200px, color(b, 3), 15px);
-      box-sizing: content-box;
-      position: relative;
-      
-      &:before,
-      &:after {
-        content: '';
-        position: absolute;
-      }
-      
-      &:before {
-        @include spinCircle(150px, color(b), 15px);
-        left: 10px;
-        top: 10px;
-      }
-      
-      &:after {
-        @include spinCircle(100px, color(b, -3), 15px);
-        left: 35px;
-        top: 35px;
-      }
-      
-      &.is-paused {
-        &, &:before, &:after {
-          animation-play-state: paused;
-        }
-      }
-    }
+
+@function makeLongShadowSloped($offset-start, $offset-end, $spread-start, $spread-end, $cnt: 100, $color: color(white)) {
+  $shadow: 0 0 0 0 $color;
+  $spread: ($spread-end - $spread-start) / $cnt;
+  $offset: ($offset-end - $offset-start) / $cnt;
+  @for $i from 1 through $cnt {
+    $shadow: $shadow, 0 #{$offset-start + ($offset * $i)} 0 #{$spread-start + ($spread * $i)} $color;
   }
-  
-  &--none {
-    animation: $spin $dur-main linear infinite;
-    
-    &:before {
-      animation: $spin $dur-before linear infinite reverse;
-    }
-    
-    &:after {
-      animation: $spin $dur-after linear infinite;
-    }
-  }
-  
-  &--plus {
-    animation: $spin $dur-main linear infinite;
-    
-    &:before {
-      animation: $spin $dur-before linear $dur-after infinite reverse;
-    }
-    
-    &:after {
-      animation: $spin $dur-after linear $dur-before infinite;
-    }
-  }
-  
-  &--minus {
-    animation: $spin $dur-main linear infinite;
-    
-    &:before {
-      animation: $spin $dur-before linear -#{$dur-after} infinite reverse;
-    }
-    
-    &:after {
-      animation: $spin $dur-after linear -#{$dur-before} infinite;
-    }
-  }
-  
-  @keyframes #{$spin} {
-    from {
-      transform: rotate(0);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
+  @return $shadow;
 }
 
-.c-delay-loading {
-  $spin: unique-id();
-  $len: 2s;
-  @include modifiers {
-    div {
-      animation: $spin $len linear infinite;
-      background: linear-gradient(-45deg, color(c) 20%, color(g) 70%, color(white) 70%, color(white) 75%);
-      border-radius: 2em;
-      height: 2em;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 2em;
-      
-      &:nth-child(2) {
-        left: 2em;
-      }
-      
-      &:nth-child(3) {
-        top: 2em;
-      }
-      
-      &:nth-child(4) {
-        left: 2em;
-        top: 2em;
-      }
-    }
-  }
-  
-  &--plus {
-    div {
-      &:nth-child(2) {
-        animation-delay: ($len * .25);
-      }
-      &:nth-child(3) {
-        animation-delay: ($len * .75);
-      }
-      &:nth-child(4) {
-        animation-delay: ($len * .5);
-      }
-    }
-  }
-  
-  &--minus {
-    div {
-      &:nth-child(2) {
-        animation-delay: ($len * -.25);
-      }
-      &:nth-child(3) {
-        animation-delay: ($len * -.75);
-      }
-      &:nth-child(4) {
-        animation-delay: ($len * -.5);
-      }
-    }
-  }
-  
-  @keyframes #{$spin} {
-    from {
-      transform: rotate(0);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-}
-
-.c-change-timing.visible {
+.reveal .c-change-timing {
   $keyframe: unique-id();
+
+  animation: $keyframe 4s linear infinite alternate;
+  border: 0 solid transparent;
+  border-bottom: 8em solid currentColor;
+  border-left-width: .5em;
+  border-right-width: .5em;
+  border-radius: 1em / 2em;
+  height: 10em;
+  margin-bottom: 1em;
+  margin-left: -.5em;
+  position: relative;
+  transform: rotate(20deg);
+  transform-origin: center bottom;
+  width: 1em;
   
-  animation: $keyframe 3s linear infinite alternate;
-  background: color(b);
-  border-radius: 10px;
-  height: 60px;
-  //position: absolute;
-  transform-origin: center;
-  width: 60px;
+  &:before,
+  &:after {
+    background: currentColor;
+    border-radius: 50%;
+    content: '';
+    height: 2em;
+    left: -1em;
+    position: absolute;
+    top: 9em;
+    width: 2em;
+  }
   
+  &:after {
+    background: color(white);
+    box-shadow: 0 0 0 .225em color(white), makeLongShadowSloped(0em, -5em, -.3em, -.5em);
+    height: 1em;
+    left: -.5em;
+    top: 9.5em;
+    width: 1em;
+  }
+
   @keyframes #{$keyframe} {
     0% {
       animation-timing-function: ease-in;
-      //top: 10%;
-      transform: translateY(0px);
+      transform: rotate(-80deg);
     }
     33% {
-      animation-timing-function: steps(5);
-      //top: 33%;
-      transform: translateY(100px);
+      animation-timing-function: steps(4);
+      transform: rotate(-30deg);
     }
     66% {
       animation-timing-function: ease-out;
-      //top: 66%;
-      transform: translateY(200px);
+      transform: rotate(30deg);
     }
     100% {
-      //top: 90%;
-      transform: translateY(300px);
+      transform: rotate(80deg);
     }
   }
 }

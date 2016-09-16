@@ -1,0 +1,11 @@
+.fragment.destroyable:not(.current-fragment):not(.keep-block),
+.fragment.destroyable.visible:not(.current-fragment) {
+  display: none;
+  font-size: 0;
+  height: 0;
+  line-height: 0;
+}
+
+.fragment.u-scratched.visible:not(.current-fragment) {
+  text-decoration: line-through;
+}

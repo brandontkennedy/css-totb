@@ -27,6 +27,7 @@ body {
   }
 
   h1, h2, h3, h4, h5 ,h6 {
+    color: inherit;
     font-weight: 400;
     text-transform: none;
   }
@@ -71,6 +72,10 @@ body {
     zoom: 1 !important;
   }
   
+  .c-slide {
+    @include rainbow(60);
+  }
+  
   .c-link {
     cursor: pointer;
   }
@@ -79,11 +84,6 @@ body {
     max-width: 100%;
   }
 
-  .u-list-unstyled {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
 
   .c-js-badge {
     background: url('../images/js-shield.svg') no-repeat center center / contain;
@@ -95,17 +95,6 @@ body {
   }
 }
 
-.fragment.destroyable:not(.current-fragment):not(.keep-block),
-.fragment.destroyable.visible:not(.current-fragment) {
-  display: none;
-  font-size: 0;
-  height: 0;
-  line-height: 0;
-}
-
-.fragment.u-scratched.visible:not(.current-fragment) {
-  text-decoration: line-through;
-}
 
 
 %hover {
@@ -139,7 +128,7 @@ a.c-button {
     .reveal & {
       background: color(white);
       border: 2px solid color(a) {
-        radius: 10px;
+        radius: $border-radius;
       }
       color: color(a);
       display: block;
@@ -147,7 +136,7 @@ a.c-button {
         size: 1.2em;
       }
       height: 2.5em;
-      line-height: 2.5em;
+      line-height: 2.3em;
       margin: {
         left: auto;
         right: auto;

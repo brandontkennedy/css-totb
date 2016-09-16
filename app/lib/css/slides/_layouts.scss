@@ -56,12 +56,12 @@
     &__body {
       //display: flex;
       //height: 100vh;
-      height: calc(100% - 100px);
-      position: relative;
+      //height: calc(100% - 100px);
+      //position: relative;
     }
 
     &__content {
-      height: 100%;
+      //height: 100%;
       left: 50%;
       position: absolute;
       top: 50%;
@@ -196,6 +196,11 @@
     }
   }
 
+  .o-flex {
+    &--center-y {
+      align-self: center;
+    }
+  }
 
   .o-columns {
     columns: 2;
