@@ -137,7 +137,7 @@ section(class=section)
           pre.c-trevor-list__pre
             code.sass.
               li {
-                box-shadow: 0 1px 0 0 white;
+                box-shadow: 0 2px 0 0 white;
               }
   
   aside.notes
@@ -179,7 +179,7 @@ section(class=section)
   //- I would guess that most people who have bothered to use a box-shadow probably already know about the 4th number thanks to Google. The 4th number is known as the spread radius and it represents how far the box-shadow stretches beyond the edge of the element.
   .c-slide__body
     .c-slide__content
-      .d-flex--even.fragment.destroyable
+      .d-flex__column.d-flex--spaced.fragment.destroyable
         div
           pre
             code.sass
@@ -190,7 +190,7 @@ section(class=section)
             code.sass
               | box-shadow: 0 0 0 -6px currentColor;
           button.c-button.t-bg-color.u-shadow--spread-neg still got a shadow?
-      .d-flex--even.fragment.destroyable
+      .d-flex__column.d-flex--spaced.fragment.destroyable
         div
           pre
             code.sass
@@ -255,7 +255,7 @@ section(class=section, data-transition='fade', data-background='../lib/images/la
 
 
 
-section(class=section, data-transition='fade-in concave-out')
+section(class=section, data-transition='fade-in')
   .c-slide__header.t-bg-color
     h4.c-slide__header--topic=title
     h3.c-slide__header--slide Multiple Shadows
