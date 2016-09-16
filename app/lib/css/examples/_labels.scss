@@ -87,18 +87,18 @@ $font-size: 20px;
           width: 100%;
         }
         
-        ::-webkit-input-placeholder {
-          color: color(a);
-        }
-        :-moz-placeholder { /* Firefox 18- */
-          color: color(a);
-        }
-        ::-moz-placeholder {  /* Firefox 19+ */
-          color: color(a);
-        }
-        :-ms-input-placeholder {  
-          color: color(a);
-        }
+        // ::-webkit-input-placeholder {
+        //   color: color(a);
+        // }
+        // :-moz-placeholder { /* Firefox 18- */
+        //   color: color(a);
+        // }
+        // ::-moz-placeholder {  /* Firefox 19+ */
+        //   color: color(a);
+        // }
+        // :-ms-input-placeholder {  
+        //   color: color(a);
+        // }
       }
       
       &--inset {
@@ -113,7 +113,7 @@ $font-size: 20px;
             + .c-label--inset {
               border-color: color(a);
               font-size: .75em;
-              opacity: .7;
+              // opacity: .7;
               top: 0;
             }
           }

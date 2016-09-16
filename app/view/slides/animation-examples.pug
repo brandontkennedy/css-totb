@@ -3,7 +3,7 @@
 
 section(class=section)
   .c-slide__header--no-body
-    h1=title
+    h1.t-color=title
 
   aside.notes
     small
@@ -14,13 +14,15 @@ section(class=section)
 
 
 section(class=section)
-  .c-slide__header
-    h4=title
-    h3 Often Overlooked Options
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide Often Overlooked Options
   .c-slide__body
     .c-slide__content
       .c-animated-bg.c-animated-bg--color-blend.fragment.destroyable
+        h1.c-animation__title animate the &lt;html&gt;
       .c-animated-bg.c-animated-bg--color-spin.fragment.destroyable
+        h1.c-animation__title animate pseudo-elements on the &lt;html&gt;
       a.c-animated-bg.c-animated-bg--3d-bars.fragment.destroyable(href="/dist/view/examples/bg-bars-animation.html", target="blank")
         .html
           .body
@@ -37,9 +39,9 @@ section(class=section)
 
 
 section(class=section)
-  .c-slide__header
-    h4=title
-    h3 Making an Entrance
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide Making an Entrance
   .c-slide__body
     .c-slide__content
       .d-flex--wrap.d-flex--center.c-property-list.u-center--x.fragment.destroyable
@@ -73,15 +75,14 @@ section(class=section)
 
 
 section(class=section)
-  .c-slide__header
-    h4=title
-    h3 Just For Fun
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide Just For Fun
   .c-slide__body
     .c-slide__content
-      .u-center
-        a.c-button(href="/dist/view/examples/walking.html", target="blank") Walking/Running
-        a.c-button(href="/dist/view/examples/fish.html", target="blank") Speedy the Fish
-        a.c-button(href="/dist/view/examples/fish-3d.html", target="blank") 2D in 3D
+      a.c-button.t-bg-color(href="/dist/view/examples/walking.html", target="blank") Walking/Running
+      a.c-button.t-bg-color(href="/dist/view/examples/fish.html", target="blank") Speedy the Fish
+      a.c-button.t-bg-color(href="/dist/view/examples/fish-3d.html", target="blank") 2D in 3D
 
   aside.notes
     small

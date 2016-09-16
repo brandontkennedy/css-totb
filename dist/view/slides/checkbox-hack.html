@@ -1,7 +1,7 @@
 
 <section class="checkbox-hack">
   <div class="c-slide__header--no-body">
-    <h1>The "Checkbox Hack"</h1>
+    <h1 class="t-color">The &quot;Checkbox Hack&quot;</h1>
     <h3 class="fragment">Nesting styles after a <i>:checked</i> pseudo class on a checkbox to gain functionality instead of just style</h3>
   </div>
   <aside class="notes">
@@ -11,43 +11,41 @@
     </ul>
   </aside>
 </section>
-<section class="checkbox-hack" data-transition="">
-  <div class="c-slide__header">
-    <h4>The "Checkbox Hack"</h4>
-    <h2>A Basic Example</h2>
+<section class="checkbox-hack">
+  <div class="c-slide__header t-bg-color">
+    <h4 class="c-slide__header--topic">The &quot;Checkbox Hack&quot;</h4>
+    <h2 class="c-slide__header--slide">A Basic Example</h2>
   </div>
   <div class="c-slide__body">
     <div class="c-slide__content">
-      <div class="d-flex__column">
-        <div class="ex--rendered">
-          <input id="agree" type="checkbox" name="agree"/>
-          <label for="agree">I blindly agree to your rules</label>
-          <button class="c-button--primary sign-up-button">Sign Me Up</button>
-        </div>
-        <div class="d-flex--center d-flex--spaced">
-          <div class="ex--html fragment">
-            <h6>markup</h6>
-            <pre><code class="html"><input id="agree" type="checkbox">
+      <input id="agree" type="checkbox" name="agree"/>
+      <label for="agree">I blindly agree to your rules</label>
+      <button class="c-button--primary sign-up-button">Sign Me Up</button>
+      <div class="fragment">
+        <pre><code class="html"><!-- HTML -->
+<input id="agree" type="checkbox">
   
 <label for="agree">I blindly agree to your rules</label>
   
-<button class="sign-up-button">Sign Me Up</button></code></pre>
-          </div>
-          <div class="ex--css fragment">
-            <h6>CSS</h6>
-            <pre><code class="sass">#agree:checked ~ .sign-up-button {
-  opacity: 1;
-  pointer-events: all;
-}
+<button class="sign-up-button">Sign Me Up</button>
+
+</code><code class="fragment sass">// SCSS
+#agree {
+  &:checked {
+    ~ .sign-up-button {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
   
-#agree ~ .sign-up-button {
-  opacity: .6;
-  pointer-events: none;
-}</code></pre>
-          </div>
-        </div>
-        <p class="fragment">( https://css-tricks.com/child-and-sibling-selectors/ )</p>
+  ~ .sign-up-button {
+    opacity: .6;
+    pointer-events: none;
+  }
+}
+</code></pre>
       </div>
+      <p class="fragment">( https://css-tricks.com/child-and-sibling-selectors/ )</p>
     </div>
   </div>
   <aside class="notes">
@@ -59,13 +57,14 @@
     </ul>
   </aside>
 </section>
-<section class="checkbox-hack" data-transition="">
-  <div class="c-slide__header">
-    <h4>The "Checkbox Hack"</h4>
+<section class="checkbox-hack">
+  <div class="c-slide__header t-bg-color">
+    <h4 class="c-slide__header--topic">The &quot;Checkbox Hack&quot;</h4>
+    <h2 class="c-slide__header--slide">¿Modals con no JS?</h2>
   </div>
   <div class="c-slide__body">
     <div class="c-slide__content">
-      <h2>A Checkbox Powered Modal</h2><a href="/dist/view/examples/modal.html" target="blank">demo</a>
+      <h2>A Checkbox Powered Modal</h2><a class="c-button t-bg-color" href="/dist/view/examples/modal.html" target="blank">demo</a>
     </div>
   </div>
   <aside class="notes">
@@ -78,10 +77,10 @@
     </ul>
   </aside>
 </section>
-<section class="checkbox-hack" data-transition="">
-  <div class="c-slide__header">
-    <h4>The "Checkbox Hack"</h4>
-    <h2>Expand/Collapse & Dropdowns</h2>
+<section class="checkbox-hack">
+  <div class="c-slide__header t-bg-color">
+    <h4 class="c-slide__header--topic">The &quot;Checkbox Hack&quot;</h4>
+    <h2 class="c-slide__header--slide">Expand/Collapse & Dropdowns</h2>
   </div>
   <div class="c-slide__body">
     <div class="c-slide__content">
@@ -89,24 +88,24 @@
         <div class="c-accordion" style="width: 50%">
           <div class="c-accordion__item">
             <input class="c-accordion__control c-control-input--visible" id="accordion-item--one" type="checkbox" name="accordion"/>
-            <label class="c-accordion__trigger" for="accordion-item--one">Lorem ipsum dolor sit amet</label>
-            <p class="c-accordion__content">Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.</p>
+            <label class="c-accordion__trigger t-color" for="accordion-item--one">Lorem ipsum dolor sit amet</label>
+            <p class="c-accordion__content">Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix.</p>
           </div>
           <div class="c-accordion__item">
             <input class="c-accordion__control c-control-input--visible" id="accordion-item--two" type="checkbox" name="accordion"/>
-            <label class="c-accordion__trigger" for="accordion-item--two">Lorem ipsum dolor sit amet</label>
-            <p class="c-accordion__content">Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.</p>
+            <label class="c-accordion__trigger t-color" for="accordion-item--two">Lorem ipsum dolor sit amet</label>
+            <p class="c-accordion__content">Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix.</p>
           </div>
           <div class="c-accordion__item">
             <input class="c-accordion__control c-control-input--visible" id="accordion-item--three" type="checkbox" name="accordion"/>
-            <label class="c-accordion__trigger" for="accordion-item--three">Lorem ipsum dolor sit amet</label>
-            <p class="c-accordion__content">Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix. In eum laoreet invenire, at pericula tractatos mea, libris similique et has. Vim reque periculis reprehendunt te.</p>
+            <label class="c-accordion__trigger t-color" for="accordion-item--three">Lorem ipsum dolor sit amet</label>
+            <p class="c-accordion__content">Lorem ipsum dolor sit amet, in vero wisi consectetuer has. Quas quidam ornatus ad vix.</p>
           </div>
         </div>
         <div class="c-dropdown">
           <input class="c-dropdown__control c-control-input--visible" id="dropdown" type="checkbox" name="dropdown"/>
           <div class="c-dropdown__container">
-            <label class="c-button c-dropdown__trigger" for="dropdown">options</label>
+            <label class="c-button c-dropdown__trigger t-bg-color" for="dropdown">options</label>
             <ul class="c-dropdown__menu">
               <li class="c-dropdown__menu-item">
                 <label class="c-link" for="theme-one">option one</label>
@@ -116,9 +115,6 @@
               </li>
               <li class="c-dropdown__menu-item">
                 <label class="c-link" for="theme-three">option three</label>
-              </li>
-              <li class="c-dropdown__menu-item">
-                <label class="c-link" for="theme-four">option four</label>
               </li>
             </ul>
           </div>

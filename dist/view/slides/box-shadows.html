@@ -1,8 +1,17 @@
 
 <section class="box-shadows">
-  <div class="c-slide__header">
-    <h4>Box-Shadows</h4>
-    <h3>The Basics</h3>
+  <div class="c-slide__header--no-body">
+    <h1 class="t-color">Box-Shadows</h1>
+  </div>
+  <aside class="notes"><small>
+      <ul>
+        <li></li>
+      </ul></small></aside>
+</section>
+<section class="box-shadows">
+  <div class="c-slide__header t-bg-color">
+    <h4 class="c-slide__header--topic">Box-Shadows</h4>
+    <h3 class="c-slide__header--slide">The Basics</h3>
   </div>
   <div class="c-slide__body">
     <div class="c-slide__content">
@@ -10,39 +19,39 @@
         <pre><code class="sass">button {
   box-shadow: none                  ;
 }</code></pre>
-        <button class="c-button u-shadow--basic-none">no box-shadow</button>
+        <button class="c-button t-bg-color u-shadow--basic-none">no box-shadow</button>
       </div>
       <div class="fragment destroyable">
         <pre><code class="sass">button {
   box-shadow: x-offset              ;
 }</code></pre>
-        <button class="c-button u-shadow--basic-x">x-offset box-shadow</button>
+        <button class="c-button t-bg-color u-shadow--basic-x">x-offset box-shadow</button>
       </div>
       <div class="fragment destroyable">
         <pre><code class="sass">button {
   box-shadow:          y-offset     ;
 }</code></pre>
-        <button class="c-button u-shadow--basic-y">y-offset box-shadow</button>
+        <button class="c-button t-bg-color u-shadow--basic-y">y-offset box-shadow</button>
       </div>
       <div class="fragment destroyable">
         <pre><code class="sass">button {
   box-shadow:                   blur;
 }</code></pre>
-        <button class="c-button u-shadow--basic-blur">blurry box-shadow</button>
+        <button class="c-button t-bg-color u-shadow--basic-blur">blurry box-shadow</button>
       </div>
       <div class="fragment destroyable">
         <pre><code class="sass">button {
   box-shadow: 10px 10px 20px;
 }</code></pre>
-        <button class="c-button u-shadow--basic-all">a basic box-shadow</button>
+        <button class="c-button t-bg-color u-shadow--basic-all">a basic box-shadow</button>
       </div>
     </div>
   </div>
 </section>
 <section class="box-shadows">
-  <div class="c-slide__header">
-    <h4>Box-Shadows</h4>
-    <h3>The Basics</h3>
+  <div class="c-slide__header t-bg-color">
+    <h4 class="c-slide__header--topic">Box-Shadows</h4>
+    <h3 class="c-slide__header--slide">More Basics</h3>
   </div>
   <div class="c-slide__body">
     <div class="c-slide__content">
@@ -51,7 +60,7 @@
   box-shadow: 0 10px 20px;
 }</code></pre>
         <div class="u-bg--default">
-          <button class="c-button--primary u-shadow--color-inherit">I have a shadow?</button>
+          <button class="c-button--primary t-bg-color u-shadow--color-inherit">I have a shadow?</button>
         </div>
       </div>
       <div class="fragment destroyable">
@@ -59,7 +68,7 @@
   box-shadow: 0 10px 20px;
 }</code></pre>
         <div class="u-bg--inverted">
-          <button class="c-button--primary u-shadow--color-inherit">Darn straight I do!</button>
+          <button class="c-button--primary t-bg-color u-shadow--color-inherit">Darn straight I do!</button>
         </div>
       </div>
       <div class="fragment destroyable">
@@ -67,7 +76,7 @@
   box-shadow: 0 10px 20px #333;
 }</code></pre>
         <div class="u-bg--default">
-          <button class="c-button--primary u-shadow--color-set">I gots all the shadows</button>
+          <button class="c-button--primary t-bg-color u-shadow--color-set">I gots all the shadows</button>
         </div>
       </div>
     </div>
@@ -81,9 +90,9 @@
       </ul></small></aside>
 </section>
 <section class="box-shadows">
-  <div class="c-slide__header">
-    <h4>Box-Shadows</h4>
-    <h3>Functional, Not Just Design</h3>
+  <div class="c-slide__header t-bg-color">
+    <h4 class="c-slide__header--topic">Box-Shadows</h4>
+    <h3 class="c-slide__header--slide">Functional, Not Just Design</h3>
   </div>
   <div class="c-slide__body">
     <div class="c-slide__content">
@@ -97,7 +106,7 @@
         </ul>
       </div>
       <div class="c-iphone fragment destroyable">
-        <ul class="c-trevor-list c-trevor-list--mod">
+        <ul class="c-trevor-list c-trevor-list--mod t-bg-color">
           <li class="c-trevor-list-item">Information</li>
           <li class="c-trevor-list-item">More Information</li>
           <li class="c-trevor-list-item">A thing you should know.</li>
@@ -106,14 +115,14 @@
         </ul>
       </div>
       <div class="c-iphone fragment destroyable">
-        <ul class="c-trevor-list c-trevor-list--mod">
+        <ul class="c-trevor-list c-trevor-list--mod t-bg-color">
           <li class="c-trevor-list-item c-trevor-list-item--fix">Information</li>
           <li class="c-trevor-list-item c-trevor-list-item--fix">More Information</li>
           <li class="c-trevor-list-item c-trevor-list-item--fix">A thing you should know.</li>
           <li class="c-trevor-list-item c-trevor-list-item--fix">A much more intensive version of some things that might interest you. At least a little bit, we hope.</li>
           <li class="c-trevor-list-item c-trevor-list-item--fix">Something dumb to take up space.</li>
           <pre class="c-trevor-list__pre"><code class="sass">li {
-  box-shadow: 0 1px 0 0 white;
+  box-shadow: 0 2px 0 0 white;
 }
 </code></pre>
         </ul>
@@ -129,9 +138,9 @@
         <li>but this is just telling you about box-shadows...</li>
       </ul></small></aside>
 </section>
-<section class="box-shadows" data-transition="concave-in fade-out">
+<section class="box-shadows">
   <div class="c-slide__header--no-body">
-    <h1>So why are box-shadows so great?</h1>
+    <h1 class="t-color">So why are box-shadows so great?</h1>
   </div>
   <aside class="notes"><small>
       <ul>
@@ -141,41 +150,41 @@
         <li>each one makes box-shadow exponentially more awesome</li>
       </ul></small></aside>
 </section>
-<section class="box-shadows" data-transition="fade" data-background="../lib/images/fantastic-4.jpg" data-state="bg-image--fantastic-4">
-  <div class="c-slide__header">
+<section class="box-shadows" data-background="../lib/images/fantastic-4.jpg" data-state="bg-image--fantastic-4">
+  <div class="c-slide__header--no-body">
     <h1 class="u-text-shadow--light">The Fantastic 4th Number</h1>
   </div>
 </section>
-<section class="box-shadows" data-transition="fade">
-  <div class="c-slide__header">
-    <h4>Box-Shadows</h4>
-    <h3>The 4th Number</h3>
+<section class="box-shadows">
+  <div class="c-slide__header t-bg-color">
+    <h4 class="c-slide__header--topic">Box-Shadows</h4>
+    <h3 class="c-slide__header--slide">The 4th Number</h3>
   </div>
   <div class="c-slide__body">
     <div class="c-slide__content">
-      <div class="d-flex d-flex--even fragment destroyable">
+      <div class="d-flex__column d-flex--spaced fragment destroyable">
         <div>
-          <pre><code class="sass">box-shadow: 0 0 0 6px #ffa500;</code></pre>
-          <button class="c-button u-shadow--spread-pos">still got a shadow</button>
+          <pre><code class="sass">box-shadow: 0 0 0 6px currentColor;</code></pre>
+          <button class="c-button t-bg-color u-shadow--spread-pos">still got a shadow</button>
         </div>
         <div>
-          <pre><code class="sass">box-shadow: 0 0 0 -6px #ffa500;</code></pre>
-          <button class="c-button u-shadow--spread-neg">still got a shadow?</button>
+          <pre><code class="sass">box-shadow: 0 0 0 -6px currentColor;</code></pre>
+          <button class="c-button t-bg-color u-shadow--spread-neg">still got a shadow?</button>
         </div>
       </div>
-      <div class="d-flex d-flex--even fragment destroyable">
+      <div class="d-flex__column d-flex--spaced fragment destroyable">
         <div>
-          <pre><code class="sass">box-shadow: 0 20px 0 6px #ffa500;</code></pre>
-          <button class="c-button u-shadow--spread-pos-offset">still got a shadow</button>
+          <pre><code class="sass">box-shadow: 0 20px 0 6px currentColor;</code></pre>
+          <button class="c-button t-bg-color u-shadow--spread-pos-offset">still got a shadow</button>
         </div>
         <div>
-          <pre><code class="sass">box-shadow: 0 20px 0 -6px #ffa500;</code></pre>
-          <button class="c-button u-shadow--spread-neg-offset">still got a shadow!</button>
+          <pre><code class="sass">box-shadow: 0 20px 0 -6px currentColor;</code></pre>
+          <button class="c-button t-bg-color u-shadow--spread-neg-offset">still got a shadow!</button>
         </div>
       </div>
       <div class="fragment destroyable">
-        <pre><code class="sass">box-shadow: 0 10px 20px -5px #333;</code></pre>
-        <button class="c-button--primary u-shadow--spread-all">I love my shadow</button>
+        <pre><code class="sass">box-shadow: 0 10px 20px -5px #333333;</code></pre>
+        <button class="c-button--primary t-bg-color u-shadow--spread-all">I love my shadow</button>
       </div>
     </div>
   </div>
@@ -187,45 +196,45 @@
       </ul></small></aside>
 </section>
 <section class="box-shadows" data-transition="fade" data-background="../lib/images/final-countdown.gif" data-state="bg-image--final-countdown">
-  <div class="c-slide__header">
+  <div class="c-slide__header--no-body">
     <h1 class="u-text-shadow--light">Its The Final Property</h1>
   </div>
 </section>
 <section class="box-shadows" data-transition="fade">
-  <div class="c-slide__header">
-    <h4>Box-Shadows</h4>
-    <h3>The Final Property</h3>
+  <div class="c-slide__header t-bg-color">
+    <h4 class="c-slide__header--topic">Box-Shadows</h4>
+    <h3 class="c-slide__header--slide">The Final Property</h3>
   </div>
   <div class="c-slide__body">
     <div class="c-slide__content">
-      <pre><code class="sass">box-shadow: inset 0 0 10px 0 #1e90ff;</code></pre>
-      <pre><code class="sass">box-shadow: 0 0 10px 0 #1e90ff inset;</code></pre>
-      <div class="fragment c-example-grid">
-        <button class="c-button u-shadow--inset-x-pos">x-offset</button>
-        <button class="c-button u-shadow--inset-x-neg">x-offset negative</button>
-        <button class="c-button u-shadow--inset-y-pos">y-offset</button>
-        <button class="c-button u-shadow--inset-y-neg">y-offset negative</button>
-        <button class="c-button u-shadow--inset-blur">just blurry</button>
-        <button class="c-button u-shadow--inset-spread-pos">spread positive w/blur</button>
-        <button class="c-button u-shadow--inset-spread-neg">spread negative w/blur</button>
+      <pre><code class="sass">box-shadow: inset 0 0 10px 0 currentColor;
+
+box-shadow: 0 0 10px 0 currentColor inset;</code></pre>
+      <div class="fragment c-example-grid o-container--small">
+        <button class="c-button c-example-grid__item t-bg-color u-shadow--inset-x-pos">x-offset</button>
+        <button class="c-button c-example-grid__item t-bg-color u-shadow--inset-x-neg">x-offset negative</button>
+        <button class="c-button c-example-grid__item t-bg-color u-shadow--inset-y-pos">y-offset</button>
+        <button class="c-button c-example-grid__item t-bg-color u-shadow--inset-y-neg">y-offset negative</button>
+        <button class="c-button c-example-grid__item t-bg-color u-shadow--inset-blur">just blurry</button>
+        <button class="c-button c-example-grid__item t-bg-color u-shadow--inset-spread-pos">spread positive w/blur</button>
+        <button class="c-button c-example-grid__item t-bg-color u-shadow--inset-spread-neg">spread negative w/blur</button>
       </div>
     </div>
   </div>
 </section>
 <section class="box-shadows" data-transition="fade" data-background="../lib/images/layers.jpg" data-state="bg-image--layers">
-  <div class="c-slide__header">
+  <div class="c-slide__header--no-body">
     <h1 class="u-text-shadow--light">Multiple Shadows</h1>
   </div>
 </section>
-<section class="box-shadows" data-transition="fade-in concave-out">
-  <div class="c-slide__header">
-    <h4>Box-Shadows</h4>
-    <h3>Multiple Shadows</h3>
+<section class="box-shadows" data-transition="fade-in">
+  <div class="c-slide__header t-bg-color">
+    <h4 class="c-slide__header--topic">Box-Shadows</h4>
+    <h3 class="c-slide__header--slide">Multiple Shadows</h3>
   </div>
   <div class="c-slide__body">
     <div class="c-slide__content">
-      <div class="fragment">
-        <pre><code class="sass">box-shadow:
+      <pre><code class="sass">box-shadow:
   0 0 0  5px #ff6347,
   0 0 0 10px #ffa500,
   0 0 0 15px #ffd700,
@@ -233,51 +242,52 @@
   0 0 0 25px #1e90ff,
   0 0 0 30px #9370db
 ;</code></pre>
+      <div class="c-container--rainbow-button">
+        <button class="c-button--rainbow u-shadow--rainbow fragment destroyable">Rainbow</button>
+        <button class="c-button--rainbow u-shadow--double-rainbow fragment destroyable">Double Rainbow!!!</button>
       </div>
-      <button class="c-button--rainbow u-offset--4 u-shadow--rainbow fragment destroyable">Rainbow</button>
-      <button class="c-button--rainbow u-offset--4 u-shadow--double-rainbow fragment destroyable">Double Rainbow!!!</button>
     </div>
   </div>
   <aside class="notes"><small>
       <ul>
         <li>point out list syntax</li>
         <li>rainbow/double Rainbow</li>
-        <li>now lets look at some more practical uses for this</li>
       </ul></small></aside>
 </section>
 <section class="box-shadows">
-  <div class="c-slide__header">
-    <h4>Box-Shadows</h4>
-    <h3>Multiple Shadows</h3>
+  <div class="c-slide__header t-bg-color">
+    <h4 class="c-slide__header--topic">Box-Shadows</h4>
+    <h3 class="c-slide__header--slide">Multiple Shadows</h3>
   </div>
   <div class="c-slide__body">
     <div class="c-slide__content">
       <div class="fragment u-offset--1">
-        <button class="c-button u-shadow--3d-smooth">better 3-d effects</button>
+        <button class="c-button t-color t-border-color u-shadow--btn-outline" data-content="multiple borders">multiple borders</button>
       </div>
       <div class="fragment u-offset--1">
-        <button class="c-button u-shadow--3d-glow">better glowing effect</button>
+        <button class="c-button u-shadow--btn-3d">easy red/blue 3D</button>
       </div>
       <div class="fragment u-offset--1">
-        <button class="c-button u-shadow--wipe-horizontal">unique hover transitions</button>
+        <button class="c-button t-color t-border-color u-shadow--btn-pulse" data-content="pulse effects">pulse effects</button>
       </div>
       <div class="fragment">
-        <p>animated underlines</p><a class="u-offset--1 u-shadow--underline-left" href="#">left to right</a><br/><a class="u-offset--1 u-shadow--underline-right" href="#">right to left</a><br/><a class="u-offset--1 u-shadow--underline-center" href="#">expand from center</a>
+        <p>animated underlines<br/><a class="t-color u-offset--1 u-shadow--underline-left" href="#">left to right</a><br/><a class="t-color u-offset--1 u-shadow--underline-right" href="#">right to left</a><br/><a class="t-color u-offset--1 u-shadow--underline-center" href="#">expand from center</a></p>
       </div>
     </div>
   </div>
   <aside class="notes"><small>
       <ul>
-        <li>better 3d and glow</li>
-        <li>interesting hover options</li>
+        <li>multiple borders</li>
+        <li>easy red/blue 3d (w/ text-shadow)</li>
+        <li>pulse effects</li>
         <li>creative underlining</li>
       </ul></small></aside>
 </section>
 <!-- add slide for color tiles-->
 <section class="box-shadows">
-  <div class="c-slide__header">
-    <h4>Box-Shadows</h4>
-    <h3>Static Icons</h3>
+  <div class="c-slide__header t-bg-color">
+    <h4 class="c-slide__header--topic">Box-Shadows</h4>
+    <h3 class="c-slide__header--slide">Static Icons</h3>
   </div>
   <div class="c-slide__body">
     <div class="c-slide__content">
@@ -345,9 +355,9 @@
       </ul></small></aside>
 </section>
 <section class="box-shadows">
-  <div class="c-slide__header">
-    <h4>Box-Shadows</h4>
-    <h3>Animated Icons</h3>
+  <div class="c-slide__header t-bg-color">
+    <h4 class="c-slide__header--topic">Box-Shadows</h4>
+    <h3 class="c-slide__header--slide">Animated Icons</h3>
   </div>
   <div class="c-slide__body">
     <div class="c-slide__content">

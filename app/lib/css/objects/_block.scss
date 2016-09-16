@@ -1,0 +1,13 @@
+.reveal {
+  .o-block {
+    display: block;
+    white-space: pre-wrap;
+    width: 100%;
+
+    &--center {
+      margin-left: auto;
+      margin-right: auto;
+      width: auto;
+    }
+  }
+}

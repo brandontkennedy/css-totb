@@ -37,6 +37,10 @@ $purple: saturate(#9a8297, 15%);
     font-family: 'Operator Mono';
   }
   
+  pre code {
+    max-height: 100%;
+  }
+  
   pre {
     box-shadow: 0 0 6px 0 color(white);
     display: inline-block;

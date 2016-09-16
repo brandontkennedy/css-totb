@@ -1,4 +1,0 @@
-@mixin strike($color: color(a)) {
-    background: linear-gradient(to top, transparent 48%, $color 48%, $color 52%, transparent 52%);
-    color: $color;
-}

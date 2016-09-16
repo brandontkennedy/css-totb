@@ -1,0 +1,89 @@
+@mixin rainbow( $total: 90 ) {
+  $break: ceil( $total / 2 );
+  $color: color(a);
+  @for $i from 1 through $total {
+    @if $i <= $break {
+      $x: $break;
+      $color: mix( color(c), color(b), percentage( abs( $i - $x ) / $break ) );
+    }
+    @else {
+      $x: ( $break * 2 );
+      $color: mix( color(b), color(f), percentage( abs( $i - $x ) / $break ) );
+    }
+
+    &:nth-child(#{$i}) {
+      //&[data-custom-bg-color],
+      //[data-custom-bg-color],
+      &.t-bg-color,
+      .c-property-list span {
+        background-color: $color !important;
+        color: color(white) !important;
+      }
+
+      .t-bg-color {
+        &,
+        &--before:before,
+        &--after:after {
+          background-color: $color !important;
+          color: color(white) !important;
+        }
+
+        &.c-button {
+          border-color: $color !important;
+          background-color: transparent !important;
+          color: $color !important;
+
+          &:hover,
+          &.is-hover {
+            background-color: $color !important;
+            color: color(white) !important;
+            
+            &:after {
+              color: color(white) !important;
+            }
+          }
+
+          &--primary {
+            background-color: $color !important;
+            border-color: $color !important;
+            color: color(white) !important;
+
+            &:after {
+              color: color(white) !important;
+            }
+
+            &:hover {
+              background-color: color($color, 2) !important;
+              border-color: color($color, 2) !important;
+
+              &:after {
+                color: color(white) !important;
+              }
+            }
+          }
+        }
+      }
+
+      .t-color {
+        &,
+        &--before:before,
+        &--after:after {
+          color: $color !important;
+        }
+
+        .c-dropdown__trigger:after {
+          color: $color !important;
+        }
+      }
+
+      .t-border-color,
+      .t-border-color--focus:focus {
+        border-color: $color !important;
+      }
+
+      .t-border-color--focus {
+        transition: border .3s ease-in-out;
+      }
+    }
+  }
+}

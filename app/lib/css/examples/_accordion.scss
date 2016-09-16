@@ -1,0 +1,93 @@
+$accordion-spacing: .75em;
+
+.reveal .c-accordion-container {
+  &--one {
+    .c-accordion {
+      &__trigger {
+        color: color(b);
+        
+        &:before {
+          box-shadow: 2px -2px 0 0 color(b);
+        }
+      }
+    }
+  }
+
+  &--two {
+    .c-accordion {
+      &__trigger {
+        color: color(f);
+        
+        &:before {
+          box-shadow: 2px -2px 0 0 color(f);
+        }
+      }
+    }
+  }
+}
+
+.reveal {
+  .c-accordion__control {
+    &:checked {
+      + .c-accordion__trigger {
+        &:before {
+          transform: rotate(-135deg) translate(-.2em, -.2em);
+        }
+
+        + .c-accordion__content {
+          max-height: 4em;
+        }
+      }
+
+      ~ .c-accordion__content {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .c-accordion__item {
+    border: 1px solid color(a);
+
+    &:not(:first-of-type) {
+      border-top: 0;
+    }
+  }
+
+  .c-accordion__trigger {
+    background: color(white);
+    box-shadow: 0 1px 0 0 color(a);
+    cursor: pointer;
+    display: block;
+    font-size: 20px;
+    padding: $accordion-spacing;
+    padding-right: ($accordion-spacing * 3);
+    text-align: left;
+    z-index: 1;
+
+    &:before {
+      box-shadow: (
+        .15em .15em 0 0 currentColor,
+      );
+      content: '';
+      height: $accordion-spacing;
+      position: absolute;
+      right: ($accordion-spacing * 1.5);
+      top: $accordion-spacing;
+      transform: rotate(45deg);
+      transform-origin: 66.6666% 66.66666% ;
+      transition: all .3s ease-in-out;
+      width: $accordion-spacing;
+    }
+  }
+
+  .c-accordion__content {
+    background: color(white, 1);
+    font-size: 18px;
+    overflow: hidden;
+    margin: -$accordion-spacing 0 0;
+    max-height: 0;
+    padding: ($accordion-spacing / 2) $accordion-spacing;
+    text-align: left;
+    transition: all .3s ease-in-out;
+  }
+}

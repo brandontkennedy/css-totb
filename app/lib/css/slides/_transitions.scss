@@ -1,32 +1,24 @@
-.transition {
+.c-example--transitions {
   @include modifiers {
-    border: 4px solid color(a) !important;
-    box-shadow: 0 0 0 -1px color(a) !important;
     line-height: 3rem !important;
 
-    &:hover {
-      background: color(c) !important;
-      border-color: color(white) !important;
-      box-shadow: 0 0 20px 10px color(a) !important;
-      color: color(white);
+    &:hover,
+    &.is-hover {
+      transform: rotate(-5deg);
     }
   }
-  
+
   &--no,
   &--yes {
-    box-shadow: none;
-    font-size: 1.2em;
-    transition: none !important;
-    
     &:hover {
-      background: color(e, -6) !important;
-      border-color: color(e, 2) !important;
-      box-shadow: none;
-      color: color(e, 2);
-      font-size: 1.2em;
+      transform: none;
     }
   }
-  
+
+  &--no {
+    transition: none !important;
+  }
+
   &--yes {
     transition: all .4s ease-in-out !important;
   }
@@ -35,19 +27,26 @@
     transition: all 1s linear !important;
   }
 
+  &--one,
+  &--two,
+  &--all {
+    &:hover {
+      box-shadow: inset 0 0 0 .1em color(white) !important;
+    }
+  }
+
   &--one {
-    transition: box-shadow 1s linear !important;
+    transition: background 1s linear !important;
   }
 
   &--two {
-    transition: background 1s linear, box-shadow 1s linear !important;
+    transition: background 1s linear, transform 1s linear !important;
   }
-  
-  &--back {
-    transition: box-shadow 1s linear !important;
-    
+
+  &--reverse {
+    transition: background 1s linear !important;
+
     &:hover {
-      color: color(a);
       transition: all 1s linear !important;
     }
   }
@@ -55,11 +54,16 @@
 
 .reveal {
   .c-timing-block {
-    @extend %u-center;
-    width: 96%;
+    // margin: 0 5%;
+    width: 100%;
+
+    + .c-timing-block {
+      @extend %u-center;
+    }
 
     span {
-      color: color(white);
+      background: color(white);
+      border: .1em solid;
       display: inline-block;
       margin-bottom: 2px;
       padding: 5px 15px;
@@ -98,7 +102,7 @@
       }
     }
   }
-  
+
   .slides section {
     .slide-in {
       .fragment {
@@ -106,43 +110,44 @@
         position: relative;
         text-align: left;
         transition: color .01s ease !important;
-        
+
         .c-timing {
           left: 100%;
           transition-property: left;
           transition-duration: 2s;
         }
-        
+
         &.visible {
           .c-timing {
             left: 0;
           }
         }
       }
-      
-      span {
-        background: color(e);
-      }
+
+      // span {
+      //   background: color(e);
+      // }
     }
-    
+
     .slide-back {
       text-align: right;
+
       .c-timing {
         right: calc(100% - 200px);
         transition-property: right;
         transition-duration: 0.3s;
       }
-      
+
       &.visible {
         .c-timing {
           right: 0;
           transition-duration: 5s;
         }
       }
-      
-      span {
-        background: color(f);
-      }
+
+      // span {
+      //   background: color(f);
+      // }
     }
   }
 }
@@ -190,6 +195,7 @@
   
   &__all {
     transition-duration: .5s;
+
     &:hover {
       background: color(c);
       box-shadow: 0 6px 10px -3px color(a);

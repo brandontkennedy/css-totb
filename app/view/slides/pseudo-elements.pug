@@ -1,6 +1,10 @@
-section.pseudo-elements
+- var section = 'pseudo-elements'
+- var title = 'Pseudo-Elements'
+
+
+section(class=section)
   .c-slide__header--no-body
-    h1 Pseudo Elements
+    h1.t-color=title
     h3.fragment A CSS selectable <i>part</i> of an element.
 
   aside.notes
@@ -10,131 +14,95 @@ section.pseudo-elements
 
 
 
-section.pseudo-elements(data-transition='fade-out concave-in')
-  .c-slide__header
-    h4 Pseudo Elements
-    //- h2
+section(class=section)
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide Currently Available
   .c-slide__body
     .c-slide__content
-      ul.c-pseudo-element-list
-        li ::after (:after)
-        li ::-ms-fill
-        li ::-ms-fill-lower
-        li ::-ms-fill-upper
-        li ::-ms-thumb
-        li ::-ms-track
-        li ::-moz-progress-bar
-        li ::-moz-range-progress
-        li ::-moz-range-thumb
-        li ::-moz-range-track
-        li ::-webkit-progress-bar
-        li ::-webkit-progress-value
-        li ::-webkit-slider-runnable-track
-        li ::-webkit-slider-thumb
-        li ::before (:before)
-        li ::first-letter (:first-letter)
-        li ::first-line (:first-line)
-        li ::selection
-        li ::backdrop
+      ul.c-pseudo-element-list.fragment.destroyable.visible.current-fragment
+        li &nbsp;::after (:after)&nbsp;
+        li &nbsp;::-ms-fill&nbsp;
+        li &nbsp;::-ms-fill-lower&nbsp;
+        li &nbsp;::-ms-fill-upper&nbsp;
+        li &nbsp;::-ms-thumb&nbsp;
+        li &nbsp;::-ms-track&nbsp;
+        li &nbsp;::-moz-progress-bar&nbsp;
+        li &nbsp;::-moz-range-progress&nbsp;
+        li &nbsp;::-moz-range-thumb&nbsp;
+        li &nbsp;::-moz-range-track&nbsp;
+        li &nbsp;::-webkit-progress-bar&nbsp;
+        li &nbsp;::-webkit-progress-value&nbsp;
+        li &nbsp;::-webkit-slider-runnable-track&nbsp;
+        li &nbsp;::-webkit-slider-thumb&nbsp;
+        li &nbsp;::before (:before)&nbsp;
+        li &nbsp;::first-letter (:first-letter)&nbsp;
+        li &nbsp;::first-line (:first-line)&nbsp;
+        li &nbsp;::selection&nbsp;
+        li &nbsp;::backdrop&nbsp;
 
-  aside.notes
-    ul
-      li 6 that aren't browser-specific or experimental
-      li only 4 that have decent support
-      li only 2 that really matter
+      ul.c-pseudo-element-list.fragment.destroyable
+        li &nbsp;::after (:after)&nbsp;
+        li.u-strike.t-color &nbsp;::-ms-fill&nbsp;
+        li.u-strike.t-color &nbsp;::-ms-fill-lower&nbsp;
+        li.u-strike.t-color &nbsp;::-ms-fill-upper&nbsp;
+        li.u-strike.t-color &nbsp;::-ms-thumb&nbsp;
+        li.u-strike.t-color &nbsp;::-ms-track&nbsp;
+        li.u-strike.t-color &nbsp;::-moz-progress-bar&nbsp;
+        li.u-strike.t-color &nbsp;::-moz-range-progress&nbsp;
+        li.u-strike.t-color &nbsp;::-moz-range-thumb&nbsp;
+        li.u-strike.t-color &nbsp;::-moz-range-track&nbsp;
+        li.u-strike.t-color &nbsp;::-webkit-progress-bar&nbsp;
+        li.u-strike.t-color &nbsp;::-webkit-progress-value&nbsp;
+        li.u-strike.t-color &nbsp;::-webkit-slider-runnable-track&nbsp;
+        li.u-strike.t-color &nbsp;::-webkit-slider-thumb&nbsp;
+        li &nbsp;::before (:before)&nbsp;
+        li &nbsp;::first-letter (:first-letter)&nbsp;
+        li &nbsp;::first-line (:first-line)&nbsp;
+        li &nbsp;::selection&nbsp;
+        li &nbsp;::backdrop&nbsp;
 
-section.pseudo-elements(data-transition='fade')
-  .c-slide__header
-    h4 Pseudo Elements
-    //- h2
-  .c-slide__body
-    .c-slide__content
-      ul.c-pseudo-element-list
-        li ::after (:after)
-        li.u-strike ::-ms-fill
-        li.u-strike ::-ms-fill-lower
-        li.u-strike ::-ms-fill-upper
-        li.u-strike ::-ms-thumb
-        li.u-strike ::-ms-track
-        li.u-strike ::-moz-progress-bar
-        li.u-strike ::-moz-range-progress
-        li.u-strike ::-moz-range-thumb
-        li.u-strike ::-moz-range-track
-        li.u-strike ::-webkit-progress-bar
-        li.u-strike ::-webkit-progress-value
-        li.u-strike ::-webkit-slider-runnable-track
-        li.u-strike ::-webkit-slider-thumb
-        li ::before (:before)
-        li ::first-letter (:first-letter)
-        li ::first-line (:first-line)
-        li ::selection
-        li ::backdrop
+      ul.c-pseudo-element-list.fragment.destroyable
+        li &nbsp;::after (:after)&nbsp;
+        li.u-strike.t-disabled &nbsp;::-ms-fill&nbsp;
+        li.u-strike.t-disabled &nbsp;::-ms-fill-lower&nbsp;
+        li.u-strike.t-disabled &nbsp;::-ms-fill-upper&nbsp;
+        li.u-strike.t-disabled &nbsp;::-ms-thumb&nbsp;
+        li.u-strike.t-disabled &nbsp;::-ms-track&nbsp;
+        li.u-strike.t-disabled &nbsp;::-moz-progress-bar&nbsp;
+        li.u-strike.t-disabled &nbsp;::-moz-range-progress&nbsp;
+        li.u-strike.t-disabled &nbsp;::-moz-range-thumb&nbsp;
+        li.u-strike.t-disabled &nbsp;::-moz-range-track&nbsp;
+        li.u-strike.t-disabled &nbsp;::-webkit-progress-bar&nbsp;
+        li.u-strike.t-disabled &nbsp;::-webkit-progress-value&nbsp;
+        li.u-strike.t-disabled &nbsp;::-webkit-slider-runnable-track&nbsp;
+        li.u-strike.t-disabled &nbsp;::-webkit-slider-thumb&nbsp;
+        li &nbsp;::before (:before)&nbsp;
+        li &nbsp;::first-letter (:first-letter)&nbsp;
+        li &nbsp;::first-line (:first-line)&nbsp;
+        li.u-strike.t-color &nbsp;::selection&nbsp;
+        li.u-strike.t-color &nbsp;::backdrop&nbsp;
 
-  aside.notes
-    ul
-      li 6 that aren't browser-specific or experimental
-      li only 4 that have decent support
-      li only 2 that really matter
-
-section.pseudo-elements(data-transition='fade')
-  .c-slide__header
-    h4 Pseudo Elements
-    //- h2
-  .c-slide__body
-    .c-slide__content
-      ul.c-pseudo-element-list
-        li ::after (:after)
-        li.u-strike--old ::-ms-fill
-        li.u-strike--old ::-ms-fill-lower
-        li.u-strike--old ::-ms-fill-upper
-        li.u-strike--old ::-ms-thumb
-        li.u-strike--old ::-ms-track
-        li.u-strike--old ::-moz-progress-bar
-        li.u-strike--old ::-moz-range-progress
-        li.u-strike--old ::-moz-range-thumb
-        li.u-strike--old ::-moz-range-track
-        li.u-strike--old ::-webkit-progress-bar
-        li.u-strike--old ::-webkit-progress-value
-        li.u-strike--old ::-webkit-slider-runnable-track
-        li.u-strike--old ::-webkit-slider-thumb
-        li ::before (:before)
-        li ::first-letter (:first-letter)
-        li ::first-line (:first-line)
-        li.u-strike ::selection
-        li.u-strike ::backdrop
-
-  aside.notes
-    ul
-      li 6 that aren't browser-specific or experimental
-      li only 4 that have decent support
-      li only 2 that really matter
-
-section.pseudo-elements(data-transition='fade-in concave-out')
-  .c-slide__header
-    h4 Pseudo Elements
-    //- h2
-  .c-slide__body
-    .c-slide__content
-      ul.c-pseudo-element-list
-        li.u-highlight ::after (:after)
-        li.u-strike--old ::-ms-fill
-        li.u-strike--old ::-ms-fill-lower
-        li.u-strike--old ::-ms-fill-upper
-        li.u-strike--old ::-ms-thumb
-        li.u-strike--old ::-ms-track
-        li.u-strike--old ::-moz-progress-bar
-        li.u-strike--old ::-moz-range-progress
-        li.u-strike--old ::-moz-range-thumb
-        li.u-strike--old ::-moz-range-track
-        li.u-strike--old ::-webkit-progress-bar
-        li.u-strike--old ::-webkit-progress-value
-        li.u-strike--old ::-webkit-slider-runnable-track
-        li.u-strike--old ::-webkit-slider-thumb
-        li.u-highlight ::before (:before)
-        li ::first-letter (:first-letter)
-        li ::first-line (:first-line)
-        li.u-strike--old ::selection
-        li.u-strike--old ::backdrop
+      ul.c-pseudo-element-list.fragment.destroyable
+        li.u-highlight &nbsp;::after (:after)&nbsp;
+        li.u-strike.t-disabled &nbsp;::-ms-fill&nbsp;
+        li.u-strike.t-disabled &nbsp;::-ms-fill-lower&nbsp;
+        li.u-strike.t-disabled &nbsp;::-ms-fill-upper&nbsp;
+        li.u-strike.t-disabled &nbsp;::-ms-thumb&nbsp;
+        li.u-strike.t-disabled &nbsp;::-ms-track&nbsp;
+        li.u-strike.t-disabled &nbsp;::-moz-progress-bar&nbsp;
+        li.u-strike.t-disabled &nbsp;::-moz-range-progress&nbsp;
+        li.u-strike.t-disabled &nbsp;::-moz-range-thumb&nbsp;
+        li.u-strike.t-disabled &nbsp;::-moz-range-track&nbsp;
+        li.u-strike.t-disabled &nbsp;::-webkit-progress-bar&nbsp;
+        li.u-strike.t-disabled &nbsp;::-webkit-progress-value&nbsp;
+        li.u-strike.t-disabled &nbsp;::-webkit-slider-runnable-track&nbsp;
+        li.u-strike.t-disabled &nbsp;::-webkit-slider-thumb&nbsp;
+        li.u-highlight &nbsp;::before (:before)&nbsp;
+        li &nbsp;::first-letter (:first-letter)&nbsp;
+        li &nbsp;::first-line (:first-line)&nbsp;
+        li.u-strike.t-disabled &nbsp;::selection&nbsp;
+        li.u-strike.t-disabled &nbsp;::backdrop&nbsp;
 
   aside.notes
     ul
@@ -144,54 +112,39 @@ section.pseudo-elements(data-transition='fade-in concave-out')
 
 
 
-
-section.pseudo-elements(data-transition='concave-in fade-out')
-  .c-slide__header
-    h4 Pseudo Elements
-    //- h2
+section(class=section)
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide :before & :after
   .c-slide__body
     .c-slide__content
-      .d-flex--justify
+      .d-flex--justify.fragment.destroyable.visible.current-fragment
         h3.before.ex-hidden [element]
         h3.after.ex-hidden [element]
+      .d-flex--justify.fragment.destroyable
+        h3.before.t-color--before [element]
+        h3.after.ex-hidden [element]
+      .d-flex--justify.fragment.destroyable
+        h3.before.t-color--before [element]
+        h3.after.t-color--after [element]
   
   aside.notes
     ul
       li imaginary space that you can apply styles to
 
-section.pseudo-elements(data-transition='fade')
-  .c-slide__header
-    h4 Pseudo Elements
-    //- h2
+
+
+section(class=section)
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h2.c-slide__header--slide Positioning
   .c-slide__body
     .c-slide__content
-      .d-flex--justify
-        h3.before [element]
-        h3.after.ex-hidden [element]
-
-section.pseudo-elements(data-transition='fade-in concave-out')
-  .c-slide__header
-    h4 Pseudo Elements
-    //- h2
-  .c-slide__body
-    .c-slide__content
-      .d-flex--justify
-        h3.before [element]
-        h3.after [element]
-
-
-
-section.pseudo-elements(data-transition='')
-  .c-slide__header
-    h4 Pseudo Elements
-    h2 Positions
-  .c-slide__body
-    .c-slide__content
-      h3.before.outline element
-      h3.before.outline.absolute.fragment element
-      h3.before.outline.absolute-after.fragment element
-      h3.before.outline.absolute-z.fragment element
-      h3.before.outline.absolute-random.fragment element
+      h3.before.t-color--before.outline element
+      h3.before.t-color--before.outline.absolute.fragment element
+      h3.before.t-color--before.outline.absolute-after.fragment element
+      h3.before.t-color--before.outline.absolute-z.fragment element
+      //- h3.before.outline.absolute-random.fragment element
 
   aside.notes
     ul
@@ -203,13 +156,13 @@ section.pseudo-elements(data-transition='')
 
 
 
-section.pseudo-elements(data-transition='')
-  .c-slide__header
-    h4 Pseudo Elements
-    h2 Lets Talk About Content
+section(class=section)
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h2.c-slide__header--slide Lets Talk About Content
   .c-slide__body
     .c-slide__content
-      h3.fragment All :before and :after pseudo elements MUST have 'content'.
+      h3.fragment All <span class="t-color">:before</span> and <span class="t-color">:after</span> pseudo elements MUST have 'content'.
       .content-example.offset-2
         .set-one
           .fragment
@@ -243,10 +196,11 @@ section.pseudo-elements(data-transition='')
                 ol {
                   counter-reset: my-counter;
                   list-style: none;
-                }
-                ol li:before {
-                  content: counter(my-counter);
-                  counter-increment: my-counter;
+                 
+                  li:before {
+                    content: counter(my-counter);
+                    counter-increment: my-counter;
+                  }
                 }
   aside.notes
     ul

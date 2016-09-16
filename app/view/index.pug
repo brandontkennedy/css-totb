@@ -11,12 +11,23 @@ html(lang='en')
   script(src='../../node_modules/reveal.js/js/reveal.js')
 
   script.
+    var bg_items = [].slice.call( document.querySelectorAll('section') );
+    bg_items.forEach((item) => {
+      if (item.classList) {
+        item.classList.add('c-slide');
+      } else {
+        item.className += ' c-slide';
+      }
+    });
+
     Reveal.initialize({
-      controls: true,
-      progress: true,
+      controls: false,
+      progress: false,
       history: true,
       center: true,
-      transition: 'concave', // none/fade/slide/convex/concave/zoom
+      //- width: "100%",
+      //- height: "100%",
+      transition: 'fade', // none/fade/slide/convex/concave/zoom
       // Optional reveal.js plugins
       dependencies: [
         {
@@ -27,8 +38,7 @@ html(lang='en')
           }
         },
         {
-          src: '../../node_modules/reveal.js/plugin/notes/notes.js',
-          async: true
+          src: '../../node_modules/reveal.js/plugin/notes/notes.js'
         }
       ]
     });

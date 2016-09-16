@@ -1,17 +1,27 @@
 .introduction {
+  .c-slide__content {
+    height: 100%;
+  }
   .title {
     display: inline-block;
     font: {
-      size: 66px;
+      size: 60px;
     }
     position: relative;
   }
   
   .author {
+    align-items: center;
     font: {
       size: 42px;
     }
     margin: 1em 0;
+  }
+  
+  .follow-author {
+    bottom: 10.5em;
+    position: absolute;
+    right: 0;
   }
   
   .links {

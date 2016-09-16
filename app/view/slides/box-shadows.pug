@@ -2,9 +2,20 @@
 - var title = 'Box-Shadows'
 
 section(class=section)
-  .c-slide__header
-    h4=title
-    h3 The Basics
+  .c-slide__header--no-body
+    h1.t-color=title
+
+  aside.notes
+    small
+      ul
+        li
+
+
+
+section(class=section)
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide The Basics
   //-
     I personally feel that the box-shadow is one of the most underrated and underused feautres of CSS.
     Now most poeple in our field know what the box-shadow is, but they never think of using for anything other than a super basic shadow.
@@ -17,42 +28,42 @@ section(class=section)
             button {
               box-shadow: none                  ;
             }
-        button.c-button.u-shadow--basic-none no box-shadow
+        button.c-button.t-bg-color.u-shadow--basic-none no box-shadow
       .fragment.destroyable
         pre
           code.sass.
             button {
               box-shadow: x-offset              ;
             }
-        button.c-button.u-shadow--basic-x x-offset box-shadow
+        button.c-button.t-bg-color.u-shadow--basic-x x-offset box-shadow
       .fragment.destroyable
         pre
           code.sass.
             button {
               box-shadow:          y-offset     ;
             }
-        button.c-button.u-shadow--basic-y y-offset box-shadow
+        button.c-button.t-bg-color.u-shadow--basic-y y-offset box-shadow
       .fragment.destroyable
         pre
           code.sass.
             button {
               box-shadow:                   blur;
             }
-        button.c-button.u-shadow--basic-blur blurry box-shadow
+        button.c-button.t-bg-color.u-shadow--basic-blur blurry box-shadow
       .fragment.destroyable
         pre
           code.sass.
             button {
               box-shadow: 10px 10px 20px;
             }
-        button.c-button.u-shadow--basic-all a basic box-shadow
+        button.c-button.t-bg-color.u-shadow--basic-all a basic box-shadow
 
 
 
 section(class=section)
-  .c-slide__header
-    h4=title
-    h3 The Basics
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide More Basics
   //- Now lets look at this box-shadow definition. We have a good idea what this is going to look like.
     BUT, we changed what the button looks like... and now our shadow is gone. Why?
     Because by default, the box-shadow will inherit the font color of the element it is on.
@@ -65,7 +76,7 @@ section(class=section)
               box-shadow: 0 10px 20px;
             }
         .u-bg--default
-          button.c-button--primary.u-shadow--color-inherit I have a shadow?
+          button.c-button--primary.t-bg-color.u-shadow--color-inherit I have a shadow?
       .fragment.destroyable
         pre
           code.sass.
@@ -73,7 +84,7 @@ section(class=section)
               box-shadow: 0 10px 20px;
             }
         .u-bg--inverted
-          button.c-button--primary.u-shadow--color-inherit Darn straight I do!
+          button.c-button--primary.t-bg-color.u-shadow--color-inherit Darn straight I do!
       .fragment.destroyable
         pre
           code.sass.
@@ -81,7 +92,7 @@ section(class=section)
               box-shadow: 0 10px 20px #333;
             }
         .u-bg--default
-          button.c-button--primary.u-shadow--color-set I gots all the shadows
+          button.c-button--primary.t-bg-color.u-shadow--color-set I gots all the shadows
 
   aside.notes
     small
@@ -94,9 +105,9 @@ section(class=section)
 
 
 section(class=section)
-  .c-slide__header
-    h4=title
-    h3 Functional, Not Just Design
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide Functional, Not Just Design
   //- 
   .c-slide__body
     .c-slide__content
@@ -109,7 +120,7 @@ section(class=section)
           li.c-trevor-list-item Something dumb to take up space.
       
       .c-iphone.fragment.destroyable
-        ul.c-trevor-list.c-trevor-list--mod
+        ul.c-trevor-list.c-trevor-list--mod.t-bg-color
           li.c-trevor-list-item Information
           li.c-trevor-list-item More Information
           li.c-trevor-list-item A thing you should know.
@@ -117,7 +128,7 @@ section(class=section)
           li.c-trevor-list-item Something dumb to take up space.
 
       .c-iphone.fragment.destroyable
-        ul.c-trevor-list.c-trevor-list--mod
+        ul.c-trevor-list.c-trevor-list--mod.t-bg-color
           li.c-trevor-list-item.c-trevor-list-item--fix Information
           li.c-trevor-list-item.c-trevor-list-item--fix More Information
           li.c-trevor-list-item.c-trevor-list-item--fix A thing you should know.
@@ -126,7 +137,7 @@ section(class=section)
           pre.c-trevor-list__pre
             code.sass.
               li {
-                box-shadow: 0 1px 0 0 white;
+                box-shadow: 0 2px 0 0 white;
               }
   
   aside.notes
@@ -140,9 +151,9 @@ section(class=section)
 
 
 
-section(class=section, data-transition='concave-in fade-out')
+section(class=section)
   .c-slide__header--no-body
-    h1 So why are box-shadows so great?
+    h1.t-color So why are box-shadows so great?
     //- This is all very basic box-shadow use, and if this is first time learning about them, you've got be thinking, "how is THIS his favorite thing in CSS?"
     //- Well there are 3 things I haven't told you about them yet. And each one makes them exponentially more awesome.
   aside.notes
@@ -155,47 +166,47 @@ section(class=section, data-transition='concave-in fade-out')
 
 
 
-section(class=section, data-transition='fade', data-background='../lib/images/fantastic-4.jpg', data-state='bg-image--fantastic-4')
-  .c-slide__header
+section(class=section, data-background='../lib/images/fantastic-4.jpg', data-state='bg-image--fantastic-4')
+  .c-slide__header--no-body
     h1.u-text-shadow--light The Fantastic 4th Number
 
 
 
-section(class=section, data-transition='fade')
-  .c-slide__header
-    h4=title
-    h3 The 4th Number
+section(class=section)
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide The 4th Number
   //- I would guess that most people who have bothered to use a box-shadow probably already know about the 4th number thanks to Google. The 4th number is known as the spread radius and it represents how far the box-shadow stretches beyond the edge of the element.
   .c-slide__body
     .c-slide__content
-      .d-flex.d-flex--even.fragment.destroyable
+      .d-flex__column.d-flex--spaced.fragment.destroyable
         div
           pre
             code.sass
-              | box-shadow: 0 0 0 6px #ffa500;
-          button.c-button.u-shadow--spread-pos still got a shadow
+              | box-shadow: 0 0 0 6px currentColor;
+          button.c-button.t-bg-color.u-shadow--spread-pos still got a shadow
         div
           pre
             code.sass
-              | box-shadow: 0 0 0 -6px #ffa500;
-          button.c-button.u-shadow--spread-neg still got a shadow?
-      .d-flex.d-flex--even.fragment.destroyable
+              | box-shadow: 0 0 0 -6px currentColor;
+          button.c-button.t-bg-color.u-shadow--spread-neg still got a shadow?
+      .d-flex__column.d-flex--spaced.fragment.destroyable
         div
           pre
             code.sass
-              | box-shadow: 0 20px 0 6px #ffa500;
-          button.c-button.u-shadow--spread-pos-offset still got a shadow
+              | box-shadow: 0 20px 0 6px currentColor;
+          button.c-button.t-bg-color.u-shadow--spread-pos-offset still got a shadow
         div
           pre
             code.sass
-              | box-shadow: 0 20px 0 -6px #ffa500;
-          button.c-button.u-shadow--spread-neg-offset still got a shadow!
+              | box-shadow: 0 20px 0 -6px currentColor;
+          button.c-button.t-bg-color.u-shadow--spread-neg-offset still got a shadow!
 
       .fragment.destroyable
         pre
           code.sass
-            | box-shadow: 0 10px 20px -5px #333;
-        button.c-button--primary.u-shadow--spread-all I love my shadow
+            | box-shadow: 0 10px 20px -5px #333333;
+        button.c-button--primary.t-bg-color.u-shadow--spread-all I love my shadow
   
   aside.notes
     small
@@ -208,99 +219,111 @@ section(class=section, data-transition='fade')
 
 section(class=section, data-transition='fade', data-background='../lib/images/final-countdown.gif', data-state='bg-image--final-countdown')
   //- <section class="box-shadows" data-transition="fade" data-background="http://49.media.tumblr.com/a52be44f91d3fa6c3e96b309408a12e7/tumblr_mogk2ag9OI1rvnnvyo4_250.gif" data-state="bg-image--final-countdown">
-  .c-slide__header
+  .c-slide__header--no-body
     h1.u-text-shadow--light Its The Final Property
 
 
 
 section(class=section, data-transition='fade')
-  .c-slide__header
-    h4=title
-    h3 The Final Property
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide The Final Property
   //- The last property accepted by box-shadow is the keyword "inset". If used, instead of normal behaviour, the shadow will appear inside the element and spread toward the element's center. You simply place the keyword at the beginning or the end of each box-shadow definition.
   .c-slide__body
     .c-slide__content
       pre
-        code.sass
-          | box-shadow: inset 0 0 10px 0 #1e90ff;
-      pre
-        code.sass
-          | box-shadow: 0 0 10px 0 #1e90ff inset;
-      .fragment.c-example-grid
-        button.c-button.u-shadow--inset-x-pos x-offset
-        button.c-button.u-shadow--inset-x-neg x-offset negative
-        button.c-button.u-shadow--inset-y-pos y-offset
-        button.c-button.u-shadow--inset-y-neg y-offset negative
-        button.c-button.u-shadow--inset-blur just blurry
-        button.c-button.u-shadow--inset-spread-pos spread positive w/blur
-        button.c-button.u-shadow--inset-spread-neg spread negative w/blur
+        code.sass.
+          box-shadow: inset 0 0 10px 0 currentColor;
+          
+          box-shadow: 0 0 10px 0 currentColor inset;
+      .fragment.c-example-grid.o-container--small
+        button.c-button.c-example-grid__item.t-bg-color.u-shadow--inset-x-pos x-offset
+        button.c-button.c-example-grid__item.t-bg-color.u-shadow--inset-x-neg x-offset negative
+        button.c-button.c-example-grid__item.t-bg-color.u-shadow--inset-y-pos y-offset
+        button.c-button.c-example-grid__item.t-bg-color.u-shadow--inset-y-neg y-offset negative
+        button.c-button.c-example-grid__item.t-bg-color.u-shadow--inset-blur just blurry
+        button.c-button.c-example-grid__item.t-bg-color.u-shadow--inset-spread-pos spread positive w/blur
+        button.c-button.c-example-grid__item.t-bg-color.u-shadow--inset-spread-neg spread negative w/blur
   
 
 
 
 
 section(class=section, data-transition='fade', data-background='../lib/images/layers.jpg', data-state='bg-image--layers')
-  .c-slide__header
+  .c-slide__header--no-body
     h1.u-text-shadow--light Multiple Shadows
 
 
 
-section(class=section, data-transition='fade-in concave-out')
-  .c-slide__header
-    h4=title
-    h3 Multiple Shadows
+section(class=section, data-transition='fade-in')
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide Multiple Shadows
   //- This is where it gets fun. A box-shadow can have an infinite amount of shadows defined in it.
   .c-slide__body
     .c-slide__content
-      .fragment
-        pre
-          code.sass.
-            box-shadow:
-              0 0 0  5px #ff6347,
-              0 0 0 10px #ffa500,
-              0 0 0 15px #ffd700,
-              0 0 0 20px #32cd32,
-              0 0 0 25px #1e90ff,
-              0 0 0 30px #9370db
-            ;
-      button.c-button--rainbow.u-offset--4.u-shadow--rainbow.fragment.destroyable Rainbow
-      button.c-button--rainbow.u-offset--4.u-shadow--double-rainbow.fragment.destroyable Double Rainbow!!!
+      pre
+        code.sass.
+          box-shadow:
+            0 0 0  5px #ff6347,
+            0 0 0 10px #ffa500,
+            0 0 0 15px #ffd700,
+            0 0 0 20px #32cd32,
+            0 0 0 25px #1e90ff,
+            0 0 0 30px #9370db
+          ;
+      .c-container--rainbow-button
+        button.c-button--rainbow.u-shadow--rainbow.fragment.destroyable Rainbow
+        button.c-button--rainbow.u-shadow--double-rainbow.fragment.destroyable Double Rainbow!!!
 
   aside.notes
     small
       ul
         li point out list syntax
         li rainbow/double Rainbow
-        li now lets look at some more practical uses for this
+        //- li now lets look at some more practical uses for this
 
 
 
 section(class=section)
-  .c-slide__header
-    h4=title
-    h3 Multiple Shadows
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide Multiple Shadows
   //- But why are multiple shadows so special?
   .c-slide__body
     .c-slide__content
       .fragment.u-offset--1
-        button.c-button.u-shadow--3d-smooth better 3-d effects
+        button.c-button.t-color.t-border-color.u-shadow--btn-outline(data-content="multiple borders") multiple borders
+
       .fragment.u-offset--1
-        button.c-button.u-shadow--3d-glow better glowing effect
+        button.c-button.u-shadow--btn-3d easy red/blue 3D
+
       .fragment.u-offset--1
-        button.c-button.u-shadow--wipe-horizontal unique hover transitions
+        button.c-button.t-color.t-border-color.u-shadow--btn-pulse(data-content="pulse effects") pulse effects
+
+      //- .fragment.u-offset--1
+      //-   button.c-button.u-shadow--3d-smooth better 3-d effects
+      //- .fragment.u-offset--1
+      //-   button.c-button.u-shadow--3d-glow better glowing effect
+      //- .fragment.u-offset--1
+      //-   button.c-button.t-color.t-border-color.u-shadow--wipe-horizontal(data-content="unique hover transitions") unique hover transitions
       .fragment
         p animated underlines
-        a.u-offset--1.u-shadow--underline-left(href="#") left to right
-        br
-        a.u-offset--1.u-shadow--underline-right(href="#") right to left
-        br
-        a.u-offset--1.u-shadow--underline-center(href="#") expand from center
+          br
+          a.t-color.u-offset--1.u-shadow--underline-left(href="#") left to right
+          br
+          a.t-color.u-offset--1.u-shadow--underline-right(href="#") right to left
+          br
+          a.t-color.u-offset--1.u-shadow--underline-center(href="#") expand from center
 
   aside.notes
     small
       ul
-        li better 3d and glow
-        li interesting hover options
+        li multiple borders
+        li easy red/blue 3d (w/ text-shadow)
+        li pulse effects
+        //- li better 3d and glow
+        //- li interesting hover options
         li creative underlining
 
 
@@ -308,9 +331,9 @@ section(class=section)
 // add slide for color tiles
 
 section(class=section)
-  .c-slide__header
-    h4=title
-    h3 Static Icons
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide Static Icons
   //- But why are multiple shadows so special?
   .c-slide__body
     .c-slide__content
@@ -360,9 +383,9 @@ section(class=section)
 
 
 section(class=section)
-  .c-slide__header
-    h4=title
-    h3 Animated Icons
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h3.c-slide__header--slide Animated Icons
   .c-slide__body
     .c-slide__content
       .d-flex--wrap.d-flex--even.c-property-list.fragment

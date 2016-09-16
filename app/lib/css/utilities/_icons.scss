@@ -1,0 +1,35 @@
+.reveal {
+  .u-icon {
+    &--arrow-right,
+    &--arrow-left {
+      background: color(a, -4);
+      height: 1em;
+      margin-right: 2em;
+      width: 3em;
+      
+      &:after {
+        border-bottom: 1.5em solid transparent;
+        border-left: 2em solid color(a, -4);
+        border-right: 0;
+        border-top: 1.5em solid transparent;
+        content: '';
+        left: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    
+    &--arrow-left {
+      margin-left: 2em;
+      margin-right: 0;
+      
+      &:after {
+        border-left: 0;
+        border-right: 2em solid color(a, -4);
+        left: auto;
+        right: 100%;
+      }
+    }
+  }
+}

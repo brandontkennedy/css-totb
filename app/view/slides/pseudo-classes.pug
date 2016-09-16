@@ -1,9 +1,9 @@
 - var section = 'pseudo-classes'
-- var title = 'Pseudo Classes'
+- var title = 'Pseudo-Classes'
 
-section.pseudo-classes(data-transition='')
+section(class=section)
   .c-slide__header--no-body
-    h1 Pseudo Classes
+    h1.t-color= title
     h3.fragment A CSS selectable <i>state</i> of an element.
 
   aside.notes
@@ -14,7 +14,7 @@ section.pseudo-classes(data-transition='')
 
 
 
-section.pseudo-classes(data-transition='')
+section(class=section)
   .c-slide__header--no-body
     h1 :hover
 
@@ -27,15 +27,14 @@ section.pseudo-classes(data-transition='')
 - var common = [':active', ':first-child', ':focus', ':hover', ':last-child', ':nth-child()'];
 - var uncommon = [':checked', ':first-of-type', ':invalid', ':last-of-type', ':nth-of-type()', ':required', ':valid'];
 
-section.pseudo-classes(data-transition='')
-  .c-slide__header
-    h4 Pseudo Classes
-    h2 Some You Probably Know
+section(class=section)
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h2.c-slide__header--slide Some You Probably Know
   .c-slide__body
     .c-slide__content
-      .u-center
-        each x in common
-          h3= x
+      each x in common
+        h3= x
 
   aside.notes
     ul
@@ -43,15 +42,14 @@ section.pseudo-classes(data-transition='')
 
 
 
-section.pseudo-classes(data-transition='')
-  .c-slide__header
-    h4 Pseudo Classes
-    h2 Some You Might Not Know
+section(class=section)
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h2.c-slide__header--slide Some You Might Not Know
   .c-slide__body
     .c-slide__content
-      .u-center
-        each x in uncommon
-          h3= x
+      each x in uncommon
+        h3= x
 
   aside.notes
     ul
@@ -60,9 +58,9 @@ section.pseudo-classes(data-transition='')
 
 
 section(class=section, data-background='../lib/images/all-the-things.png', data-state='img-right')
-  .c-slide__header
-    h4 Pseudo Classes
-    h2 All The Classes!!!
+  .c-slide__header.t-bg-color
+    h4.c-slide__header--topic=title
+    h2.c-slide__header--slide All The Classes!!!
   .c-slide__body
     .c-slide__content
       .d-flex--wrap.d-flex--justify.c-property-list.c-property-list--all-the-things.fragment
@@ -75,7 +73,7 @@ section(class=section, data-background='../lib/images/all-the-things.png', data-
 
 
 
-//- section.pseudo-classes(data-transition='')
+//- section(class=section)
 //-   .c-slide__header--no-body
 //-     h2 So why are these important?
 //- 
