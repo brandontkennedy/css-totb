@@ -3,18 +3,9 @@ section.introduction
     //- empty
   .c-slide__body--no-header
     .c-slide__content
-      h1.title.fragment.destroyable(data-fragment-index="0") Questions?
-      h1.title.fragment Thinking Outside the Box With CSS
-      h2.fragment
-        a(href="http://bit.ly/css-totb-demos", target="blank") bit.ly/css-totb-demos
-      //- a.fragment.links(href="http://bit.ly/git-totb") bit.ly/git-totb
-      .follow-author.fragment
-        h2.u-text--right Brandon Kennedy
-        .links.d-flex__column.u-text--right
-          a(href="http://codepen.io/brandonkennedy", target="blank") codepen.io/brandonkennedy
-          a(href="http://twitter.com/brandontkennedy", target="blank") twitter.com/brandontkennedy
+      h1.title(data-fragment-index="0") Questions?
       
-      .a__intro.fragment(data-fragment-index="0")
+      .a__intro(data-fragment-index="0")
         .box
           .front
           .side
@@ -25,5 +16,33 @@ section.introduction
     small
       ul
         li any questions?
+
+
+
+section.introduction(data-transition="none")
+  //- .c-slide__header
+    //- empty
+  .c-slide__body--no-header
+    .c-slide__content
+      h1.title Thinking Outside the Box With CSS
+      h2
+        a(href="http://bit.ly/css-totb-demos", target="blank") bit.ly/css-totb-demos
+      //- a.links(href="http://bit.ly/git-totb") bit.ly/git-totb
+      .follow-author
+        h2.u-text--right Brandon Kennedy
+        .links.d-flex__column.u-text--right
+          a(href="http://codepen.io/brandonkennedy", target="blank") codepen.io/brandonkennedy
+          a(href="http://twitter.com/brandontkennedy", target="blank") twitter.com/brandontkennedy
+      
+      .a__intro
+        .box
+          .front
+          .side
+          .brain
+          .shadow
+
+  aside.notes
+    small
+      ul
         li link to codepen collection of examples
         li follow me if you wanna
