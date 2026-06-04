@@ -1,14 +1,16 @@
+@use 'sass:math';
+
 @mixin rainbow( $total: 90 ) {
-  $break: ceil( $total / 2 );
+  $break: ceil( math.div($total, 2) );
   $color: color(a);
   @for $i from 1 through $total {
     @if $i <= $break {
       $x: $break;
-      $color: mix( color(c), color(b), percentage( abs( $i - $x ) / $break ) );
+      $color: mix( color(c), color(b), percentage( math.div(abs( $i - $x ), $break) ) );
     }
     @else {
       $x: ( $break * 2 );
-      $color: mix( color(b), color(f), percentage( abs( $i - $x ) / $break ) );
+      $color: mix( color(b), color(f), percentage( math.div(abs( $i - $x ), $break) ) );
     }
 
     &:nth-child(#{$i}) {

@@ -279,8 +279,8 @@
 
 .reveal .animation-demos {
   .c-property-list {
-    @include property-list(color(b), 12);
     width: 600px;
+    @include property-list(color(b), 12);
     
     &.c-property-list--explode {
       @include property-list(color(b), 12, 'explode');

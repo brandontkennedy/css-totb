@@ -44,7 +44,7 @@ $font-size: 20px;
         
         .c-label {
           display: inline-block;
-          padding: ($font-size / 2) 0;
+          padding: calc(#{$font-size} / 2) 0;
           width: $label-width;
         }
         
@@ -70,7 +70,7 @@ $font-size: 20px;
         //    border-bottom: 1px solid color(e);
         //    display: block;
         //    margin-bottom: 0;
-        //    padding-left: $label-width + ($font-size / 2);
+        //    padding-left: $label-width + calc(#{$font-size} / 2);
         //    width: 100%;
         //    
         //    &:focus {
@@ -106,7 +106,7 @@ $font-size: 20px;
         
         .c-input {
           display: block;
-          padding: ($font-size - 5) ($font-size / 2) ($font-size - ($font-size - 5));
+          padding: ($font-size - 5) calc(#{$font-size} / 2) ($font-size - ($font-size - 5));
           width: 100%;
           
           &:focus, &:valid {
@@ -121,11 +121,11 @@ $font-size: 20px;
         
         .c-label--inset {
           display: block;
-          left: $font-size / 2;
+          left: calc(#{$font-size} / 2);
           opacity: 1;
           pointer-events: none;
           position: absolute;
-          top: $font-size / 2;
+          top: calc(#{$font-size} / 2);
           transition: all .3s ease-in-out;
         }
       }
@@ -156,7 +156,7 @@ $font-size: 20px;
     border-radius: 2px;
     font-size: $font-size;
     margin-bottom: 1em;
-    padding: $font-size / 2;
+    padding: calc(#{$font-size} / 2);
     
     &:focus, &:active {
       border-color: color(b);

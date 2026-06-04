@@ -1,3 +1,4 @@
+@use 'sass:math';
 $speed-up: cubic-bezier(.75, .05, .85, .06);
 $slow-down: cubic-bezier(.2, .6, .3, 1);
 
@@ -81,12 +82,12 @@ $slow-down: cubic-bezier(.2, .6, .3, 1);
 
       border-radius: 50%;
       display: inline-block;
-      font-size: ($vs-size / 2);
+      font-size: calc(#{$vs-size} / 2);
       height: $vs-size;
       line-height: $vs-size;
-      margin: 0 ($vs-size / 2);
+      margin: 0 calc(#{$vs-size} / 2);
       opacity: 0;
-      top: ($vs-size / -5);
+      top: calc(#{$vs-size} / -5);
       width: $vs-size;
     }
 
@@ -227,7 +228,7 @@ $slow-down: cubic-bezier(.2, .6, .3, 1);
   %a-warp__bounce {
     animation-name: bounce, warp;
     animation-direction: alternate, normal;
-    animation-duration: ($animation-duration / 2), $animation-duration;
+    animation-duration: calc(#{$animation-duration} / 2), $animation-duration;
   }
 
   .a-mod {
@@ -246,7 +247,7 @@ $slow-down: cubic-bezier(.2, .6, .3, 1);
     }
 
     &--shift {
-      animation-delay: ($animation-duration / -2) !important;
+      animation-delay: calc(#{$animation-duration} / -2) !important;
     }
 
     &--break {
@@ -279,7 +280,7 @@ $slow-down: cubic-bezier(.2, .6, .3, 1);
   .a-bounce {
     animation-delay: 0s;
     animation-direction: alternate;
-    animation-duration: ($animation-duration / 2);
+    animation-duration: calc(#{$animation-duration} / 2);
     animation-iteration-count: infinite;
     animation-name: bounce;
     animation-timing-function: $slow-down;
@@ -476,8 +477,8 @@ $slow-down: cubic-bezier(.2, .6, .3, 1);
 // .c-spinning-cirles {
 //   $spin: unique-id();
 //   $dur-main: 6s;
-//   $dur-before: (($dur-main / 4) * 3);
-//   $dur-after: ($dur-main / 2);
+//   $dur-before: (calc(#{$dur-main} / 4) * 3);
+//   $dur-after: calc(#{$dur-main} / 2);
 //   
 //   @include modifiers {
 //     .reveal & {
@@ -628,8 +629,8 @@ $slow-down: cubic-bezier(.2, .6, .3, 1);
 
 @function makeLongShadowSloped($offset-start, $offset-end, $spread-start, $spread-end, $cnt: 100, $color: color(white)) {
   $shadow: 0 0 0 0 $color;
-  $spread: ($spread-end - $spread-start) / $cnt;
-  $offset: ($offset-end - $offset-start) / $cnt;
+  $spread: math.div(($spread-end - $spread-start), $cnt);
+  $offset: math.div(($offset-end - $offset-start), $cnt);
   @for $i from 1 through $cnt {
     $shadow: $shadow, 0 #{$offset-start + ($offset * $i)} 0 #{$spread-start + ($spread * $i)} $color;
   }

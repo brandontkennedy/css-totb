@@ -137,12 +137,12 @@ html, body {
   }
 
   ~ .c-person__body {
-    animation: walkBody ($speed / 4) ease-in-out infinite alternate;
+    animation: walkBody calc(#{$speed} / 4) ease-in-out infinite alternate;
     
     .c-person {
       &__arm {
         &--left {
-          animation: walkArmUpperLeft ($speed / 2) $timing-arm-upper infinite alternate;
+          animation: walkArmUpperLeft calc(#{$speed} / 2) $timing-arm-upper infinite alternate;
           
           &:after {
             animation: walkArmLowerLeft $speed $timing-arm-lower infinite;
@@ -150,7 +150,7 @@ html, body {
         }
         
         &--right {
-          animation: walkArmUpperRight ($speed / 2) $timing-arm-upper infinite alternate;
+          animation: walkArmUpperRight calc(#{$speed} / 2) $timing-arm-upper infinite alternate;
           
           &:after {
             animation: walkArmLowerRight $speed $timing-arm-lower infinite;
@@ -160,7 +160,7 @@ html, body {
       &__leg {
         
         &--left {
-          animation: walkLegUpperLeft ($speed / 2) $timing-leg-upper infinite alternate;
+          animation: walkLegUpperLeft calc(#{$speed} / 2) $timing-leg-upper infinite alternate;
           
           &:after {
             animation: walkLegLowerLeft $speed $timing-leg-lower infinite;
@@ -168,7 +168,7 @@ html, body {
         }
         
         &--right {
-          animation: walkLegUpperRight ($speed / 2) $timing-leg-upper infinite alternate;
+          animation: walkLegUpperRight calc(#{$speed} / 2) $timing-leg-upper infinite alternate;
           
           &:after {
             animation: walkLegLowerRight $speed $timing-leg-lower infinite;
@@ -191,7 +191,7 @@ html, body {
   }
 
   ~ .c-person__body {
-    animation: runBody ($speed / 4) $timing-leg-lower infinite alternate;
+    animation: runBody calc(#{$speed} / 4) $timing-leg-lower infinite alternate;
     transform: rotate(20deg) translateX(-50%);
     
     .c-person {
@@ -201,7 +201,7 @@ html, body {
 
       &__arm {
         &--left {
-          animation: runArmUpperLeft ($speed / 2) $timing-arm-upper infinite alternate;
+          animation: runArmUpperLeft calc(#{$speed} / 2) $timing-arm-upper infinite alternate;
 
           &:after {
             animation: runArmLowerLeft $speed $timing-arm-lower infinite;
@@ -209,7 +209,7 @@ html, body {
         }
 
         &--right {
-          animation: runArmUpperRight ($speed / 2) $timing-arm-upper infinite alternate;
+          animation: runArmUpperRight calc(#{$speed} / 2) $timing-arm-upper infinite alternate;
 
           &:after {
             animation: runArmLowerRight $speed $timing-arm-lower infinite;
@@ -219,7 +219,7 @@ html, body {
 
       &__leg {
         &--left {
-          animation: runLegUpperLeft ($speed / 2) $timing-leg-upper infinite alternate;
+          animation: runLegUpperLeft calc(#{$speed} / 2) $timing-leg-upper infinite alternate;
 
           &:after {
             animation: runLegLowerLeft $speed $timing-leg-lower infinite;
@@ -227,7 +227,7 @@ html, body {
         }
 
         &--right {
-          animation: runLegUpperRight ($speed / 2) $timing-leg-upper infinite alternate;
+          animation: runLegUpperRight calc(#{$speed} / 2) $timing-leg-upper infinite alternate;
 
           &:after {
             animation: runLegLowerRight $speed $timing-leg-lower infinite;

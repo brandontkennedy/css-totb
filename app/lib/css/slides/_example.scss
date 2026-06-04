@@ -16,7 +16,7 @@
   $spacing: .2;
 
   $animation-duration: 1.25s;
-  $animation-delay: -#{$animation-duration / 5};
+  $animation-delay: calc(#{$animation-duration} / -5);
   $transition: all .5s ease-in-out;
 
   $i-opts: ('xs', 'sm', 'md', 'lg', 'xl');

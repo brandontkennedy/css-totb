@@ -4,7 +4,6 @@ const gulp = require('gulp');
 const pkg = require('./package.json');
 const minimist = require('minimist');
 const connect = require('gulp-connect');
-const runSequence = require('run-sequence');
 
 // set up our defaults and options
 const options = minimist(process.argv.slice(2), {
@@ -17,7 +16,6 @@ const options = minimist(process.argv.slice(2), {
 const plugins = {
   spawn: require('child_process').spawnSync,
   chalk: require('chalk'),
-  runSequence: require('run-sequence'),
   del: require('del'),
   rename: require('gulp-rename'),
   if: require('gulp-if'),
@@ -34,7 +32,7 @@ const globals = {
     view: `app/view`,
     lib: `app/lib`
   },
-  lib_included_files: { // what files should we run special gulp building on for each type of lib item?
+  lib_included_files: {
     js: `js,jsm`,
     css: `sass,scss,css`,
     images: `jpg,jpeg,png,gif,svg,io,ico`
@@ -52,8 +50,6 @@ function getTask(task, subtask) {
 }
 
 // Util tasks
-
-// run this the first time the project is created to build out the folders we will need.
 gulp.task('default', getTask('init'));
 
 // Main tasks
@@ -65,53 +61,44 @@ var tasks = {
 };
 
 for(var file of files) {
-  // create a task for each major file type
   gulp.task(`${file}`, getTask(`${file}`, `default`));
   gulp.task(`${file}:clean`, getTask(`${file}`, `clean`));
-  gulp.task(`${file}:watch`, [ `${file}` ], getTask(`${file}`, `watch`));
+  gulp.task(`${file}:watch`, gulp.series(`${file}`, getTask(`${file}`, `watch`)));
 
-  // add default tasks to the list
   tasks.clean.push(`${file}:clean`);
   tasks.watch.push(`${file}:watch`);
   tasks.build.push(`${file}`);
 }
 
-
 // lib-specific tasks
 const libs = [ 'css', 'javascript', 'images' ];
-for(var file of libs) {
-  // create a task for each major file type
-  gulp.task(`${file}`, getTask(`${file}`, `default`));
-  gulp.task(`${file}:watch`, [ `${file}` ], getTask(`${file}`, `watch`));
+for(var lib of libs) {
+  gulp.task(`${lib}`, getTask(`${lib}`, `default`));
+  gulp.task(`${lib}:watch`, gulp.series(`${lib}`, getTask(`${lib}`, `watch`)));
 
-  // add default tasks to the list
-  tasks.watch.push(`${file}:watch`);
-  tasks.build.push(`${file}`);
+  tasks.watch.push(`${lib}:watch`);
+  tasks.build.push(`${lib}`);
 }
 
-// create the default tasks, like `build`
-for(var task in tasks) {
-  gulp.task(task, tasks[task]);
-}
-
-// override the `watch` task so we can add connect in
-gulp.task('watch', function(callback){
-  return runSequence(
-    'startserver',
-    tasks.watch
-  );
-});
+// create the default tasks, like `build` and `clean`
+gulp.task('clean', gulp.parallel(...tasks.clean));
+gulp.task('build', gulp.parallel(...tasks.build));
 
 // override the `build` task if we detect `--production` build attempt
 if(options.production) {
-  gulp.task('build', plugins.runSequence(
-    tasks.build
-  ));
+  gulp.task('build', gulp.series(...tasks.build));
 }
 
-// And finally the connect task
-gulp.task('startserver', function() {
+// connect task must be defined before watch references it
+gulp.task('startserver', function(done) {
   connect.server({
     port: 8888
   });
+  done();
 });
+
+// override the `watch` task so we can add connect in
+gulp.task('watch', gulp.series(
+  'startserver',
+  gulp.parallel(...tasks.watch)
+));

@@ -36,7 +36,7 @@ $tab-border-width: 2px;
     &__nav-item {
       background: color(white, 1);
       border-style: solid;
-      border-width: 0 ($tab-border-width / 2) $tab-border-width;
+      border-width: 0 calc(#{$tab-border-width} / 2) $tab-border-width;
       flex-grow: 1;
       font-size: 26px;
       font-weight: 700;

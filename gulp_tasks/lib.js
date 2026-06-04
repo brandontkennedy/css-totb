@@ -8,18 +8,18 @@ module.exports = function (gulp, $, globals) {
       for(var i = 0; i < filter_on.length; i++){
         filters.push(`!**/*.${filter_on[i]}`);
       }
-      // straight up copy over anything that didn't have special processing
-      gulp.src([`./${globals.local_paths.lib}/**/`])
-        .pipe(filter(filters)) // exclude :allthethings: we already process
+      return gulp.src([`./${globals.local_paths.lib}/**/`])
+        .pipe(filter(filters))
         .pipe(gulp.dest(globals.destination_paths.lib));
     },
-    clean: function() {
+    clean: function(done) {
       $.del([ `${globals.destination_paths.lib}/*`], { dryRun: globals.dry_run, force: true }).then(paths => {
        console.log('Deleted lib files and folders:\n', paths.join('\n'));
+       done();
       });
     },
     watch: function() {
-      gulp.watch(`./${globals.local_paths.lib}/**`, ['lib']);
+      gulp.watch(`./${globals.local_paths.lib}/**`, gulp.series('lib'));
     }
   };
 };

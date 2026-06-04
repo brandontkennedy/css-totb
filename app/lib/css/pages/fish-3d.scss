@@ -8,7 +8,6 @@ $color-settings: (
     'd': ( 0: forestgreen ),
   )
 );
-@include define-color-set;
 
 $size: 12px;
 
@@ -206,8 +205,8 @@ body {
     
     animation: $animation-front 6s linear infinite;
     bottom: $size * -8;
-    @include buildSeaweed($seaweed-map);
     z-index: 15;
+    @include buildSeaweed($seaweed-map);
   }
 
   &--two {
@@ -224,8 +223,8 @@ body {
     
     animation: $animation-back 7s linear 4s infinite;
     bottom: $size * -4;
-    @include buildSeaweed($seaweed-map);
     z-index: 5;
+    @include buildSeaweed($seaweed-map);
   }
   
   &--three {

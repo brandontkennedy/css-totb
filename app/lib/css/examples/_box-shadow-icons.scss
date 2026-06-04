@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .calendar-icon {
   // icon options
   $color: color(a); // color
@@ -62,18 +64,19 @@
 }
 
 
+
 // battery
 $icon-width: 48px;
-$size: $icon-width / 4;
+$size: math.div($icon-width, 4);
 
 %battery {
   border: 1px solid color(a) !important;
   border-radius: 3px;
   box-shadow:
   0 0 0 1px color(white),
-  $size 0 0 ($size / -1.5) color(a),
+  $size 0 0 calc(#{$size} / -1.5) color(a),
   ;
-  height: $icon-width / 2;
+  height: calc(#{$icon-width} / 2);
   //margin: $size * 2;
   position: relative;
   width: $icon-width - 3px;
@@ -114,7 +117,7 @@ $size: $icon-width / 4;
       border-color: color(c) !important;
       box-shadow:
         0 0 0 1px color(white),
-        $size 0 0 ($size / -1.5) color(c),
+        $size 0 0 calc(#{$size} / -1.5) color(c),
       ;
       
       &:before {
@@ -137,7 +140,7 @@ $size: $icon-width / 4;
         inset 0 0 0 2px color(white),
         inset ($size * 2) 0 0 ($size * -1) color(a),
         0 0 0 1px color(white),
-        $size 0 0 ($size / -1.5) color(a),
+        $size 0 0 calc(#{$size} / -1.5) color(a),
       ;
     }
     
@@ -147,7 +150,7 @@ $size: $icon-width / 4;
         inset 0 0 0 2px color(white),
         inset ($size * 3) 0 0 ($size * -1) color(a),
         0 0 0 1px color(white),
-        $size 0 0 ($size / -1.5) color(a),
+        $size 0 0 calc(#{$size} / -1.5) color(a),
       ;
     }
     
@@ -157,7 +160,7 @@ $size: $icon-width / 4;
         inset 0 0 0 2px color(white),
         inset ($size * 4) 0 0 ($size * -1) color(a),
         0 0 0 1px color(white),
-        $size 0 0 ($size / -1.5) color(a),
+        $size 0 0 calc(#{$size} / -1.5) color(a),
       ;
     }
     
@@ -167,7 +170,7 @@ $size: $icon-width / 4;
         inset 0 0 0 2px color(white),
         inset ($size * 5) 0 0 ($size * -1) color(f),
         0 0 0 1px color(white),
-        $size 0 0 ($size / -1.5) color(a),
+        $size 0 0 calc(#{$size} / -1.5) color(a),
       ;
     }
     
@@ -175,7 +178,7 @@ $size: $icon-width / 4;
       @extend %battery;
       &:before, &:after {
         border: 0 solid transparent;
-        border-bottom:  ($icon-width / 2) solid color(a);
+        border-bottom:  calc(#{$icon-width} / 2) solid color(a);
         border-right-width: 5px;
         content: '';
         left: 45%;
@@ -193,10 +196,10 @@ $size: $icon-width / 4;
   &--menu {
     background: black;
     box-shadow:
-      0 ($icon-width / -3) 0 0 black,
-      0 ($icon-width / 3) 0 0 black,
+      0 calc(#{$icon-width} / -3) 0 0 black,
+      0 calc(#{$icon-width} / 3) 0 0 black,
     ;
-    height: ($icon-width / 6);
+    height: calc(#{$icon-width} / 6);
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -205,8 +208,8 @@ $size: $icon-width / 4;
   
   &--comments {
     background: black;
-    border-radius: ($icon-width / 6);
-    height: ($icon-width / 6) * 5;
+    border-radius: calc(#{$icon-width} / 6);
+    height: math.div($icon-width, 6) * 5;
     width: $icon-width;
     &:before, &:after {
       content: '';
@@ -215,26 +218,26 @@ $size: $icon-width / 4;
     &:before {
       background: white;
       box-shadow:
-        0 (($icon-width / 12) * -2) 0 0 white,
-        0 (($icon-width / 12) * 2) 0 0 white,
+        0 (math.div($icon-width, 12) * -2) 0 0 white,
+        0 (math.div($icon-width, 12) * 2) 0 0 white,
       ;
-      height: $icon-width / 12;
+      height: calc(#{$icon-width} / 12);
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: ($icon-width - ($icon-width / 3));
+      width: ($icon-width - math.div($icon-width, 3));
     }
     &:after {
       border: 0 solid transparent;
-      border-left-width: $icon-width / 3;
-      border-top: ($icon-width / 3) solid black;
-      bottom: ($icon-width / -6);
+      border-left-width: calc(#{$icon-width} / 3);
+      border-top: calc(#{$icon-width} / 3) solid black;
+      bottom: calc(#{$icon-width} / -6);
       right: 0;
     }
   }
   
   &--flower {
-    $petal: $icon-width / 3.5;
+    $petal: math.div($icon-width, 3.5);
     background: white;
     border-radius: 50%;
     box-shadow:
@@ -245,16 +248,16 @@ $size: $icon-width / 4;
       ($petal * -.866) ($petal * -.5) 0 0 black,
       ($petal * .866) ($petal * -.5) 0 0 black,
     ;
-    height: $icon-width / 3;
+    height: calc(#{$icon-width} / 3);
     left: 50%;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: $icon-width / 3;
+    width: calc(#{$icon-width} / 3);
   }
-  
+
   &--grid-block {
-    $size: ceil($icon-width / 5);
+    $size: ceil(math.div($icon-width, 5));
     $space: ceil($size * 1.6);
     
     background: black;
@@ -278,7 +281,7 @@ $size: $icon-width / 4;
   
   &--mic {
     background: black;
-    border-radius: $icon-width / 4;
+    border-radius: calc(#{$icon-width} / 4);
     box-shadow:
       -8px -7px 0 -2px white,
       -5px -7px 0 -2px white,
@@ -291,20 +294,20 @@ $size: $icon-width / 4;
       8px 0 0 -2px white,
       0 0 0 2px white,
       0 0 0 4px black,
-      0 ($icon-width / 3) 0 ($icon-width / -10) black,
+      0 calc(#{$icon-width} / 3) 0 calc(#{$icon-width} / -10) black,
     ;
-    height: $icon-width / 2.2;
+    height: calc(#{$icon-width} / 2.2);
     left: 50%;
     overflow: hidden;
     position: absolute;
     top: 10%;
     transform: translateX(-50%);
-    width: $icon-width / 4;
+    width: calc(#{$icon-width} / 4);
   }
   
   &--bar-graph {
-    $space: $icon-width / 6;
-    
+    $space: math.div($icon-width, 6);
+
     background: black;
     box-shadow:
       0 -#{$space * 2} 0 0 black,
@@ -313,38 +316,38 @@ $size: $icon-width / 4;
       ($space * 1.5) 0 0 0 black,
       ($space * 1.5) -#{$space} 0 0 black,
     ;
-    height: $icon-width / 4;
+    height: calc(#{$icon-width} / 4);
     left: 50%;
     position: absolute;
     bottom: 0;
     transform: translate(-50%, -50%);
-    width: $icon-width / 5;
+    width: calc(#{$icon-width} / 5);
   }
   
   &--desktop {
     background: black;
     box-shadow:
-      inset 0 0 0 ($icon-width / 12) black,
+      inset 0 0 0 calc(#{$icon-width} / 12) black,
       inset 0 0 0 $icon-width white,
-      ($icon-width / 3.8) ($icon-width / 2.5) 0 ($icon-width / -3) white,
-      ($icon-width / -3.8) ($icon-width / 2.5) 0 ($icon-width / -3) white,
-      0 ($icon-width / 2.2) 0 ($icon-width / -3) black,
+      calc(#{$icon-width} / 3.8) calc(#{$icon-width} / 2.5) 0 calc(#{$icon-width} / -3) white,
+      calc(#{$icon-width} / -3.8) calc(#{$icon-width} / 2.5) 0 calc(#{$icon-width} / -3) white,
+      0 calc(#{$icon-width} / 2.2) 0 calc(#{$icon-width} / -3) black,
     ;
-    height: $icon-width / 1.2;
+    height: calc(#{$icon-width} / 1.2);
     width: $icon-width;
   }
   
   &--laptop {
-    $bezel: $icon-width / 12;
+    $bezel: math.div($icon-width, 12);
 
     box-shadow:
       inset 0 ($bezel * -1.5) 0 0 black,
       inset 0 ($bezel * -.25) 0 $bezel white,
       inset 0 ($bezel * -.25) 0 ($bezel * 2) black,
     ;
-    height: $icon-width / 1.2;
-    margin: ($icon-width / 5) auto 0;
-    width: $icon-width / 1;
+    height: calc(#{$icon-width} / 1.2);
+    margin: calc(#{$icon-width} / 5) auto 0;
+    width: $icon-width;
     
     &:after {
       background: white;
@@ -359,17 +362,17 @@ $size: $icon-width / 4;
   }
   
   &--tablet {
-    $bezel: $icon-width / 12;
-    
+    $bezel: math.div($icon-width, 12);
+
     border-radius: 3px;
     box-shadow:
       inset 0 ($bezel * -1.3) 0 $bezel black,
       inset 0 0 0 $bezel black,
     ;
-    height: $icon-width / 1.1;
+    height: calc(#{$icon-width} / 1.1);
     margin: 0 auto;
     position: relative;
-    width: $icon-width / 1.38;
+    width: calc(#{$icon-width} / 1.38);
     
     &:after {
       background: white;
@@ -387,16 +390,16 @@ $size: $icon-width / 4;
   &--phone-android {
         border-radius: 3px;
     box-shadow:
-      inset 0 0 0 ($icon-width / 18) black,
-      inset 0 ($icon-width / 9) 0 0 black,
-      inset 0 ($icon-width / -6) 0 0 black,
+      inset 0 0 0 calc(#{$icon-width} / 18) black,
+      inset 0 calc(#{$icon-width} / 9) 0 0 black,
+      inset 0 calc(#{$icon-width} / -6) 0 0 black,
       inset 0 0 0 $icon-width white,
     ;
-    height: $icon-width / 1.3;
+    height: calc(#{$icon-width} / 1.3);
     margin: 0 auto;
     position: relative;
-    width: $icon-width / 2;
-    
+    width: calc(#{$icon-width} / 2);
+
     &:after {
       background: white;
       border-radius: 2px;
@@ -409,19 +412,19 @@ $size: $icon-width / 4;
       width: 6px;
     }
   }
-  
+
   &--phone-apple {
     border-radius: 3px;
     box-shadow:
-      inset 0 0 0 ($icon-width / 18) black,
-      inset 0 ($icon-width / 9) 0 0 black,
-      inset 0 ($icon-width / -6) 0 0 black,
+      inset 0 0 0 calc(#{$icon-width} / 18) black,
+      inset 0 calc(#{$icon-width} / 9) 0 0 black,
+      inset 0 calc(#{$icon-width} / -6) 0 0 black,
       inset 0 0 0 $icon-width white,
     ;
-    height: $icon-width / 1.3;
+    height: calc(#{$icon-width} / 1.3);
     margin: 0 auto;
     position: relative;
-    width: $icon-width / 2.2;
+    width: calc(#{$icon-width} / 2.2);
     
     &:after {
       background: white;
@@ -445,16 +448,16 @@ $size: $icon-width / 4;
   //      #    # #    # # #    # #    #   #   ###### #####
   
   &--bars {
-    $space-x: floor($icon-width / 5);
-    $space-y: floor($icon-width / -6);
+    $space-x: floor(math.div($icon-width, 5));
+    $space-y: floor(math.div($icon-width, -6));
     $animation: unique-id();
-    
+
     @function makeBars($y, $n) {
       $x: 0;
       $bar: 0 0 0 0 black;
       @for $i from 0 through 5 {
         @if $x <= $y {
-          $bar: $bar, #{$space-x * $n} #{($space-y / 2) * $i} 0 0 black
+          $bar: $bar, #{$space-x * $n} #{math.div($space-y, 2) * $i} 0 0 black
         }
         @else {
           $bar: $bar, #{$space-x * $n} #{$space-y * 0} 0 0 black
@@ -463,11 +466,11 @@ $size: $icon-width / 4;
       }
       @return $bar
     }
-    
+
     animation: $animation 1s linear infinite;
     background: black;
     height: $space-y * -1;
-    width: $icon-width / 6;
+    width: calc(#{$icon-width} / 6);
     
     @keyframes #{$animation} {
       0% {
@@ -534,16 +537,16 @@ $size: $icon-width / 4;
   }
 
   &--bars-wave {
-    $space-x: floor($icon-width / 5);
-    $space-y: floor($icon-width / -6);
+    $space-x: floor(math.div($icon-width, 5));
+    $space-y: floor(math.div($icon-width, -6));
     $animation: unique-id();
-    
+
     @function makeBars($y, $n) {
       $x: 0;
       $bar: 0 0 0 0 black;
       @for $i from 0 through 5 {
         @if $x <= $y {
-          $bar: $bar, #{$space-x * $n} #{($space-y / 2) * $i} 0 0 black
+          $bar: $bar, #{$space-x * $n} #{math.div($space-y, 2) * $i} 0 0 black
         }
         @else {
           $bar: $bar, #{$space-x * $n} #{$space-y * 0} 0 0 black
@@ -552,11 +555,11 @@ $size: $icon-width / 4;
       }
       @return $bar
     }
-    
+
     animation: $animation 1s linear infinite;
     background: black;
     height: $space-y * -1;
-    width: $icon-width / 6;
+    width: calc(#{$icon-width} / 6);
     
     @keyframes #{$animation} {
       0% {
@@ -712,7 +715,7 @@ $size: $icon-width / 4;
       0 0 0 1px black,
       inset $icon-width 0 0 0 black,
     ;
-    height: $icon-width / 3;
+    height: calc(#{$icon-width} / 3);
     position: relative;
     width: $icon-width - 2;
     
@@ -844,14 +847,14 @@ $size: $icon-width / 4;
   &--spin {
     $backspin: unique-id();
     $bulge: unique-id();
-    $size: ceil($icon-width / 4);
-    
+    $size: ceil(math.div($icon-width, 4));
+
     animation: $bulge 1.5s linear infinite, $backspin 4s linear infinite;
     border-radius: 50%;
     content: "";
     height: $size;
     left: 50%;
-    margin: ($size / -2);
+    margin: calc(#{$size} / -2);
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -920,7 +923,7 @@ $size: $icon-width / 4;
   &--loading-stacks {
     $color: black;
 
-    $base-size: floor($icon-width / 6);
+    $base-size: floor(math.div($icon-width, 6));
 
     $s-size: $base-size * 1;
     $s-offset: floor($s-size * 1);
@@ -934,7 +937,7 @@ $size: $icon-width / 4;
     $s-spread: $s-size - $base-size + 1;
 
     $animation-length: 6s;
-    $animation-offset: $animation-length / 12;
+    $animation-offset: math.div($animation-length, 12);
 
     &, &:before, &:after {
       animation: load $animation-length linear #{$animation-offset * 2} infinite;
@@ -1049,7 +1052,7 @@ $size: $icon-width / 4;
   
   &--loading-pinwheel {
     $animation: unique-id();
-    $size: floor($icon-width / 4);
+    $size: floor(math.div($icon-width, 4));
 
     animation: $animation 3s linear infinite;
     background: black;

@@ -177,12 +177,12 @@
     }
     
     &--all-the-things {
-      @include property-list(#fe007e, 40);
       left: 2em;
       //position: absolute;
       //top: 50%;
       //transform: translateY(-50%);
       width: 48%;
+      @include property-list(#fe007e, 40);
     }
   }
 }

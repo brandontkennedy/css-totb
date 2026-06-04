@@ -86,7 +86,7 @@ $accordion-spacing: .75em;
     overflow: hidden;
     margin: -$accordion-spacing 0 0;
     max-height: 0;
-    padding: ($accordion-spacing / 2) $accordion-spacing;
+    padding: calc(#{$accordion-spacing} / 2) $accordion-spacing;
     text-align: left;
     transition: all .3s ease-in-out;
   }
