@@ -1,5 +1,4 @@
-# Site Boilerplate
-Something to get started with for creating new sites.
+# Thinking Outside the Box With CSS
 All files are pushed to the `dist` folder.
 
 ## Requirements
@@ -13,7 +12,7 @@ $ gulp watch;
 
 Then navigate to `http://localhost:8888/dist/view/#/`
 
-The terminal is littered with deprecation warnings... it's fine
+The terminal is littered with deprecation warnings, i'll fix it later... it's fine...
 
 ## Gulp Tasks
 There are other gulp tasks, but these are the ones to be concerned with on a daily basis
